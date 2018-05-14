@@ -1,0 +1,123 @@
+﻿.panel-menu i {
+    margin-top: 8px;
+    padding: 5px;
+    font-size: 20px;
+    color: #D2D1C7;
+    line-height: 1em;
+    vertical-align: top;
+    -webkit-transition: 0.05s;
+    -moz-transition: 0.05s;
+    -o-transition: 0.05s;
+    transition: 0.05s;
+}
+
+    .panel-menu i.pull-right {
+        color: #989898;
+        border: 0 !important;
+        box-shadow: none;
+        font-size: 16px;
+        background: none !important;
+    }
+
+.panel-menu .badge {
+    margin-top: 5px;
+    padding: 3px 6px;
+    vertical-align: top;
+    border-radius: 2px;
+    background: none;
+    color: #45837A;
+    border: 1px solid #45837A;
+}
+
+.avatar {
+    width: 40px;
+    float: left;
+    margin-right: 5px;
+}
+
+    .avatar > img {
+        width: 50px;
+        height: 50px;
+    }
+
+.user-mini {
+    padding-left: 10px;
+}
+
+    .user-mini > span {
+        display: block;
+        font-size: 12px;
+        color: #CECBCB;
+        margin-bottom: -4px;
+    }
+
+        .user-mini > span.welcome {
+            font-weight: bold;
+            margin-top: 2px;
+        }
+
+.panel-menu .dropdown-menu {
+    position: absolute;
+    background: rgb(7, 93, 142);
+    padding: 0;
+    border-top: 1px solid rgba(49, 43, 43, 0.23);
+    border-left: 0;
+    border-right: 0;
+    right: 0;
+    left: auto;
+    min-width: 100%;
+}
+
+    .panel-menu .dropdown-menu > li > a {
+        padding: 5px 10px !important;
+        color: #FFFFFF;
+    }
+
+    .panel-menu .dropdown-menu > li:hover > a,
+    .panel-menu .dropdown-menu > li:hover > a > i {
+        color: #000;
+    }
+
+    .panel-menu .dropdown-menu > li > a > i {
+        border: 0;
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+        width: 20px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+.dropdown.open > .dropdown-toggle.account,
+.dropdown-toggle.account:hover, .dropdown-toggle.account:focus {
+    background: none !important;
+}
+
+/*login contenedor*/
+#ContListUserProyects .content-login {
+    background-color: #fff;
+    border: 1px solid #c3c3c3;
+    padding: 30px;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0px 6px 38px -3px rgb(12, 12, 12);
+    -moz-box-shadow: 0px 6px 38px -3px rgb(12, 12, 12);
+    box-shadow: 0px 6px 38px -3px rgb(12, 12, 12);
+}
+
+#ContListUserProyects .heading {
+    overflow: hidden;
+    border-bottom: 1px solid #c3c3c3;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.heading strong {
+    font-size: 25px;
+}
+
+#ContListUserProyects .login-buttons {
+    border-top: 1px solid #c3c3c3;
+    padding-top: 20px;
+}
