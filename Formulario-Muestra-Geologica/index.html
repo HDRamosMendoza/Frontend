@@ -28,15 +28,29 @@
     <link href="assets/plugins/pqGrid/pqgrid.min.css" rel="stylesheet">
     <link href="assets/plugins/pqGrid/themes/Office/pqgrid.css" rel="stylesheet">
     <style>
-    /* Se agregar para controlar el ancho del "textarea" */
+    /* 
+        Se agregar para controlar el ancho del "textarea" 
+    */
      .form-textarea {
         min-width: 100%;
         max-width: 100%;
      }
+    /* 
+        Se agrega para controlar el relleno de control-lable. El control-label no se 
+        esta agregando sus estilos por lo que no esta dentro de la etiqueta form
+    */e
      .tab-content .control-label{
         padding-top: 7px;
         margin-bottom: 0;
         font-weight: normal;
+     }
+    /* 
+        Asignando colores a botones que tiene funcionalidad de registro
+    */
+     input[type=text] + .input-group-addon{
+        background-color: rgb(51,122,183);
+        border: 1px solid #337ab7;
+        color: rgb(255,255,255);
      }
     </style>
 </head>
