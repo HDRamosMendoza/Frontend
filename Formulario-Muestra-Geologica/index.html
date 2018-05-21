@@ -38,8 +38,8 @@
     /* 
         Se agrega para controlar el relleno de control-lable. El control-label no se 
         esta agregando sus estilos por lo que no esta dentro de la etiqueta form
-    */e
-     .tab-content .control-label{
+    */
+     .tab-content .control-label, .modal-content .control-label{
         padding-top: 7px;
         margin-bottom: 0;
         font-weight: normal;
@@ -47,11 +47,17 @@
     /* 
         Asignando colores a botones que tiene funcionalidad de registro
     */
-     input[type=text] + .input-group-addon{
+    input[type=text] + .input-group-addon{
         background-color: rgb(51,122,183);
         border: 1px solid #337ab7;
         color: rgb(255,255,255);
-     }
+    }
+    /*
+        La margen es por defecto 20. Se redujo a 10. 
+    */
+    hr {
+        margin-bottom: 10px;
+    }
     </style>
 </head>
 <body>
@@ -170,20 +176,20 @@
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <label class="control-label" for="txtQuebrada" >Quebrada (nombre):</label>
-                                <div class='input-group date'>
+                                <div class='input-group'>
                                     <input id="txtQuebrada" class="form-control input-sm" type="text" name="txtQuebrada" />
                                     <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-search" data-toggle="modal" data-target="#modalBusquedaQuebrada"></span>
+                                        <span class="glyphicon glyphicon-filter" data-toggle="modal" data-target="#modalBusquedaQuebrada"></span>
                                     </span>
                                 </div>
                             </div>
                             <div class="col-md-2 col-sm-2">
                                 <label class="control-label" for="txtAnchoQuebrada" >Ancho Quebrada:</label>
-                                <input type="text" value="" id="txtAnchoQuebrada" class="form-control input-sm" maxlength="50" />
+                                <input type="text" value="" id="txtAnchoQuebrada" class="form-control input-sm text-right" maxlength="50" placeholder="#" />
                             </div>                    
                             <div class="col-md-2 col-sm-2">    
                                 <label class="control-label" for="txtPendiente" >Pendiente (°):</label>
-                                <input type="text" value="" id="txtPendiente" class="form-control input-sm" maxlength="50" />
+                                <input type="text" value="" id="txtPendiente" class="form-control input-sm text-right" maxlength="50" placeholder="#"/>
                             </div>
                         </div>
                     </fieldset>
@@ -212,7 +218,7 @@
                             </div>
                             <div class="col-sm-4 col-md-1">
                                 <label class="control-label" for="txtAltitud" >Altitud(m):</label>
-                                <input type="text" value="" id="txtAltitud" class="form-control input-sm" />
+                                <input type="text" value="" id="txtAltitud" class="form-control input-sm text-right" placeholder="#" />
                             </div>
                             <div class="col-sm-4 col-md-3">
                                 <label class="control-label" for="txtCarta" >Cuadrángulo:</label>
@@ -334,7 +340,12 @@
                                             <label class="control-label" for="txtCamp0_10">Camp0_10:</label>
                                         </div>
                                         <div class="col-md-3"> 
-                                            <input id="txtCamp0_10" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_10" placeholder="" />
+                                            <div class='input-group'>
+                                                <input id="txtCamp0_10" class="form-control input-sm" type="text" name="txtCamp0_10" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-filter" data-toggle="modal" data-target="#modalEjemplo"></span>
+                                                </span>
+                                            </div>
                                         </div>
                                         <div class="col-md-3"> 
                                             <label class="control-label" for="txtCamp0_11">Camp0_11:</label>
@@ -355,13 +366,23 @@
                                             <label class="control-label" for="txtCamp0_12">Camp0_12:</label>
                                         </div>
                                         <div class="col-md-3"> 
-                                            <input id="txtCamp0_12" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_12" placeholder="" />
+                                            <div class='input-group'>
+                                                <input id="txtCamp0_12"" class="form-control input-sm" type="text" name="txtCamp0_12"" value="https://nodejs.org/es/"/>
+                                                <span id="txtCamp0_12_Link" class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-link"></span>
+                                                </span>
+                                            </div>
                                         </div>
                                         <div class="col-md-3"> 
                                             <label class="control-label" for="txtCamp0_11">Camp0_13:</label>
                                         </div>
-                                        <div class="col-md-3"> 
-                                            <input id="txtCamp0_13" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_13" placeholder="" />
+                                        <div class="col-md-3">
+                                            <div class='input-group'>
+                                                <input id="txtCamp0_13" class="form-control input-sm" type="text" name="txtCamp0_13" value="https://www.google.com.pe/maps/@-12.0582528,-76.973154,17.75z?hl=es-419"/>
+                                                <span id="txtCamp0_13_Maker" class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -446,19 +467,19 @@
 
                     <div class="row form-group">
                         <div class="col-md-1">  
-                            <label class="control-label daniel" for="txtCamp2_4">Camp2_4:</label>
+                            <label class="control-label" for="txtCamp2_4">Camp2_4:</label>
                         </div>
                         <div class="col-md-1">
                             <input id="txtCamp2_4" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_4" placeholder=""/>
                         </div>
                         <div class="col-md-1">  
-                            <label class="control-label daniel" for="txtCamp2_5">Camp2_5:</label>
+                            <label class="control-label" for="txtCamp2_5">Camp2_5:</label>
                         </div>
                         <div class="col-md-1">
                             <input id="txtCamp2_5" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_5" placeholder="" />
                         </div>
                         <div class="col-md-1">  
-                            <label class="control-label daniel" for="txtCamp2_6">Camp2_6:</label>
+                            <label class="control-label" for="txtCamp2_6">Camp2_6:</label>
                         </div>
                         <div class="col-md-1">
                             <input id="txtCamp2_6" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_6" placeholder="" />
@@ -572,7 +593,7 @@
          
     </div>
 
-    <!-- Ventana Modal - ARCHIVOS -->
+    <!-- Ventana Modal - BUSQUEDA DE QUEBRADA -->
     <div class="modal fade" id="modalBusquedaQuebrada" role="dialog">
         <div class="modal-dialog">
       <!-- Modal content-->
@@ -586,51 +607,50 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control input-sm" placeholder="Nombre de quebrada" value="" />
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
+                                <span class="glyphicon glyphicon-search"></span> Buscar
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
+                                <span class="glyphicon glyphicon-trash"></span> Limpiar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control input-sm" placeholder="Nombre de quebrada" value="" />
-                                        </div>
-                                        <div class="col-md-3">
-                                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
-                                                <span class="glyphicon glyphicon-search"></span> Buscar
-                                            </button>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
-                                                <span class="glyphicon glyphicon-trash"></span> Limpiar
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <table class="table table-bordered table-fixed table-popup">
-                                        <caption class="text-center">Resultado</caption>
-                                        <thead>
-                                            <tr>
-                                                <th class="col-xs-4 text-center">Código</th>
-                                                <th class="col-xs-8 text-center">Nombre</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Hola</th>
-                                                <td>Hola Nombre</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Hola</th>
-                                                <td>Hola Nombre</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Hola</th>
-                                                <td>Hola Nombre</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                            <hr>
+                        </div>
+                    </div>        
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-bordered table-fixed table-popup">
+                                <caption class="text-center">Resultado del filtro de búsqueda</caption>
+                                <thead>
+                                    <tr>
+                                        <th class="col-xs-4 text-center">Código</th>
+                                        <th class="col-xs-8 text-center">Nombre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Hola</th>
+                                        <td>Hola Nombre</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Hola</th>
+                                        <td>Hola Nombre</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Hola</th>
+                                        <td>Hola Nombre</th>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -655,9 +675,19 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-                  <p>Some text in the modal.</p>
+                    <div class="row">
+                        <div class="col-md-3"> 
+                            <label class="control-label" for="txtPopupArchivo_1">Nombre:</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input id="txtPopupArchivo_1" type="text" class="form-control input-sm" maxlength="" name="txtPopupArchivo_1" placeholder="Registre nombre" />
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-floppy-saved"></span> Guardar
+                    </button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         <span class="glyphicon glyphicon-remove"></span> Cerrar
                     </button>
@@ -679,7 +709,90 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-                  <p>Some text in the modal.</p>
+                    <div class="row">
+                        <div class="col-md-3"> 
+                            <label class="control-label" for="txtPopupFoto_1">Nombre:</label>
+                            <input id="txtPopupFoto_1" type="text" class="form-control input-sm" maxlength="" name="txtPopupFoto_1" placeholder="Registre nombre" />
+                        </div>
+                        <div class="col-md-9"> 
+                            <label class="control-label" for="txtPopupFoto_2">Descripción:</label>
+                            <input id="txtPopupFoto_2" type="text" class="form-control input-sm" maxlength="" name="txtPopupFoto_2" placeholder="Registre descripción" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-floppy-saved"></span> Guardar
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> Cerrar
+                    </button>
+                </div>
+            </div>
+      
+        </div>
+    </div>
+
+     <!-- Ventana Modal - FILTRO(Ejemplo) -->
+    <div class="modal fade" id="modalEjemplo" role="dialog">
+        <div class="modal-dialog">
+      <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <span class="glyphicon glyphicon-filter"></span> 
+                        Filtro de búsqueda
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control input-sm" placeholder="Nombre de campo" value="" />
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
+                                <span class="glyphicon glyphicon-search"></span> Buscar
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
+                                <span class="glyphicon glyphicon-trash"></span> Limpiar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                        </div>
+                    </div>        
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-bordered table-fixed table-popup">
+                                <caption class="text-center">Resultado del filtro de búsqueda</caption>
+                                <thead>
+                                    <tr>
+                                        <th class="col-xs-4 text-center">Código</th>
+                                        <th class="col-xs-8 text-center">Nombre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Hola</th>
+                                        <td>Hola Nombre</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Hola</th>
+                                        <td>Hola Nombre</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Hola</th>
+                                        <td>Hola Nombre</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -687,7 +800,6 @@
                     </button>
                 </div>
             </div>
-      
         </div>
     </div>
 
@@ -731,6 +843,23 @@
 
     <!-- Bootstrap Core JavaScript 
     <script src="js/bootstrap.min.js"></script>-->
+    <script>
+    $(function(){
+        //Click al boton de ubicacion del punto.        
+        $("#txtCamp0_13_Maker").on("click", function() {
+            //Busca en el input hermano y extrae el valor del input
+            let url = $(this).siblings('input[type=text]').val();
+            window.open(url, "_target");
+        });
+        
+        //Click al boton de link.        
+        $("#txtCamp0_12_Link").on("click", function() {
+            //Busca en el input hermano y extrae el valor del input
+            let url = $(this).siblings('input[type=text]').val();
+            window.open(url, "_target");
+        });
+    });
+    </script>
 
 </body>
 
