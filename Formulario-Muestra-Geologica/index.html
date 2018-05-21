@@ -520,7 +520,7 @@
                 </div>
                 <div class="tab-pane" id="Pestana4">
                     <div class="panel panel-default">
-                        <div class="panel-body text-right">
+                        <div class="panel-body text-right bg-info">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalArchivo">
                                 <i class="fa fa-cloud"></i> Cargar Archivo
                             </button>
@@ -529,7 +529,7 @@
                 </div>
                 <div class="tab-pane" id="Pestana5">
                     <div class="panel panel-default">
-                        <div class="panel-body text-right">
+                        <div class="panel-body text-right bg-info">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFoto">
                                 <i class="fa fa-cloud"></i> Cargar Foto
                             </button>
@@ -563,14 +563,62 @@
         <div class="modal-dialog">
       <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">
-                    <span class="glyphicon glyphicon-search"></span> Búsqueda de Quebrada
+                <div class="modal-header bg-info">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <span class="glyphicon glyphicon-filter"></span> 
+                        Filtro de búsqueda de quebrada
                     </h4>
                 </div>
                 <div class="modal-body">
-                  <p>Some text in the modal.</p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control input-sm" placeholder="Nombre de quebrada" value="" />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
+                                                <span class="glyphicon glyphicon-search"></span> Buscar
+                                            </button>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
+                                                <span class="glyphicon glyphicon-trash"></span> Limpiar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table table-bordered table-fixed table-popup">
+                                        <caption class="text-center">Resultado</caption>
+                                        <thead>
+                                            <tr>
+                                                <th class="col-xs-4 text-center">Código</th>
+                                                <th class="col-xs-8 text-center">Nombre</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Hola</th>
+                                                <td>Hola Nombre</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Hola</th>
+                                                <td>Hola Nombre</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Hola</th>
+                                                <td>Hola Nombre</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -578,7 +626,6 @@
                     </button>
                 </div>
             </div>
-      
         </div>
     </div>
 
@@ -587,7 +634,7 @@
         <div class="modal-dialog">
       <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-info">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">
                     <span class="glyphicon glyphicon-cloud-upload"></span> Cargar Archivo
@@ -611,7 +658,7 @@
         <div class="modal-dialog">
       <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-info">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">
                     <span class="glyphicon glyphicon-cloud-upload"></span> Cargar Foto
