@@ -1,0 +1,122 @@
+@font-face {
+	font-family: 'ico-ingemmet';
+	src:url('../fonts/ico-ingemmet/ingemmet-font.eot?71ca8x');
+	src:url('../fonts/ico-ingemmet/ingemmet-font.eot?#iefix71ca8x') format('embedded-opentype'),
+		url('../fonts/ico-ingemmet/ingemmet-font.woff?71ca8x') format('woff'),
+		url('../fonts/ico-ingemmet/ingemmet-font.ttf?71ca8x') format('truetype'),
+		url('../fonts/ico-ingemmet/ingemmet-font.svg?71ca8x#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.igm {
+  display: inline-block;
+  font: normal normal normal 14px/1 ico-ingemmet;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.igm-rp{
+ padding-right: 10px;
+}
+.igm-lp{
+ padding-left: 10px;
+}
+.igm-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+.igm-2x {
+  font-size: 2em;
+}
+.igm-3x {
+  font-size: 3em;
+}
+.igm-4x {
+  font-size: 4em;
+}
+.igm-5x {
+  font-size: 5em;
+}
+.igm-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+
+.ingemmet-fax:before {
+	content: "\e600";
+}
+
+.ingemmet-mail:before {
+	content: "\e610";
+}
+
+.ingemmet-facebook-fondo:before {
+	content: "\e60a";
+}
+
+.ingemmet-calendar:before {
+	content: "\e60b";
+}
+
+.ingemmet--facebook:before {
+	content: "\e60c";
+}
+
+.ingemmet-linkedin:before {
+	content: "\e60d";
+}
+
+.ingemmet-map-peru:before {
+	content: "\e60e";
+}
+
+.ingemmet-youtube:before {
+	content: "\e60f";
+}
+
+.ingemmet-slideshare:before {
+	content: "\e601";
+}
+
+.ingemmet-tiempo:before {
+	content: "\e602";
+}
+
+.ingemmet-ubicacion:before {
+	content: "\e603";
+}
+
+.ingemmet-logo:before {
+	content: "\e604";
+}
+
+.ingemmet-logo-full:before {
+	content: "\e605";
+}
+
+.ingemmet-slideshare-fondo:before {
+	content: "\e606";
+}
+
+.ingemmet-youtube-fondo:before {
+	content: "\e607";
+}
+
+.ingemmet-search:before {
+	content: "\e608";
+}
+
+.ingemmet-phone:before {
+	content: "\e942";
+}
+
+.ingemmet-new-tab:before {
+	content: "\ea7e";
+}
+
+.ingemmet-location:before {
+	content: "\e609";
+}
+

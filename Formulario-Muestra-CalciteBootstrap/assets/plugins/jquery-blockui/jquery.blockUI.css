@@ -1,0 +1,35 @@
+﻿.blockPage span {
+    font-weight: bold;
+    color: #3c3c3c;
+    display: inline-block;
+    position: relative;
+    top: 110px;
+    font-size: 12px;
+}
+
+.blockPage:after {
+    display: block;
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    left: 50%;
+    top: 68px;
+    margin-left: -16px;
+    margin-top: -16px;
+    content: ' ';
+}
+
+.blockOverlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    background: -webkit-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.3) 1%, rgba(0, 0, 0, 0.725) 100%) repeat scroll 0 0 transparent;
+    background: -moz-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.3) 1%, rgba(0, 0, 0, 0.725) 100%) repeat scroll 0 0 transparent;
+    background: -o-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.3) 1%, rgba(0, 0, 0, 0.725) 100%) repeat scroll 0 0 transparent;
+    background: -ms-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.3) 1%, rgba(0, 0, 0, 0.725) 100%) repeat scroll 0 0 transparent;
+    background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.3) 1%, rgba(0, 0, 0, 0.725) 100%) repeat scroll 0 0 transparent;
+    z-index: 9999;
+}
