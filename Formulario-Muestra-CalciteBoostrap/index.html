@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server" id="PageHeader">
+    <title>Plantilla</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./node_modules/calcite-bootstrap/dist/css/calcite-bootstrap.min.css" rel="stylesheet">
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    -->
+
+    <style>
+    /* 
+        Se agregar para controlar el ancho del "textarea" 
+    */
+     .form-textarea {
+        min-width: 100%;
+        max-width: 100%;
+     }
+    /* 
+        Se agrega para controlar el relleno de control-lable. El control-label no se 
+        esta agregando sus estilos por lo que no esta dentro de la etiqueta form
+    */
+     .tab-content .control-label, .modal-content .control-label{
+        padding-top: 7px;
+        margin-bottom: 0;
+        font-weight: normal;
+     }
+    /* 
+        Asignando colores a botones que tiene funcionalidad de registro
+    */
+    input[type=text] + .input-group-addon{
+        background-color: rgb(51,122,183);
+        border: 1px solid #337ab7;
+        color: rgb(255,255,255);
+    }
+    /*
+        La margen es por defecto 20. Se redujo a 10. 
+    */
+    hr {
+        margin-bottom: 10px;
+    }
+
+
+   
+
+
+
+    .cat-box-title .stripe-line {
+        background-image: url(https://hdramosmendoza.github.io/Frontend/Formulario-Muestra-Geologica/assets/iconos/stripe.png);
+        height: 12px;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Page Content -->
+    <div class="container">
+        <input type="hidden" id="txtObjectId" value="   " />
+        <input type="hidden" id="UsuarioRegistro" value="" />
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cat-box-title button-inline">
+                    <h2>Muestra Geológica</h2>
+                    <div class="stripe-line"></div>
+                </div>                    
+            </div> 
+        </div>
+        <br>
+
+        <form id="frmPequenaMineria" class="form-horizontal" role="form">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="col-form-label text-right" for="cboRegistro">
+                        ---- Botones de Mantenimiento ----
+                     </label>
+                </div>
+                <div class="col-md-6">
+                    <div class="row form-group">
+                        <label class="col-md-6 control-label text-right" for="cboRegistro">
+                            Estado del Registro:
+                        </label>
+                        <div class="col-md-6">
+                            <select id="cboRegistro" class="form-control input-sm" data-placeholder="Seleccione Registro" required="required" name="cboRegistro">
+                                <option value="0">prueba</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <fieldset class="dhhBorder">
+                    <legend class="dhhBorder">Datos Generales</legend>
+                   
+                    <div class="row form-group">      
+                        <div class="col-md-6">
+                            <label class="control-label" for="cboProyecto" >Proyecto:</label>
+                            <select id="cboProyecto" class="form-control input-sm" data-placeholder="Seleccione Proyecto" required="required" name="cboProyecto">
+                                <option>prueba</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label" for="cboSubProyecto">Sub-Proyecto:</label>
+                            <select id="cboSubProyecto" class="form-control input-sm" data-placeholder="Seleccione SubProyecto" name="cboSubProyecto">
+                                <option>prueba</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-sm-8 col-md-2">
+                            <label class="control-label" for="txtCodigo">Código de Muestra:</label>
+                            <input type="text" id="txtCodigo" class="form-control input-sm" maxlength="20" required="required" name="txtCodigo" />
+                        </div>
+                        <div class="col-sm-2 col-md-2 col-lg-2">
+                            <label class="control-label" for="txtFecha">Fecha:</label>
+                            <div class='input-group date' id='datetimepicker'>
+                                <input id="txtFecha" class="form-control input-sm" required="required" maxlength="10" type="text" name="txtFecha" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-3">
+                            <label class="control-label" for="cboResponsable">Responsable del Proyecto:</label>
+                            <select id="cboResponsable" class="form-control input-sm" data-placeholder="Seleccione Geológo Responsable del proyecto" required="required" name="cboResponsable">
+                                    <option>prueba</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-sm-3">
+                            <label class="control-label" for="cboGeologo">Geológo :</label>
+                            <select id="cboGeologo" class="form-control input-sm" data-placeholder="Seleccione Geológo" required="required" name="cboGeologo">
+                                    <option>prueba</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">    
+                        <div class="col-md-2 col-sm-3">
+                            <label class="control-label" for="txtDuplicado">Duplicado:</label>
+                            <input type="text" value="" id="txtDuplicado" class="form-control input-sm" maxlength="50" />
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <label class="col-form-label" >&nbsp;</label>
+                            <!--<input type="text" value="" id="" class="form-control input-sm" maxlength="50" />-->
+                            <div class="input-group">
+                                <span class="input-group-addon" >#</span>
+                                <input id="txtDuplicadoN" type="text" class="form-control input-sm" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-3">
+                            <label class="control-label" for="txtLocalidad">Localidad:</label>
+                            <input type="text" value="" id="txtLocalidad" class="form-control input-sm" maxlength="50" />
+                        </div>
+                        <div class="col-md-4 col-sm-3">
+                            <label class="control-label" for="cboEstado">Estado Actual:</label>
+                            <select id="cboEstado" class="form-control input-sm" data-placeholder="Seleccione Estado Actual" name="cboEstadoActual">
+                                <option>prueba</option>
+                            </select>
+                        </div>
+                    </div>   
+                    <div class="row form-group">   
+                        <div class="col-md-2 col-sm-2">
+                            <label class="control-label" for="txtHoja" >Hoja:</label>
+                            <input type="text" value="" id="txtHoja" class="form-control input-sm" maxlength="50" />
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <label class="control-label" for="txtCuenta" >Cuenta (nombre):</label>
+                            <input type="text" value="" id="txtCuenta" class="form-control input-sm" maxlength="50" />
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <label class="control-label" for="txtQuebrada" >Quebrada (nombre):</label>
+                            <div class='input-group'>
+                                <input id="txtQuebrada" class="form-control input-sm" type="text" name="txtQuebrada" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-filter" data-toggle="modal" data-target="#modalBusquedaQuebrada"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <label class="control-label" for="txtAnchoQuebrada" >Ancho Quebrada:</label>
+                            <input type="text" value="" id="txtAnchoQuebrada" class="form-control input-sm text-right" maxlength="50" placeholder="#" />
+                        </div>                    
+                        <div class="col-md-2 col-sm-2">    
+                            <label class="control-label" for="txtPendiente" >Pendiente (°):</label>
+                            <input type="text" value="" id="txtPendiente" class="form-control input-sm text-right" maxlength="50" placeholder="#"/>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="row">
+                <fieldset class="dhhBorder">
+                    <legend class="dhhBorder">Ubicación:</legend>
+                    <div class="row form-group">
+                        <div class="col-sm-4 col-md-2">
+                            <label class="control-label" for="txtNorte" >Norte:</label>
+                            <input type="text" id="txtNorte" class="form-control input-sm" maxlength="12" required="required" name="txtNorte" />
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <label class="control-label" for="txtEste" >Este:</label>
+                            <input type="text" id="txtEste" class="form-control input-sm" maxlength="11" required="required" name="txtEste" />
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <label class="control-label" for="txtDatum" >Datum:</label>
+                            <input type="text" value="WGS84" id="txtDatum" class="form-control input-sm" disabled="disabled" />    
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <label class="control-label" for="cboZonaUTM" >Zona UTM:</label>
+                            <select id="cboZonaUTM" class="form-control input-sm" data-placeholder="Seleccione Zona UTM" name="cboZonaUTM" required="required">
+                                <option>prueba</option>>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 col-md-1">
+                            <label class="control-label" for="txtAltitud" >Altitud(m):</label>
+                            <input type="text" value="" id="txtAltitud" class="form-control input-sm text-right" placeholder="#" />
+                        </div>
+                        <div class="col-sm-4 col-md-3">
+                            <label class="control-label" for="txtCarta" >Cuadrángulo:</label>
+                            <input type="text" value="" id="txtCarta" class="form-control input-sm" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-2 col-sm-4">
+                            <label class="control-label" for="txtLatitud" >Latitud:</label>
+                            <input type="text" value="" id="txtLatitud" class="form-control input-sm" readonly="readonly" name="txt_latitud" />
+                        </div>
+                        <div class="col-md-2 col-sm-4">
+                            <label class="control-label" for="txtLongitud" >Longitud:</label>
+                            <input type="text" value="" id="txtLongitud" class="form-control input-sm" readonly="readonly" name="txt_longitud" />
+                        </div>
+                        <div class="col-md-2 col-sm-4">                                       
+                            <label class="control-label" for="txtRegion" >Región:</label>
+                            <input type="text" value="" id="txtRegion" readonly="readonly" class="form-control input-sm" name="txt_region" />
+                        </div>
+                        <div class="col-md-3 col-sm-4">
+                            <label class="control-label" for="txtProvincia" >Provincia:</label>
+                            <input type="text" value="" id="txtProvincia" readonly="readonly" class="form-control input-sm" name="txt_provincia" />
+                        </div>
+                        <div class="col-md-3 col-sm-4">
+                            <label class="control-label" for="txtDistrito" >Distrito:</label>
+                            <input type="text" value="" id="txtDistrito" readonly="readonly" class="form-control input-sm" name="txt_distrito" />
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+          
+        </form>
+
+        <div class="row form-group">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a role="tab" data-toggle="tab" href="#Pestana0" aria-controls="Pestana0">
+                        <i class="fa fa-flask"></i> 
+                        Datos de la Muestra
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a role="tab" data-toggle="tab" href="#Pestana1" aria-controls="Pestana1">
+                        <i class="fa fa-list"></i>
+                        Pestaña 1
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a role="tab" data-toggle="tab" href="#Pestana2" aria-controls="Pestana2">
+                        <i class="fa fa-list"></i>
+                        Pestaña 2
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a role="tab" data-toggle="tab" href="#Pestana3" aria-controls="Pestana3">
+                        <i class="fa fa-list"></i>
+                        Pestaña 3
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a role="tab" data-toggle="tab" href="#Pestana4" aria-controls="Pestana4">
+                        <i class="fa fa-folder"></i>
+                        Archivos
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a role="tab" data-toggle="tab" href="#Pestana5" aria-controls="Pestana5">
+                        <span class="glyphicon glyphicon-picture"></span>
+                        Fotos
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a role="tab" data-toggle="tab" href="#Pestana6" aria-controls="Pestana6">
+                        <i class="fa fa-comment"></i>
+                        Observaciones
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="Pestana0">
+                    <div class="row form-group">
+                        <div class="col-md-1">  
+                            <label class="control-label" for="txtCamp0_4">Camp0_4:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="txtCamp0_4" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_4" placeholder=""/>
+                        </div>
+                        <div class="col-md-1">  
+                            <label class="control-label" for="txtCamp0_5">Camp0_5:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="txtCamp0_5" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_5" placeholder="" />
+                        </div>
+                        <div class="col-md-1">  
+                            <label class="control-label" for="txtCamp0_6">Camp0_6:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="txtCamp0_6" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_6" placeholder="" />
+                        </div>
+                        <div class="col-md-1">  
+                            <label class="control-label" for="txtCamp0_7">Camp0_7:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="txtCamp0_7" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_7" placeholder="" />
+                        </div>
+                        <div class="col-md-1">  
+                            <label class="control-label" for="txtCamp0_8">Camp0_8:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="txtCamp0_8" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_8" placeholder="" />
+                        </div>
+                        <div class="col-md-1">  
+                            <label class="control-label" for="txtCamp0_9">Camp0_9:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="txtCamp0_9" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_9" placeholder="" />
+                        </div>
+                    </div> 
+
+                    <div class="row form-group">
+                        <div class="col-md-6">  
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row form-group">
+                                        <div class="col-md-3"> 
+                                            <label class="control-label" for="txtCamp0_10">Camp0_10:</label>
+                                        </div>
+                                        <div class="col-md-3"> 
+                                            <div class='input-group'>
+                                                <input id="txtCamp0_10" class="form-control input-sm" type="text" name="txtCamp0_10" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-filter" data-toggle="modal" data-target="#modalEjemplo"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3"> 
+                                            <label class="control-label" for="txtCamp0_11">Camp0_11:</label>
+                                        </div>
+                                        <div class="col-md-3"> 
+                                            <input id="txtCamp0_11" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_11" placeholder="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">  
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row form-group">
+                                        <div class="col-md-3"> 
+                                            <label class="control-label" for="txtCamp0_12">Camp0_12:</label>
+                                        </div>
+                                        <div class="col-md-3"> 
+                                            <div class='input-group'>
+                                                <input id="txtCamp0_12"" class="form-control input-sm" type="text" name="txtCamp0_12"" value="https://nodejs.org/es/"/>
+                                                <span id="txtCamp0_12_Link" class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-link"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3"> 
+                                            <label class="control-label" for="txtCamp0_11">Camp0_13:</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class='input-group'>
+                                                <input id="txtCamp0_13" class="form-control input-sm" type="text" name="txtCamp0_13" value="https://www.google.com.pe/maps/@-12.0582528,-76.973154,17.75z?hl=es-419"/>
+                                                <span id="txtCamp0_13_Maker" class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                    
+                    <div class="row form-group">
+                        <div class="col-md-6">  
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row form-group">
+                                        <div class="col-md-3"> 
+                                            <label class="control-label" for="txtCamp0_14">Camp0_14:</label>
+                                            <input id="txtCamp0_14" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_14" placeholder="" />
+                                        </div>
+                                        <div class="col-md-3"> 
+                                            <label class="control-label" for="txtCamp0_15">Camp0_15:</label>
+                                            <input id="txtCamp0_15" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_15" placeholder="" />
+                                        </div>
+                                        <div class="col-md-3"> 
+                                            <label class="control-label" for="txtCamp0_16">Camp0_16:</label>
+                                            <input id="txtCamp0_16" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_16" placeholder="" />
+                                        </div>
+                                        <div class="col-md-3"> 
+                                            <label class="control-label" for="txtCamp0_17">Camp0_17:</label>
+                                            <input id="txtCamp0_17" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_17" placeholder="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">  
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row form-group">
+                                        <div class="col-md-3"> 
+                                            <label class="control-label" for="txtCamp0_18">Camp0_18:</label>
+                                            <input id="txtCamp0_18" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_18" placeholder="" />
+                                        </div>
+                                        <div class="col-md-3"> 
+                                            <label class="control-label" for="txtCamp0_19">Camp0_19:</label>
+                                            <input id="txtCamp0_19" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_19" placeholder="" />
+                                        </div>
+                                        <div class="col-md-3"> 
+                                            <label class="control-label" for="txtCamp0_20">Camp0_20:</label>
+                                            <input id="txtCamp0_20" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_20" placeholder="" />
+                                        </div>
+                                        <div class="col-md-3"> 
+                                            <label class="control-label" for="txtCamp0_">Camp0_21:</label>
+                                            <input id="txtCamp0_21" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_21" placeholder="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="Pestana1">
+                    <div class="row form-group">
+                        <div class="col-md-2 text-right">  
+                            <label class="control-label" for="txtCamp2_1">Camp2_1:</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="txtCamp2_1" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_1" placeholder=""/>
+                        </div>
+                        <div class="col-md-2 text-right">  
+                            <label class="control-label" for="txtCamp2_2">Camp2_2:</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="txtCamp2_2" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_2" placeholder="" />
+                        </div>
+                        <div class="col-md-2 text-right">  
+                            <label class="control-label" for="txtCamp2_3">Camp2_3:</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="txtCamp2_3" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_3" placeholder="" />
+                        </div>
+                    </div>  
+
+                    <div class="row form-group">
+                        <div class="col-md-1">  
+                            <label class="control-label" for="txtCamp2_4">Camp2_4:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="txtCamp2_4" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_4" placeholder=""/>
+                        </div>
+                        <div class="col-md-1">  
+                            <label class="control-label" for="txtCamp2_5">Camp2_5:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="txtCamp2_5" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_5" placeholder="" />
+                        </div>
+                        <div class="col-md-1">  
+                            <label class="control-label" for="txtCamp2_6">Camp2_6:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="txtCamp2_6" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_6" placeholder="" />
+                        </div>
+                        <div class="col-md-1">  
+                            <label class="control-label" for="txtCamp2_7">Camp2_7:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="txtCamp2_7" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_7" placeholder="" />
+                        </div>
+                        <div class="col-md-1">  
+                            <label class="control-label" for="txtCamp2_8">Camp2_8:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="txtCamp2_8" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_8" placeholder="" />
+                        </div>
+                        <div class="col-md-1">  
+                            <label class="control-label" for="txtCamp2_9">Camp2_9:</label>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="txtCamp2_9" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_9" placeholder="" />
+                        </div>
+                    </div> 
+                </div>
+                
+                <div role="tabpanel" class="tab-pane" id="Pestana2">
+                    <div class="row form-group">
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-7 text-right">
+                                            <label for="Checkbox1">Checkbox1:</label>
+                                        </div>
+                                        <div class="col-md-5 text-left">
+                                            <input id="Checkbox1" type="checkbox" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-7 text-right">
+                                            <label for="Checkbox2">Checkbox2:</label>
+                                        </div>
+                                        <div class="col-md-5 text-left">
+                                            <input id="Checkbox2" type="checkbox" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-7 text-right">
+                                            <label for="Checkbox3">Checkbox3:</label>
+                                        </div>
+                                        <div class="col-md-5 text-left">
+                                            <input id="Checkbox3" type="checkbox" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="Pestana3">
+                3
+                </div>
+                
+                <div role="tabpanel" class="tab-pane" id="Pestana4">
+                    <div class="panel panel-default">
+                        <div class="panel-body text-right bg-info">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalArchivo">
+                                <i class="fa fa-cloud"></i> Cargar Archivo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="Pestana5">
+                    <div class="panel panel-default">
+                        <div class="panel-body text-right bg-info">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFoto">
+                                <i class="fa fa-cloud"></i> Cargar Foto
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="Pestana6">
+                    <div class="row form-group">
+                        <div class="col-md-12">  
+                            <label class="col-form-label" for="txtObs">Observaciones:</label>
+                            <textarea id="txtObs" class="form-control input-sm form-textarea" rows="2" ></textarea>
+                        </div>
+                    </div>  
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="row form-group text-right">
+            <button type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-floppy-disk"></span> Guardar Datos
+            </button>
+            <button type="button" class="btn btn-default" onclick="history.go(-1); return false;">
+                <i class="fa fa-angle-double-left"></i> Regresar
+            </button>
+        </div>
+         
+    </div>
+
+    <!-- Ventana Modal - BUSQUEDA DE QUEBRADA -->
+    <div class="modal fade" id="modalBusquedaQuebrada" role="dialog">
+        <div class="modal-dialog">
+      <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <span class="glyphicon glyphicon-filter"></span> 
+                        Filtro de búsqueda de quebrada
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control input-sm" placeholder="Nombre de quebrada" value="" />
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
+                                <span class="glyphicon glyphicon-search"></span> Buscar
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
+                                <span class="glyphicon glyphicon-trash"></span> Limpiar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                        </div>
+                    </div>        
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-bordered table-fixed table-popup">
+                                <caption class="text-center">Resultado del filtro de búsqueda</caption>
+                                <thead>
+                                    <tr>
+                                        <th class="col-xs-4 text-center">Código</th>
+                                        <th class="col-xs-8 text-center">Nombre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Hola</th>
+                                        <td>Hola Nombre</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Hola</th>
+                                        <td>Hola Nombre</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Hola</th>
+                                        <td>Hola Nombre</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Modal - ARCHIVOS -->
+    <div class="modal fade" id="modalArchivo" role="dialog">
+        <div class="modal-dialog">
+      <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">
+                    <span class="glyphicon glyphicon-cloud-upload"></span> Cargar Archivo
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-3"> 
+                            <label class="control-label" for="txtPopupArchivo_1">Nombre:</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input id="txtPopupArchivo_1" type="text" class="form-control input-sm" maxlength="" name="txtPopupArchivo_1" placeholder="Registre nombre" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-floppy-saved"></span> Guardar
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> Cerrar
+                    </button>
+                </div>
+            </div>
+      
+        </div>
+    </div>
+
+    <!-- Ventana Modal - FOTOS -->
+    <div class="modal fade" id="modalFoto" role="dialog">
+        <div class="modal-dialog">
+      <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">
+                    <span class="glyphicon glyphicon-cloud-upload"></span> Cargar Foto
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-3"> 
+                            <label class="control-label" for="txtPopupFoto_1">Nombre:</label>
+                            <input id="txtPopupFoto_1" type="text" class="form-control input-sm" maxlength="" name="txtPopupFoto_1" placeholder="Registre nombre" />
+                        </div>
+                        <div class="col-md-9"> 
+                            <label class="control-label" for="txtPopupFoto_2">Descripción:</label>
+                            <input id="txtPopupFoto_2" type="text" class="form-control input-sm" maxlength="" name="txtPopupFoto_2" placeholder="Registre descripción" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-floppy-saved"></span> Guardar
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> Cerrar
+                    </button>
+                </div>
+            </div>
+      
+        </div>
+    </div>
+
+     <!-- Ventana Modal - FILTRO(Ejemplo) -->
+    <div class="modal fade" id="modalEjemplo" role="dialog">
+        <div class="modal-dialog">
+      <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <span class="glyphicon glyphicon-filter"></span> 
+                        Filtro de búsqueda
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control input-sm" placeholder="Nombre de campo" value="" />
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
+                                <span class="glyphicon glyphicon-search"></span> Buscar
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
+                                <span class="glyphicon glyphicon-trash"></span> Limpiar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                        </div>
+                    </div>        
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-bordered table-fixed table-popup">
+                                <caption class="text-center">Resultado del filtro de búsqueda</caption>
+                                <thead>
+                                    <tr>
+                                        <th class="col-xs-4 text-center">Código</th>
+                                        <th class="col-xs-8 text-center">Nombre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Hola</th>
+                                        <td>Hola Nombre</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Hola</th>
+                                        <td>Hola Nombre</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Hola</th>
+                                        <td>Hola Nombre</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./node_modules\bootstrap\dist\js\bootstrap.min.js" type="text/javascript" ></script>
+
+
+
+    <!-- jQuery 
+    <script src="js/jquery.js"></script>-->
+
+    <!-- Bootstrap Core JavaScript 
+    <script src="js/bootstrap.min.js"></script>-->
+    
+    <!--
+    <script>
+    $(function(){
+        //Click al boton de ubicacion del punto.        
+        $("#txtCamp0_13_Maker").on("click", function() {
+            //Busca en el input hermano y extrae el valor del input
+            let url = $(this).siblings('input[type=text]').val();
+            window.open(url, "_target");
+        });
+        
+        //Click al boton de link.        
+        $("#txtCamp0_12_Link").on("click", function() {
+            //Busca en el input hermano y extrae el valor del input
+            let url = $(this).siblings('input[type=text]').val();
+            window.open(url, "_target");
+        });
+    });
+    </script>
+    -->
+
+</body>
+
+</html>

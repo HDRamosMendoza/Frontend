@@ -1,0 +1,15 @@
+{
+  "name": "formulario-muestra-calciteboostrap",
+  "version": "1.0.0",
+  "description": "Prueba de Calcite Boostrap",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Heber Daniel Ramos Mendoza",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^4.1.1",
+    "calcite-bootstrap": "^0.4.4"
+  }
+}
