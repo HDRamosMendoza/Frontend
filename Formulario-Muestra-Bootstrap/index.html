@@ -58,6 +58,7 @@
     hr {
         margin-bottom: 10px;
     }
+    
     </style>
 </head>
 <body>
@@ -121,7 +122,7 @@
                             </div>
                             <div class="col-sm-2 col-md-2 col-lg-2">
                                 <label class="control-label" for="txtFecha">Fecha:</label>
-                                <div class='input-group date' id='datetimepicker'>
+                                <div class='input-group date' id='fechaMuestra'>
                                     <input id="txtFecha" class="form-control input-sm" required="required" maxlength="10" type="text" name="txtFecha" />
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
@@ -858,6 +859,8 @@
             let url = $(this).siblings('input[type=text]').val();
             window.open(url, "_target");
         });
+
+        $('#fechaMuestra').datetimepicker({ locale: 'es', format: 'DD/MM/YYYY' });
     });
     </script>
 
