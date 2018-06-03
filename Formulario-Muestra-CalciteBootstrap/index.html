@@ -1,64 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head runat="server" id="PageHeader">
-    <title>Plantilla</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="./node_modules/calcite-bootstrap/dist/css/calcite-bootstrap.min.css" rel="stylesheet">
+    <head runat="server" id="PageHeader">
+        <title>Plantilla</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="./node_modules/calcite-bootstrap/dist/css/calcite-bootstrap.min.css" rel="stylesheet">
 
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <!--
-    <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    -->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <!--
+        <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+        -->
+        <style>
+        /* 
+            Se agregar para controlar el ancho del "textarea" 
+        */
+         .form-textarea {
+            min-width: 100%;
+            max-width: 100%;
+         }
+        /* 
+            Se agrega para controlar el relleno de control-lable. El control-label no se 
+            esta agregando sus estilos por lo que no esta dentro de la etiqueta form
+        */
+         .tab-content .control-label, .modal-content .control-label{
+            padding-top: 7px;
+            margin-bottom: 0;
+            font-weight: normal;
+         }
+        /* 
+            Asignando colores a botones que tiene funcionalidad de registro
+        */
+        input[type=text] + .input-group-addon{
+            background-color: rgb(51,122,183);
+            border: 1px solid #337ab7;
+            color: rgb(255,255,255);
+        }
+        /*
+            La margen es por defecto 20. Se redujo a 10. 
+        */
+        hr {
+            margin-bottom: 10px;
+        }
 
-    <style>
-    /* 
-        Se agregar para controlar el ancho del "textarea" 
-    */
-     .form-textarea {
-        min-width: 100%;
-        max-width: 100%;
-     }
-    /* 
-        Se agrega para controlar el relleno de control-lable. El control-label no se 
-        esta agregando sus estilos por lo que no esta dentro de la etiqueta form
-    */
-     .tab-content .control-label, .modal-content .control-label{
-        padding-top: 7px;
-        margin-bottom: 0;
-        font-weight: normal;
-     }
-    /* 
-        Asignando colores a botones que tiene funcionalidad de registro
-    */
-    input[type=text] + .input-group-addon{
-        background-color: rgb(51,122,183);
-        border: 1px solid #337ab7;
-        color: rgb(255,255,255);
-    }
-    /*
-        La margen es por defecto 20. Se redujo a 10. 
-    */
-    hr {
-        margin-bottom: 10px;
-    }
+        .cat-box-title .stripe-line {
+            background-image: url(https://hdramosmendoza.github.io/Frontend/Formulario-Muestra-Geologica/assets/iconos/stripe.png);
+            height: 12px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
 
+        .page-header {
+            margin: 0 0 20px;
+        }
+        h5 {
+            margin: 5px 0;
+        }
 
-   
+        .div-margin-bottom {
+            margin-bottom: 0;
+        }
 
+        .div-padding-top {
+            padding-top: 0 !important;
+        }
 
+        .div-padding-top-label label {
+            padding-top: 0 !important;
+        }
 
-    .cat-box-title .stripe-line {
-        background-image: url(https://hdramosmendoza.github.io/Frontend/Formulario-Muestra-Geologica/assets/iconos/stripe.png);
-        height: 12px;
-        overflow: hidden;
-        margin-top: 10px;
-    }
-
-    </style>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
-</head>
-<body>
+        </style>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+    </head>
+    <body>
     <!-- Page Content -->
     <div class="container">
         <input type="hidden" id="txtObjectId" value="   " />
@@ -96,166 +109,177 @@
                 </div>
             </div>
 
-            <div class="row">
-                <fieldset class="dhhBorder">
-                    <legend class="dhhBorder">Datos Generales</legend>
-                   
-                    <div class="row form-group">      
-                        <div class="col-md-6">
-                            <label class="control-label" for="cboProyecto" >Proyecto:</label>
-                            <select id="cboProyecto" class="form-control input-sm" data-placeholder="Seleccione Proyecto" required="required" name="cboProyecto">
-                                <option>prueba</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="control-label" for="cboSubProyecto">Sub-Proyecto:</label>
-                            <select id="cboSubProyecto" class="form-control input-sm" data-placeholder="Seleccione SubProyecto" name="cboSubProyecto">
-                                <option>prueba</option>
-                            </select>
-                        </div>
+            <!-- Header - Datos Generales -->
+            <div class="page-header">
+                <h5>
+                    <a name="alerts">
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    Datos Generales
+                </h5>
+            </div>
+            <div class="row form-group">      
+                <div class="col-md-6">
+                    <label class="control-label" for="cboProyecto" >Proyecto:</label>
+                    <select id="cboProyecto" class="form-control input-sm" data-placeholder="Seleccione Proyecto" required="required" name="cboProyecto">
+                        <option>prueba</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="control-label" for="cboSubProyecto">Sub-Proyecto:</label>
+                    <select id="cboSubProyecto" class="form-control input-sm" data-placeholder="Seleccione SubProyecto" name="cboSubProyecto">
+                        <option>prueba</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label class="control-label" for="txtCodigo">Código de Muestra:</label>
+                    <input type="text" id="txtCodigo" class="form-control input-sm" maxlength="20" required="required" name="txtCodigo" />
+                </div>
+                <div class="col-md-2">
+                    <label class="control-label" for="txtFecha">Fecha:</label>
+                    <div class='input-group date' id='datetimepicker'>
+                        <input id="txtFecha" class="form-control input-sm" required="required" maxlength="10" type="text" name="txtFecha" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
                     </div>
-
-                    <div class="row form-group">
-                        <div class="col-sm-8 col-md-2">
-                            <label class="control-label" for="txtCodigo">Código de Muestra:</label>
-                            <input type="text" id="txtCodigo" class="form-control input-sm" maxlength="20" required="required" name="txtCodigo" />
-                        </div>
-                        <div class="col-sm-2 col-md-2 col-lg-2">
-                            <label class="control-label" for="txtFecha">Fecha:</label>
-                            <div class='input-group date' id='datetimepicker'>
-                                <input id="txtFecha" class="form-control input-sm" required="required" maxlength="10" type="text" name="txtFecha" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-3">
-                            <label class="control-label" for="cboResponsable">Responsable del Proyecto:</label>
-                            <select id="cboResponsable" class="form-control input-sm" data-placeholder="Seleccione Geológo Responsable del proyecto" required="required" name="cboResponsable">
-                                    <option>prueba</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 col-sm-3">
-                            <label class="control-label" for="cboGeologo">Geológo :</label>
-                            <select id="cboGeologo" class="form-control input-sm" data-placeholder="Seleccione Geológo" required="required" name="cboGeologo">
-                                    <option>prueba</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row form-group">    
-                        <div class="col-md-2 col-sm-3">
-                            <label class="control-label" for="txtDuplicado">Duplicado:</label>
+                </div>
+                <div class="col-md-4">
+                    <label class="control-label" for="cboResponsable">Responsable del Proyecto:</label>
+                    <select id="cboResponsable" class="form-control input-sm" data-placeholder="Seleccione Geológo Responsable del proyecto" required="required" name="cboResponsable">
+                            <option>prueba</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="control-label" for="cboGeologo">Geológo :</label>
+                    <select id="cboGeologo" class="form-control input-sm" data-placeholder="Seleccione Geológo" required="required" name="cboGeologo">
+                            <option>prueba</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">    
+                <div class="col-md-4 col-sm-3">
+                    <label class="control-label" for="txtDuplicado">Duplicado:</label>
+                    <div class="row">
+                        <div class="col-md-6">
                             <input type="text" value="" id="txtDuplicado" class="form-control input-sm" maxlength="50" />
                         </div>
-                        <div class="col-md-2 col-sm-3">
-                            <label class="col-form-label" >&nbsp;</label>
-                            <!--<input type="text" value="" id="" class="form-control input-sm" maxlength="50" />-->
+                        <div class="col-md-6">
                             <div class="input-group">
                                 <span class="input-group-addon" >#</span>
                                 <input id="txtDuplicadoN" type="text" class="form-control input-sm" aria-describedby="basic-addon1">
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-3">
-                            <label class="control-label" for="txtLocalidad">Localidad:</label>
-                            <input type="text" value="" id="txtLocalidad" class="form-control input-sm" maxlength="50" />
-                        </div>
-                        <div class="col-md-4 col-sm-3">
-                            <label class="control-label" for="cboEstado">Estado Actual:</label>
-                            <select id="cboEstado" class="form-control input-sm" data-placeholder="Seleccione Estado Actual" name="cboEstadoActual">
-                                <option>prueba</option>
-                            </select>
-                        </div>
-                    </div>   
-                    <div class="row form-group">   
-                        <div class="col-md-2 col-sm-2">
-                            <label class="control-label" for="txtHoja" >Hoja:</label>
-                            <input type="text" value="" id="txtHoja" class="form-control input-sm" maxlength="50" />
-                        </div>
-                        <div class="col-md-2 col-sm-2">
-                            <label class="control-label" for="txtCuenta" >Cuenta (nombre):</label>
-                            <input type="text" value="" id="txtCuenta" class="form-control input-sm" maxlength="50" />
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                            <label class="control-label" for="txtQuebrada" >Quebrada (nombre):</label>
-                            <div class='input-group'>
-                                <input id="txtQuebrada" class="form-control input-sm" type="text" name="txtQuebrada" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-filter" data-toggle="modal" data-target="#modalBusquedaQuebrada"></span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-2">
-                            <label class="control-label" for="txtAnchoQuebrada" >Ancho Quebrada:</label>
-                            <input type="text" value="" id="txtAnchoQuebrada" class="form-control input-sm text-right" maxlength="50" placeholder="#" />
-                        </div>                    
-                        <div class="col-md-2 col-sm-2">    
-                            <label class="control-label" for="txtPendiente" >Pendiente (°):</label>
-                            <input type="text" value="" id="txtPendiente" class="form-control input-sm text-right" maxlength="50" placeholder="#"/>
-                        </div>
                     </div>
-                </fieldset>
+                </div>
+                <div class="col-md-4 col-sm-3">
+                    <label class="control-label" for="txtLocalidad">Localidad:</label>
+                    <input type="text" value="" id="txtLocalidad" class="form-control input-sm" maxlength="50" />
+                </div>
+                <div class="col-md-4 col-sm-3">
+                    <label class="control-label" for="cboEstado">Estado Actual:</label>
+                    <select id="cboEstado" class="form-control input-sm" data-placeholder="Seleccione Estado Actual" name="cboEstadoActual">
+                        <option>prueba</option>
+                    </select>
+                </div>
+            </div>   
+            <div class="row form-group">   
+                <div class="col-md-2 col-sm-2">
+                    <label class="control-label" for="txtHoja" >Hoja:</label>
+                    <input type="text" value="" id="txtHoja" class="form-control input-sm" maxlength="50" />
+                </div>
+                <div class="col-md-2 col-sm-2">
+                    <label class="control-label" for="txtCuenta" >Cuenta (nombre):</label>
+                    <input type="text" value="" id="txtCuenta" class="form-control input-sm" maxlength="50" />
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <label class="control-label" for="txtQuebrada" >Quebrada (nombre):</label>
+                    <div class='input-group'>
+                        <input id="txtQuebrada" class="form-control input-sm" type="text" name="txtQuebrada" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-filter" data-toggle="modal" data-target="#modalBusquedaQuebrada"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2">
+                    <label class="control-label" for="txtAnchoQuebrada" >Ancho Quebrada:</label>
+                    <input type="text" value="" id="txtAnchoQuebrada" class="form-control input-sm text-right" maxlength="50" placeholder="#" />
+                </div>                    
+                <div class="col-md-2 col-sm-2">    
+                    <label class="control-label" for="txtPendiente" >Pendiente (°):</label>
+                    <input type="text" value="" id="txtPendiente" class="form-control input-sm text-right" maxlength="50" placeholder="#"/>
+                </div>
             </div>
 
-            <div class="row">
-                <fieldset class="dhhBorder">
-                    <legend class="dhhBorder">Ubicación:</legend>
-                    <div class="row form-group">
-                        <div class="col-sm-4 col-md-2">
-                            <label class="control-label" for="txtNorte" >Norte:</label>
-                            <input type="text" id="txtNorte" class="form-control input-sm" maxlength="12" required="required" name="txtNorte" />
-                        </div>
-                        <div class="col-sm-4 col-md-2">
-                            <label class="control-label" for="txtEste" >Este:</label>
-                            <input type="text" id="txtEste" class="form-control input-sm" maxlength="11" required="required" name="txtEste" />
-                        </div>
-                        <div class="col-sm-4 col-md-2">
-                            <label class="control-label" for="txtDatum" >Datum:</label>
-                            <input type="text" value="WGS84" id="txtDatum" class="form-control input-sm" disabled="disabled" />    
-                        </div>
-                        <div class="col-sm-4 col-md-2">
-                            <label class="control-label" for="cboZonaUTM" >Zona UTM:</label>
-                            <select id="cboZonaUTM" class="form-control input-sm" data-placeholder="Seleccione Zona UTM" name="cboZonaUTM" required="required">
-                                <option>prueba</option>>
-                            </select>
-                        </div>
-                        <div class="col-sm-4 col-md-1">
-                            <label class="control-label" for="txtAltitud" >Altitud(m):</label>
-                            <input type="text" value="" id="txtAltitud" class="form-control input-sm text-right" placeholder="#" />
-                        </div>
-                        <div class="col-sm-4 col-md-3">
-                            <label class="control-label" for="txtCarta" >Cuadrángulo:</label>
-                            <input type="text" value="" id="txtCarta" class="form-control input-sm" disabled="disabled" />
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-2 col-sm-4">
-                            <label class="control-label" for="txtLatitud" >Latitud:</label>
-                            <input type="text" value="" id="txtLatitud" class="form-control input-sm" readonly="readonly" name="txt_latitud" />
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                            <label class="control-label" for="txtLongitud" >Longitud:</label>
-                            <input type="text" value="" id="txtLongitud" class="form-control input-sm" readonly="readonly" name="txt_longitud" />
-                        </div>
-                        <div class="col-md-2 col-sm-4">                                       
-                            <label class="control-label" for="txtRegion" >Región:</label>
-                            <input type="text" value="" id="txtRegion" readonly="readonly" class="form-control input-sm" name="txt_region" />
-                        </div>
-                        <div class="col-md-3 col-sm-4">
-                            <label class="control-label" for="txtProvincia" >Provincia:</label>
-                            <input type="text" value="" id="txtProvincia" readonly="readonly" class="form-control input-sm" name="txt_provincia" />
-                        </div>
-                        <div class="col-md-3 col-sm-4">
-                            <label class="control-label" for="txtDistrito" >Distrito:</label>
-                            <input type="text" value="" id="txtDistrito" readonly="readonly" class="form-control input-sm" name="txt_distrito" />
-                        </div>
-                    </div>
-                </fieldset>
+            <br>
+
+            <!-- Header - Ubicación -->
+            <div class="page-header">
+                <h5>
+                    <a name="alerts">
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    Ubicación:
+                </h5>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4 col-md-2">
+                    <label class="control-label" for="txtNorte" >Norte:</label>
+                    <input type="text" id="txtNorte" class="form-control input-sm" maxlength="12" required="required" name="txtNorte" />
+                </div>
+                <div class="col-sm-4 col-md-2">
+                    <label class="control-label" for="txtEste" >Este:</label>
+                    <input type="text" id="txtEste" class="form-control input-sm" maxlength="11" required="required" name="txtEste" />
+                </div>
+                <div class="col-sm-4 col-md-2">
+                    <label class="control-label" for="txtDatum" >Datum:</label>
+                    <input type="text" value="WGS84" id="txtDatum" class="form-control input-sm" disabled="disabled" />    
+                </div>
+                <div class="col-sm-4 col-md-2">
+                    <label class="control-label" for="cboZonaUTM" >Zona UTM:</label>
+                    <select id="cboZonaUTM" class="form-control input-sm" data-placeholder="Seleccione Zona UTM" name="cboZonaUTM" required="required">
+                        <option>prueba</option>>
+                    </select>
+                </div>
+                <div class="col-sm-4 col-md-1">
+                    <label class="control-label" for="txtAltitud" >Altitud(m):</label>
+                    <input type="text" value="" id="txtAltitud" class="form-control input-sm text-right" placeholder="#" />
+                </div>
+                <div class="col-sm-4 col-md-3">
+                    <label class="control-label" for="txtCarta" >Cuadrángulo:</label>
+                    <input type="text" value="" id="txtCarta" class="form-control input-sm" disabled="disabled" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2 col-sm-4">
+                    <label class="control-label" for="txtLatitud" >Latitud:</label>
+                    <input type="text" value="" id="txtLatitud" class="form-control input-sm" readonly="readonly" name="txt_latitud" />
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <label class="control-label" for="txtLongitud" >Longitud:</label>
+                    <input type="text" value="" id="txtLongitud" class="form-control input-sm" readonly="readonly" name="txt_longitud" />
+                </div>
+                <div class="col-md-2 col-sm-4">                                       
+                    <label class="control-label" for="txtRegion" >Región:</label>
+                    <input type="text" value="" id="txtRegion" readonly="readonly" class="form-control input-sm" name="txt_region" />
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <label class="control-label" for="txtProvincia" >Provincia:</label>
+                    <input type="text" value="" id="txtProvincia" readonly="readonly" class="form-control input-sm" name="txt_provincia" />
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <label class="control-label" for="txtDistrito" >Distrito:</label>
+                    <input type="text" value="" id="txtDistrito" readonly="readonly" class="form-control input-sm" name="txt_distrito" />
+                </div>
             </div>
           
         </form>
-
-        <div class="row form-group">
-            <ul class="nav nav-tabs" role="tablist">
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active">
                     <a role="tab" data-toggle="tab" href="#Pestana0" aria-controls="Pestana0">
                         <i class="fa fa-flask"></i> 
@@ -298,312 +322,333 @@
                         Observaciones
                     </a>
                 </li>
-            </ul>
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="Pestana0">
-                    <div class="row form-group">
-                        <div class="col-md-1">  
-                            <label class="control-label" for="txtCamp0_4">Camp0_4:</label>
-                        </div>
-                        <div class="col-md-1">
-                            <input id="txtCamp0_4" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_4" placeholder=""/>
-                        </div>
-                        <div class="col-md-1">  
-                            <label class="control-label" for="txtCamp0_5">Camp0_5:</label>
-                        </div>
-                        <div class="col-md-1">
-                            <input id="txtCamp0_5" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_5" placeholder="" />
-                        </div>
-                        <div class="col-md-1">  
-                            <label class="control-label" for="txtCamp0_6">Camp0_6:</label>
-                        </div>
-                        <div class="col-md-1">
-                            <input id="txtCamp0_6" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_6" placeholder="" />
-                        </div>
-                        <div class="col-md-1">  
-                            <label class="control-label" for="txtCamp0_7">Camp0_7:</label>
-                        </div>
-                        <div class="col-md-1">
-                            <input id="txtCamp0_7" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_7" placeholder="" />
-                        </div>
-                        <div class="col-md-1">  
-                            <label class="control-label" for="txtCamp0_8">Camp0_8:</label>
-                        </div>
-                        <div class="col-md-1">
-                            <input id="txtCamp0_8" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_8" placeholder="" />
-                        </div>
-                        <div class="col-md-1">  
-                            <label class="control-label" for="txtCamp0_9">Camp0_9:</label>
-                        </div>
-                        <div class="col-md-1">
-                            <input id="txtCamp0_9" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_9" placeholder="" />
-                        </div>
-                    </div> 
-
-                    <div class="row form-group">
-                        <div class="col-md-6">  
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="row form-group">
-                                        <div class="col-md-3"> 
-                                            <label class="control-label" for="txtCamp0_10">Camp0_10:</label>
-                                        </div>
-                                        <div class="col-md-3"> 
-                                            <div class='input-group'>
-                                                <input id="txtCamp0_10" class="form-control input-sm" type="text" name="txtCamp0_10" />
-                                                <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-filter" data-toggle="modal" data-target="#modalEjemplo"></span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3"> 
-                                            <label class="control-label" for="txtCamp0_11">Camp0_11:</label>
-                                        </div>
-                                        <div class="col-md-3"> 
-                                            <input id="txtCamp0_11" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_11" placeholder="" />
-                                        </div>
-                                    </div>
-                                </div>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="Pestana0">
+                        <div class="row form-group">
+                            <div class="col-md-1">  
+                                <label class="control-label" for="txtCamp0_4">Camp0_4:</label>
                             </div>
-                        </div>
+                            <div class="col-md-1">
+                                <input id="txtCamp0_4" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_4" placeholder=""/>
+                            </div>
+                            <div class="col-md-1">  
+                                <label class="control-label" for="txtCamp0_5">Camp0_5:</label>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="txtCamp0_5" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_5" placeholder="" />
+                            </div>
+                            <div class="col-md-1">  
+                                <label class="control-label" for="txtCamp0_6">Camp0_6:</label>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="txtCamp0_6" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_6" placeholder="" />
+                            </div>
+                            <div class="col-md-1">  
+                                <label class="control-label" for="txtCamp0_7">Camp0_7:</label>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="txtCamp0_7" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_7" placeholder="" />
+                            </div>
+                            <div class="col-md-1">  
+                                <label class="control-label" for="txtCamp0_8">Camp0_8:</label>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="txtCamp0_8" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_8" placeholder="" />
+                            </div>
+                            <div class="col-md-1">  
+                                <label class="control-label" for="txtCamp0_9">Camp0_9:</label>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="txtCamp0_9" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_9" placeholder="" />
+                            </div>
+                        </div> 
 
-                        <div class="col-md-6">  
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="row form-group">
-                                        <div class="col-md-3"> 
-                                            <label class="control-label" for="txtCamp0_12">Camp0_12:</label>
-                                        </div>
-                                        <div class="col-md-3"> 
-                                            <div class='input-group'>
-                                                <input id="txtCamp0_12"" class="form-control input-sm" type="text" name="txtCamp0_12"" value="https://nodejs.org/es/"/>
-                                                <span id="txtCamp0_12_Link" class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-link"></span>
-                                                </span>
+                        <div class="row form-group">
+                            <div class="col-md-6">  
+                                <div class="panel panel-default div-margin-bottom">
+                                    <div class="panel-body">
+                                        <div class="row form-group div-margin-bottom">
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_10">Camp0_10:</label>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3"> 
-                                            <label class="control-label" for="txtCamp0_11">Camp0_13:</label>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class='input-group'>
-                                                <input id="txtCamp0_13" class="form-control input-sm" type="text" name="txtCamp0_13" value="https://www.google.com.pe/maps/@-12.0582528,-76.973154,17.75z?hl=es-419"/>
-                                                <span id="txtCamp0_13_Maker" class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-map-marker"></span>
-                                                </span>
+                                            <div class="col-md-3"> 
+                                                <div class='input-group'>
+                                                    <input id="txtCamp0_10" class="form-control input-sm" type="text" name="txtCamp0_10" />
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-filter" data-toggle="modal" data-target="#modalEjemplo"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_11">Camp0_11:</label>
+                                            </div>
+                                            <div class="col-md-3"> 
+                                                <input id="txtCamp0_11" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_11" placeholder="" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>    
+
+                            <div class="col-md-6">  
+                                <div class="panel panel-default div-margin-bottom">
+                                    <div class="panel-body">
+                                        <div class="row form-group div-margin-bottom">
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_12">Camp0_12:</label>
+                                            </div>
+                                            <div class="col-md-3"> 
+                                                <div class='input-group'>
+                                                    <input id="txtCamp0_12"" class="form-control input-sm" type="text" name="txtCamp0_12"" value="https://nodejs.org/es/"/>
+                                                    <span id="txtCamp0_12_Link" class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-link"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_11">Camp0_13:</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class='input-group'>
+                                                    <input id="txtCamp0_13" class="form-control input-sm" type="text" name="txtCamp0_13" value="https://www.google.com.pe/maps/@-12.0582528,-76.973154,17.75z?hl=es-419"/>
+                                                    <span id="txtCamp0_13_Maker" class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-map-marker"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                        
+                        <div class="row">
+                            <div class="col-md-6">  
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="row div-padding-top-label">
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_14">Camp0_14:</label>
+                                                <input id="txtCamp0_14" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_14" placeholder="" />
+                                            </div>
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_15">Camp0_15:</label>
+                                                <input id="txtCamp0_15" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_15" placeholder="" />
+                                            </div>
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_16">Camp0_16:</label>
+                                                <input id="txtCamp0_16" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_16" placeholder="" />
+                                            </div>
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_17">Camp0_17:</label>
+                                                <input id="txtCamp0_17" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_17" placeholder="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">  
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="row div-padding-top-label">
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_18">Camp0_18:</label>
+                                                <input id="txtCamp0_18" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_18" placeholder="" />
+                                            </div>
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_19">Camp0_19:</label>
+                                                <input id="txtCamp0_19" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_19" placeholder="" />
+                                            </div>
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_20">Camp0_20:</label>
+                                                <input id="txtCamp0_20" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_20" placeholder="" />
+                                            </div>
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_21">Camp0_21:</label>
+                                                <input id="txtCamp0_21" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_21" placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_22">Camp0_22:</label>
+                                                <input id="txtCamp0_22" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_22" placeholder="" />
+                                            </div>
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_23">Camp0_23:</label>
+                                                <input id="txtCamp0_23" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_23" placeholder="" />
+                                            </div>
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_24">Camp0_24:</label>
+                                                <input id="txtCamp0_24" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_24" placeholder="" />
+                                            </div>
+                                            <div class="col-md-3"> 
+                                                <label class="control-label" for="txtCamp0_25">Camp0_25:</label>
+                                                <input id="txtCamp0_25" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_25" placeholder="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="Pestana1">
+                        <div class="row form-group">
+                            <div class="col-md-2 text-right">  
+                                <label class="control-label" for="txtCamp2_1">Camp2_1:</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="txtCamp2_1" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_1" placeholder=""/>
+                            </div>
+                            <div class="col-md-2 text-right">  
+                                <label class="control-label" for="txtCamp2_2">Camp2_2:</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="txtCamp2_2" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_2" placeholder="" />
+                            </div>
+                            <div class="col-md-2 text-right">  
+                                <label class="control-label" for="txtCamp2_3">Camp2_3:</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="txtCamp2_3" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_3" placeholder="" />
+                            </div>
+                        </div>  
+
+                        <div class="row form-group">
+                            <div class="col-md-1">  
+                                <label class="control-label" for="txtCamp2_4">Camp2_4:</label>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="txtCamp2_4" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_4" placeholder=""/>
+                            </div>
+                            <div class="col-md-1">  
+                                <label class="control-label" for="txtCamp2_5">Camp2_5:</label>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="txtCamp2_5" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_5" placeholder="" />
+                            </div>
+                            <div class="col-md-1">  
+                                <label class="control-label" for="txtCamp2_6">Camp2_6:</label>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="txtCamp2_6" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_6" placeholder="" />
+                            </div>
+                            <div class="col-md-1">  
+                                <label class="control-label" for="txtCamp2_7">Camp2_7:</label>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="txtCamp2_7" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_7" placeholder="" />
+                            </div>
+                            <div class="col-md-1">  
+                                <label class="control-label" for="txtCamp2_8">Camp2_8:</label>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="txtCamp2_8" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_8" placeholder="" />
+                            </div>
+                            <div class="col-md-1">  
+                                <label class="control-label" for="txtCamp2_9">Camp2_9:</label>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="txtCamp2_9" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_9" placeholder="" />
+                            </div>
+                        </div> 
+                    </div>
                     
-                    <div class="row form-group">
-                        <div class="col-md-6">  
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="row form-group">
-                                        <div class="col-md-3"> 
-                                            <label class="control-label" for="txtCamp0_14">Camp0_14:</label>
-                                            <input id="txtCamp0_14" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_14" placeholder="" />
-                                        </div>
-                                        <div class="col-md-3"> 
-                                            <label class="control-label" for="txtCamp0_15">Camp0_15:</label>
-                                            <input id="txtCamp0_15" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_15" placeholder="" />
-                                        </div>
-                                        <div class="col-md-3"> 
-                                            <label class="control-label" for="txtCamp0_16">Camp0_16:</label>
-                                            <input id="txtCamp0_16" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_16" placeholder="" />
-                                        </div>
-                                        <div class="col-md-3"> 
-                                            <label class="control-label" for="txtCamp0_17">Camp0_17:</label>
-                                            <input id="txtCamp0_17" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_17" placeholder="" />
+                    <div role="tabpanel" class="tab-pane" id="Pestana2">
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-7 text-right">
+                                                <label for="Checkbox1">Checkbox1:</label>
+                                            </div>
+                                            <div class="col-md-5 text-left">
+                                                <input id="Checkbox1" type="checkbox" >
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-6">  
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="row form-group">
-                                        <div class="col-md-3"> 
-                                            <label class="control-label" for="txtCamp0_18">Camp0_18:</label>
-                                            <input id="txtCamp0_18" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_18" placeholder="" />
-                                        </div>
-                                        <div class="col-md-3"> 
-                                            <label class="control-label" for="txtCamp0_19">Camp0_19:</label>
-                                            <input id="txtCamp0_19" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_19" placeholder="" />
-                                        </div>
-                                        <div class="col-md-3"> 
-                                            <label class="control-label" for="txtCamp0_20">Camp0_20:</label>
-                                            <input id="txtCamp0_20" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_20" placeholder="" />
-                                        </div>
-                                        <div class="col-md-3"> 
-                                            <label class="control-label" for="txtCamp0_">Camp0_21:</label>
-                                            <input id="txtCamp0_21" type="text" class="form-control input-sm" maxlength="" name="txtCamp0_21" placeholder="" />
+                            <div class="col-md-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-7 text-right">
+                                                <label for="Checkbox2">Checkbox2:</label>
+                                            </div>
+                                            <div class="col-md-5 text-left">
+                                                <input id="Checkbox2" type="checkbox" >
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div> 
-                </div>
-
-                <div role="tabpanel" class="tab-pane" id="Pestana1">
-                    <div class="row form-group">
-                        <div class="col-md-2 text-right">  
-                            <label class="control-label" for="txtCamp2_1">Camp2_1:</label>
-                        </div>
-                        <div class="col-md-2">
-                            <input id="txtCamp2_1" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_1" placeholder=""/>
-                        </div>
-                        <div class="col-md-2 text-right">  
-                            <label class="control-label" for="txtCamp2_2">Camp2_2:</label>
-                        </div>
-                        <div class="col-md-2">
-                            <input id="txtCamp2_2" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_2" placeholder="" />
-                        </div>
-                        <div class="col-md-2 text-right">  
-                            <label class="control-label" for="txtCamp2_3">Camp2_3:</label>
-                        </div>
-                        <div class="col-md-2">
-                            <input id="txtCamp2_3" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_3" placeholder="" />
-                        </div>
-                    </div>  
-
-                    <div class="row form-group">
-                        <div class="col-md-1">  
-                            <label class="control-label" for="txtCamp2_4">Camp2_4:</label>
-                        </div>
-                        <div class="col-md-1">
-                            <input id="txtCamp2_4" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_4" placeholder=""/>
-                        </div>
-                        <div class="col-md-1">  
-                            <label class="control-label" for="txtCamp2_5">Camp2_5:</label>
-                        </div>
-                        <div class="col-md-1">
-                            <input id="txtCamp2_5" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_5" placeholder="" />
-                        </div>
-                        <div class="col-md-1">  
-                            <label class="control-label" for="txtCamp2_6">Camp2_6:</label>
-                        </div>
-                        <div class="col-md-1">
-                            <input id="txtCamp2_6" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_6" placeholder="" />
-                        </div>
-                        <div class="col-md-1">  
-                            <label class="control-label" for="txtCamp2_7">Camp2_7:</label>
-                        </div>
-                        <div class="col-md-1">
-                            <input id="txtCamp2_7" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_7" placeholder="" />
-                        </div>
-                        <div class="col-md-1">  
-                            <label class="control-label" for="txtCamp2_8">Camp2_8:</label>
-                        </div>
-                        <div class="col-md-1">
-                            <input id="txtCamp2_8" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_8" placeholder="" />
-                        </div>
-                        <div class="col-md-1">  
-                            <label class="control-label" for="txtCamp2_9">Camp2_9:</label>
-                        </div>
-                        <div class="col-md-1">
-                            <input id="txtCamp2_9" type="text" class="form-control input-sm" maxlength="" name="txtCamp2_9" placeholder="" />
-                        </div>
-                    </div> 
-                </div>
-                
-                <div role="tabpanel" class="tab-pane" id="Pestana2">
-                    <div class="row form-group">
-                        <div class="col-md-4">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-7 text-right">
-                                            <label for="Checkbox1">Checkbox1:</label>
-                                        </div>
-                                        <div class="col-md-5 text-left">
-                                            <input id="Checkbox1" type="checkbox" >
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-7 text-right">
-                                            <label for="Checkbox2">Checkbox2:</label>
-                                        </div>
-                                        <div class="col-md-5 text-left">
-                                            <input id="Checkbox2" type="checkbox" >
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-7 text-right">
-                                            <label for="Checkbox3">Checkbox3:</label>
-                                        </div>
-                                        <div class="col-md-5 text-left">
-                                            <input id="Checkbox3" type="checkbox" >
+                            <div class="col-md-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-7 text-right">
+                                                <label for="Checkbox3">Checkbox3:</label>
+                                            </div>
+                                            <div class="col-md-5 text-left">
+                                                <input id="Checkbox3" type="checkbox" >
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div role="tabpanel" class="tab-pane" id="Pestana3">
-                3
-                </div>
-                
-                <div role="tabpanel" class="tab-pane" id="Pestana4">
-                    <div class="panel panel-default">
-                        <div class="panel-body text-right bg-info">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalArchivo">
-                                <i class="fa fa-cloud"></i> Cargar Archivo
-                            </button>
+                    <div role="tabpanel" class="tab-pane" id="Pestana3">
+                    3
+                    </div>
+                    
+                    <div role="tabpanel" class="tab-pane" id="Pestana4">
+                        <div class="panel panel-default">
+                            <div class="panel-body text-right bg-info">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalArchivo">
+                                    <i class="fa fa-cloud"></i> Cargar Archivo
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div role="tabpanel" class="tab-pane" id="Pestana5">
-                    <div class="panel panel-default">
-                        <div class="panel-body text-right bg-info">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFoto">
-                                <i class="fa fa-cloud"></i> Cargar Foto
-                            </button>
+                    <div role="tabpanel" class="tab-pane" id="Pestana5">
+                        <div class="panel panel-default">
+                            <div class="panel-body text-right bg-info">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFoto">
+                                    <i class="fa fa-cloud"></i> Cargar Foto
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div role="tabpanel" class="tab-pane" id="Pestana6">
-                    <div class="row form-group">
-                        <div class="col-md-12">  
-                            <label class="col-form-label" for="txtObs">Observaciones:</label>
-                            <textarea id="txtObs" class="form-control input-sm form-textarea" rows="2" ></textarea>
-                        </div>
-                    </div>  
-                </div>
+                    <div role="tabpanel" class="tab-pane" id="Pestana6">
+                        <div class="row form-group">
+                            <div class="col-md-12">  
+                                <label class="col-form-label" for="txtObs">Observaciones:</label>
+                                <textarea id="txtObs" class="form-control input-sm form-textarea" rows="2" ></textarea>
+                            </div>
+                        </div>  
+                    </div>
 
+                </div>
             </div>
         </div>
         
         <div class="row form-group text-right">
-            <button type="button" class="btn btn-primary">
-                <span class="glyphicon glyphicon-floppy-disk"></span> Guardar Datos
-            </button>
-            <button type="button" class="btn btn-default" onclick="history.go(-1); return false;">
-                <i class="fa fa-angle-double-left"></i> Regresar
-            </button>
+            <div class="col-md-12">
+                <button type="button" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-floppy-disk"></span> Guardar Datos
+                </button>
+                <button type="button" class="btn btn-default" onclick="history.go(-1); return false;">
+                    <i class="fa fa-angle-double-left"></i> Regresar
+                </button>
+            </div>
         </div>
          
     </div>
