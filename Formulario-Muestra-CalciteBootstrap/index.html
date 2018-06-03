@@ -4,10 +4,14 @@
         <title>Plantilla</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="./node_modules/calcite-bootstrap/dist/css/calcite-bootstrap.min.css" rel="stylesheet">
-        <link href="./assets/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-        
+        <link href="./node_modules/calcite-bootstrap/dist/css/calcite-bootstrap.min.css" rel="stylesheet">  
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!--<link rel="stylesheet" href="./assets/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" />
+        -->
+        <!--<link rel="stylesheet" href="./assets/plugins/chosen/chosen.css" />
+        <link rel="stylesheet" href="./assets/plugins/pqGrid/pqgrid.min.css" />
+        <link rel="stylesheet" href="./assets/plugins/pqGrid/themes/Office/pqgrid.css" />-->
         
         <!--
         <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -45,7 +49,7 @@
         }
 
         .cat-box-title .stripe-line {
-            background-image: url(https://hdramosmendoza.github.io/Frontend/Formulario-Muestra-Geologica/assets/iconos/stripe.png);
+            background-image: url(https://hdramosmendoza.github.io/Frontend/Formulario-Muestra-Bootstrap/assets/iconos/stripe.png);
             height: 12px;
             overflow: hidden;
             margin-top: 10px;
@@ -70,8 +74,14 @@
             padding-top: 0 !important;
         }
 
+        body, .nav-tabs[role=tablist]>li.active>a {
+            color: #056896 !important;
+        }
+
         </style>
+    <!--
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+    -->
     </head>
     <body>
     <!-- Page Content -->
@@ -87,6 +97,7 @@
                 </div>                    
             </div> 
         </div>
+   
         <br>
 
         <form id="frmPequenaMineria" class="form-horizontal" role="form">
@@ -876,11 +887,50 @@
         </div>
     </div><!--
     <script src="./node_modules/jquery/dist/jquery.js" type="text/javascript" ></script>-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript" ></script>
     <!--<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" ></script>-->
     <!--<script src="./node_modules/bootstrap/js/src/modal.js" type="text/javascript" ></script>-->
-    <script src="./assets/plugins/bootstrap-datetimepicker/js/moment-with-locales.js"></script>
-    <script src="./assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js" ></script>
+    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
+    <!--
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript" >
+        -->
+    <!--
+    <script src="assets/plugins/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" ></script>-->
+    <script src="assets/js/jquery.backstretch.min.js" type="text/javascript" ></script>
+    <script src="assets/plugins/bootstrap-popover-piker/dist/js/bootstrap-picker.min.js" type="text/javascript" ></script>
+    <!--<script src="assets/plugins/bootstrap-multiselect/bootstrap-multiselect.js" type="text/javascript" ></script>
+    <script src="assets/plugins/selectsize/dist/js/standalone/selectize.js" type="text/javascript" ></script>
+    <!--<script src="assets/plugins/datatables/media/js/jquery.dataTables.min.js" type="text/javascript" ></script>
+    <script src="assets/plugins/datatables/media/js/dataTables.bootstrap.min.js" type="text/javascript" ></script>
+    <script src="assets/plugins/datatables/media/js/dataTables.responsive.min.js" type="text/javascript" ></script>
+    <script src="assets/plugins/datatables/media/js/dataTables.responsive.min.js" type="text/javascript" ></script>
+    <script src="assets/plugins/datatables/media/js/helper.datatables.js" type="text/javascript" ></script>
+    <script src="assets/plugins/datatables/media/js/dataTables.language.es.js" type="text/javascript" ></script>
+    <script src="assets/plugins/boostrap-fileinput/js/fileinput.js" type="text/javascript" ></script>
+    <script src="assets/plugins/boostrap-fileinput/js/fileinput_locale_es.js" type="text/javascript" ></script>
+    <script src="assets/plugins/jquery-validate/jquery.validate.min.js" type="text/javascript" ></script>
+    <script src="assets/plugins/jquery-validate/jquery.validate.es.js" type="text/javascript" ></script>
+    <script src="assets/plugins/jquery-confirm/jquery-confirm.js" type="text/javascript" ></script>
+    <script src="assets/plugins/bootstrap/dist/js/modal.maxheiht.js" type="text/javascript" ></script>
+    <script src="assets/plugins/bootbox/bootbox.js" type="text/javascript" ></script>
+    <script src="assets/plugins/jquery-mask/jquery.mask.min.js" type="text/javascript" ></script>
+    <script src="assets/plugins/jquery-blockui/jquery.blockUI.js" type="text/javascript" ></script>
+    <script src="assets/plugins/jquery-blockui/jquery.extend.blockUI.js" type="text/javascript" ></script>
+    <script src="assets/plugins/bsmodal/bs.sm.js" type="text/javascript" ></script>
+    <script src="assets/js/jquery.modal.js" type="text/javascript" ></script>
+    <script src="assets/js/general.js" type="text/javascript" ></script>
+    <script src="assets/js/msgboxalert.js" type="text/javascript" ></script>
+-->
+
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js" type="text/javascript" ></script>
+   <script src="assets/plugins/droptabs-master/jquery.droptabs.min.js" type="text/javascript" ></script>
+    <script src="assets/plugins/bootstrap-datetimepicker/js/moment-with-locales.js" type="text/javascript" ></script>
+    <script src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript" ></script>
+    <script src="assets/plugins/chosen/chosen.jquery.js" type="text/javascript" ></script>
+    <script src="assets/plugins/jquery.pad/jquery.pad.min.js" type="text/javascript" ></script>
+
+    
 <!--
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js
 " type="text/javascript" ></script>
@@ -896,9 +946,7 @@
     <script>
     $(function(){
 
-        $('#fechaMuestra').datetimepicker({ 
-            ocale: 'es', format: 'DD/MM/YYYY' 
-        });
+        $('#fechaMuestra').datetimepicker({ locale: 'es', format: 'DD/MM/YYYY' });
         //Click al boton de ubicacion del punto.        
         $("#txtCamp0_13_Maker").on("click", function() {
             //Busca en el input hermano y extrae el valor del input
