@@ -1,0 +1,15 @@
+{
+  "name": "Formulario-Muestra-General",
+  "version": "1.0.0",
+  "description": "Formulario general para MarkGIS s.a.c",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Heber Daniel Ramos Mendoza",
+  "license": "ISC",
+  "devDependencies": {
+    "calcite-web": "github:Esri/calcite-web#v1.0.1"
+  }
+}
