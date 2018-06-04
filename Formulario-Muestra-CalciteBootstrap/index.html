@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head runat="server" id="PageHeader">
-        <title>Plantilla</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="./node_modules/calcite-bootstrap/dist/css/calcite-bootstrap.min.css" rel="stylesheet">  
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-        <!--<link rel="stylesheet" href="./assets/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" />
-        -->
-        <!--<link rel="stylesheet" href="./assets/plugins/chosen/chosen.css" />
-        <link rel="stylesheet" href="./assets/plugins/pqGrid/pqgrid.min.css" />
-        <link rel="stylesheet" href="./assets/plugins/pqGrid/themes/Office/pqgrid.css" />-->
+        <!-- Meta -->
+        <meta charset="utf-8" />
+        <title>Plantilla</title>
+        <meta name="description" content="Formulario web de CALCITE BOOTSTRAP" />
+        <meta name="keywords" content="HTML, CSS, JavaScript, Bootstrap 3, Calcite-Bootstrap" />
+        <meta name="author" content="Heber Daniel Ramos Mendoza" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         
-        <!--
-        <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-        -->
+        <!-- Css -->
+        <link rel="stylesheet" type='text/css' href="./bower-dependency/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type='text/css' href="./bower-dependency/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+        <link rel='stylesheet' type='text/css' href="./node_modules/calcite-bootstrap/dist/css/calcite-bootstrap.min.css" />
+        
+        <!-- Font - fa -->
+        <link rel='stylesheet' type='text/css' href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+        <!--<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Roboto:400,700,300'>--> 
+
         <style>
         /* 
             Se agregar para controlar el ancho del "textarea" 
@@ -58,30 +61,37 @@
         .page-header {
             margin: 0 0 20px;
         }
+        /*
+            Se cambio de margin por defecto.
+        */
         h5 {
             margin: 5px 0;
         }
-
+        /*
+            Se eliminio el margin-bottom de todos los div que lo utilicen la clase.
+        */
         .div-margin-bottom {
             margin-bottom: 0;
         }
-
+        /*
+            Se eliminio el padding-top de todos los div que lo utilicen la clase.  
+        */
         .div-padding-top {
             padding-top: 0 !important;
         }
-
+        /*
+            Se eliminio el padding-top-label de todos los label interno que lo utilicen la clase.
+        */
         .div-padding-top-label label {
             padding-top: 0 !important;
         }
-
+        /*
+            Cambio de color a la fuente en general
+        */
         body, .nav-tabs[role=tablist]>li.active>a {
             color: #056896 !important;
         }
-
         </style>
-    <!--
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
-    -->
     </head>
     <body>
     <!-- Page Content -->
@@ -100,7 +110,7 @@
    
         <br>
 
-        <form id="frmPequenaMineria" class="form-horizontal" role="form">
+        <form id="frmMuestra" class="form-horizontal" role="form">
 
             <div class="row">
                 <div class="col-md-6">
@@ -211,8 +221,8 @@
                     <label class="control-label" for="txtQuebrada" >Quebrada (nombre):</label>
                     <div class='input-group'>
                         <input id="txtQuebrada" class="form-control input-sm" type="text" name="txtQuebrada" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-filter" data-toggle="modal" data-target="#modalBusquedaQuebrada">
+                        <span class="input-group-addon" data-toggle="modal" data-target="#modalBusquedaQuebrada">
+                            <span class="glyphicon glyphicon-filter">
                             </span>
                         </span>
                     </div>
@@ -389,8 +399,8 @@
                                             <div class="col-md-3"> 
                                                 <div class='input-group'>
                                                     <input id="txtCamp0_10" class="form-control input-sm" type="text" name="txtCamp0_10" />
-                                                    <span class="input-group-addon">
-                                                        <span class="glyphicon glyphicon-filter" data-toggle="modal" data-target="#modalEjemplo"></span>
+                                                    <span class="input-group-addon" data-toggle="modal" data-target="#modalEjemplo">
+                                                        <span class="glyphicon glyphicon-filter"></span>
                                                     </span>
                                                 </div>
                                             </div>
@@ -660,7 +670,7 @@
                 <button type="button" class="btn btn-default" onclick="history.go(-1); return false;">
                     <i class="fa fa-angle-double-left"></i> Regresar
                 </button>
-                <button type="button" class="btn btn-primary">
+                <button id="btnFormSubmit" type="submit" class="btn btn-primary">
                     <span class="glyphicon glyphicon-floppy-disk"></span> Guardar Datos
                 </button>                
             </div>
@@ -885,68 +895,32 @@
                 </div>
             </div>
         </div>
-    </div><!--
-    <script src="./node_modules/jquery/dist/jquery.js" type="text/javascript" ></script>-->
-    <!--<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" ></script>-->
-    <!--<script src="./node_modules/bootstrap/js/src/modal.js" type="text/javascript" ></script>-->
+    </div>
     
-    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js" ></script>
-    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="./bower-dependency/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./bower-dependency/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="./bower-dependency/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./bower-dependency/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!-- Language - Español -->
+    <script type="text/javascript" src="./bower-dependency/moment/locale/es.js"></script>
+
+    <script type="text/javascript" src="./bower-dependency/jquery-validation/dist/jquery.validate.js" ></script>
     <!--
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript" >
-        -->
-    <!--
-    <script src="assets/plugins/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" ></script>-->
-    <script src="assets/js/jquery.backstretch.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bootstrap-popover-piker/dist/js/bootstrap-picker.min.js" type="text/javascript" ></script>
-    <!--<script src="assets/plugins/bootstrap-multiselect/bootstrap-multiselect.js" type="text/javascript" ></script>
-    <script src="assets/plugins/selectsize/dist/js/standalone/selectize.js" type="text/javascript" ></script>
-    <!--<script src="assets/plugins/datatables/media/js/jquery.dataTables.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/datatables/media/js/dataTables.bootstrap.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/datatables/media/js/dataTables.responsive.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/datatables/media/js/dataTables.responsive.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/datatables/media/js/helper.datatables.js" type="text/javascript" ></script>
-    <script src="assets/plugins/datatables/media/js/dataTables.language.es.js" type="text/javascript" ></script>
-    <script src="assets/plugins/boostrap-fileinput/js/fileinput.js" type="text/javascript" ></script>
-    <script src="assets/plugins/boostrap-fileinput/js/fileinput_locale_es.js" type="text/javascript" ></script>
     <script src="assets/plugins/jquery-validate/jquery.validate.min.js" type="text/javascript" ></script>
     <script src="assets/plugins/jquery-validate/jquery.validate.es.js" type="text/javascript" ></script>
-    <script src="assets/plugins/jquery-confirm/jquery-confirm.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bootstrap/dist/js/modal.maxheiht.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bootbox/bootbox.js" type="text/javascript" ></script>
-    <script src="assets/plugins/jquery-mask/jquery.mask.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/jquery-blockui/jquery.blockUI.js" type="text/javascript" ></script>
-    <script src="assets/plugins/jquery-blockui/jquery.extend.blockUI.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bsmodal/bs.sm.js" type="text/javascript" ></script>
-    <script src="assets/js/jquery.modal.js" type="text/javascript" ></script>
-    <script src="assets/js/general.js" type="text/javascript" ></script>
-    <script src="assets/js/msgboxalert.js" type="text/javascript" ></script>
--->
-
-    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js" type="text/javascript" ></script>
-   <script src="assets/plugins/droptabs-master/jquery.droptabs.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bootstrap-datetimepicker/js/moment-with-locales.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/chosen/chosen.jquery.js" type="text/javascript" ></script>
-    <script src="assets/plugins/jquery.pad/jquery.pad.min.js" type="text/javascript" ></script>
-
-    
-<!--
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js
-" type="text/javascript" ></script>
--->
-
-    <!-- jQuery 
-    <script src="js/jquery.js"></script>-->
-
-    <!-- Bootstrap Core JavaScript 
-    <script src="js/bootstrap.min.js"></script>-->
-    
+    -->
     
     <script>
     $(function(){
+        // Formato de fecha, restricción de fecha e idioma a español.
+        $('#fechaMuestra').datetimepicker({
+            locale: 'es',
+            format: 'DD/MM/YYYY',
+            maxDate: new Date()
+        });
 
-        $('#fechaMuestra').datetimepicker({ locale: 'es', format: 'DD/MM/YYYY' });
         //Click al boton de ubicacion del punto.        
         $("#txtCamp0_13_Maker").on("click", function() {
             //Busca en el input hermano y extrae el valor del input
@@ -960,6 +934,41 @@
             let url = $(this).siblings('input[type=text]').val();
             window.open(url, "_target");
         });
+
+        $("#btnFormSubmit").click(function () { 
+            $("#frmMuestra :submit").trigger("click"); 
+        });
+
+    
+        /*
+        Se tiene que limpiar porque no me ejecuta
+        $('#frmMuestra').validate({
+            ignore: '*:not([name])',
+            rules: {
+                txtNorte: { minlength: 7 },
+                txtEste: { minlength: 6 },
+            },
+            messages: {
+                txtCodigo: "Campo obligatorio",
+                txtFecha: "Campo obligatorio",
+            },
+            highlight: function (element) { 
+                $(element).closest('.form-group > div').addClass('has-error'); 
+            },
+            unhighlight: function (element) { 
+                $(element).closest('.form-group > div').removeClass('has-error'); 
+            },
+            errorElement: 'small',
+            errorClass: 'help-block',
+            errorPlacement: function (error, element) { 
+                error.appendTo(element.closest('div.form-group > div'));
+            },
+            submitHandler: function (form) {
+                //_frmImportXLS(form);
+                return false;
+            }
+        });
+        */
     });
     </script>    
 

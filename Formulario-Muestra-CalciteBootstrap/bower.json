@@ -1,0 +1,23 @@
+{
+  "name": "formulario-muestra-calciteboostrap",
+  "description": "Prueba de Calcite Boostrap",
+  "main": "index.js",
+  "authors": [
+    "Heber Daniel Ramos Mendoza"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/HDRamosMendoza/Frontend",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "bootstrap": "3.3.7",
+    "jquery-validation": "v1.14.0"
+  }
+}

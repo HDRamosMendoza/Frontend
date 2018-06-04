@@ -9,9 +9,7 @@
   "author": "Heber Daniel Ramos Mendoza",
   "license": "ISC",
   "devDependencies": {
-    "bootstrap": "^3.3.7",
-    "calcite-bootstrap": "^0.4.4",
-    "jquery": "^1.11.3"
+    "calcite-bootstrap": "^0.4.4"
   },
   "dependencies": {}
 }
