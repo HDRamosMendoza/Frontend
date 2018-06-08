@@ -2,7 +2,7 @@
 <html lang="es">
     <head runat="server" id="PageHeader">
 
-        <!-- Meta -->
+        <!-- META -->
         <meta charset="utf-8" />
         <title>Plantilla</title>
         <meta name="description" content="Formulario web de CALCITE BOOTSTRAP" />
@@ -10,7 +10,7 @@
         <meta name="author" content="Heber Daniel Ramos Mendoza" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
-        <!-- Css -->
+        <!-- CSS -->
         <link rel="stylesheet" type='text/css' href="./bower-dependency/bootstrap/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" type='text/css' href="./bower-dependency/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
         <link rel='stylesheet' type='text/css' href="./node_modules/calcite-bootstrap/dist/css/calcite-bootstrap.min.css" />
@@ -18,83 +18,10 @@
         <!-- Font - fa -->
         <link rel='stylesheet' type='text/css' href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
         <!--<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Roboto:400,700,300'>--> 
-
-        <style>
-        /* 
-            Se agregar para controlar el ancho del "textarea" 
-        */
-         .form-textarea {
-            min-width: 100%;
-            max-width: 100%;
-         }
-        /* 
-            Se agrega para controlar el relleno de control-lable. El control-label no se 
-            esta agregando sus estilos por lo que no esta dentro de la etiqueta form
-        */
-         .tab-content .control-label, .modal-content .control-label{
-            padding-top: 7px;
-            margin-bottom: 0;
-            font-weight: normal;
-         }
-        /* 
-            Asignando colores a botones que tiene funcionalidad de registro
-        */
-        input[type=text] + .input-group-addon{
-            background-color: rgb(51,122,183);
-            border: 1px solid #337ab7;
-            color: rgb(255,255,255);
-        }
-        /*
-            La margen es por defecto 20. Se redujo a 10. 
-        */
-        hr {
-            margin-bottom: 10px;
-        }
-
-        .cat-box-title .stripe-line {
-            background-image: url(https://hdramosmendoza.github.io/Frontend/Formulario-Muestra-Bootstrap/assets/iconos/stripe.png);
-            height: 12px;
-            overflow: hidden;
-            margin-top: 10px;
-        }
-
-        .page-header {
-            margin: 0 0 20px;
-        }
-        /*
-            Se cambio de margin por defecto.
-        */
-        h5 {
-            margin: 5px 0;
-        }
-        /*
-            Se eliminio el margin-bottom de todos los div que lo utilicen la clase.
-        */
-        .div-margin-bottom {
-            margin-bottom: 0;
-        }
-        /*
-            Se eliminio el padding-top de todos los div que lo utilicen la clase.  
-        */
-        .div-padding-top {
-            padding-top: 0 !important;
-        }
-        /*
-            Se eliminio el padding-top-label de todos los label interno que lo utilicen la clase.
-        */
-        .div-padding-top-label label {
-            padding-top: 0 !important;
-        }
-        /*
-            Cambio de color a la fuente en general
-        */
-        body, .nav-tabs[role=tablist]>li.active>a {
-            color: #056896 !important;
-        }
-        </style>
+        <link rel="stylesheet" type="text/css" href="./css/styles.css">
     </head>
     <body>
-    <!-- Page Content -->
+    <!-- PAGE CONTENT -->
     <div class="container">
         <input type="hidden" id="txtObjectId" value="   " />
         <input type="hidden" id="UsuarioRegistro" value="" />
