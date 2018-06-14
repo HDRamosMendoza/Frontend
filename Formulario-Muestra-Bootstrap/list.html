@@ -1,236 +1,924 @@
 <!DOCTYPE html>
-<html lang="en">
-<head runat="server" id="PageHeader">
-    <title>Plantilla</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="../../assets/iconos/favicon.ico" type="image/ico">
-    <link href="assets/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/plugins/bootstrap-popover-piker/dist/css/bootstrap-picker.min.css" rel="stylesheet">
-    <link href="assets/plugins/bootstrap-multiselect/bootstrap-multiselect.css" rel="stylesheet">
-    <link href="assets/plugins/selectsize/dist/css/selectize.bootstrap3.css" rel="stylesheet">
-    <link href="assets/plugins/selectsize/dist/css/selectize.css" rel="stylesheet">
-    <link href="assets/plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="assets/plugins/datatables/media/css/responsive.bootstrap.css" rel="stylesheet">
-    <link href="assets/plugins/selectsize/dist/css/selectize.default.css" rel="stylesheet">
-    <link href="assets/plugins/boostrap-fileinput/css/fileinput.css" rel="stylesheet">
-    <link href="assets/plugins/jquery-confirm/jquery-confirm.css" rel="stylesheet">
-    <link href="assets/plugins/jquery-blockui/jquery.blockUI.css" rel="stylesheet">
-    <link href="assets/plugins/bsmodal/bs.sm.css" rel="stylesheet">
-    <link href="assets/css/main.css" rel="stylesheet">
-    <link href="assets/css/config-web.css" rel="stylesheet">
-    <link href="assets/css/ingemmet-font.css" rel="stylesheet">
-    <link href="assets/css/login.css" rel="stylesheet">
-    <link href="assets/plugins/jquery-confirm/jquery-confirm-config.css" rel="stylesheet">
-    <link href="assets/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <link href="assets/plugins/chosen/chosen.css" rel="stylesheet">
-    <link href="assets/plugins/pqGrid/pqgrid.min.css" rel="stylesheet">
-    <link href="assets/plugins/pqGrid/themes/Office/pqgrid.css" rel="stylesheet">
-    <style>
-    /* Se agregar para controlar el ancho del "textarea" */
-    
-    </style>
-</head>
-<body>
-    <!-- Page Content -->
-    <div class="container">
-        <input type="hidden" id="txtObjectId" value="   " />
-        <input type="hidden" id="UsuarioRegistro" value="" />
+<html lang="es">
+    <head runat="server" id="PageHeader">
+        <title>Plantilla</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="../../assets/iconos/favicon.ico" type="image/ico">
+        <link href="assets/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="assets/plugins/bootstrap-popover-piker/dist/css/bootstrap-picker.min.css" rel="stylesheet">
+        <link href="assets/plugins/bootstrap-multiselect/bootstrap-multiselect.css" rel="stylesheet">
+        <link href="assets/plugins/selectsize/dist/css/selectize.bootstrap3.css" rel="stylesheet">
+        <link href="assets/plugins/selectsize/dist/css/selectize.css" rel="stylesheet">
+        <link href="assets/plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
+        <link href="assets/plugins/datatables/media/css/responsive.bootstrap.css" rel="stylesheet">
+        <link href="assets/plugins/selectsize/dist/css/selectize.default.css" rel="stylesheet">
+        <link href="assets/plugins/boostrap-fileinput/css/fileinput.css" rel="stylesheet">
+        <link href="assets/plugins/jquery-confirm/jquery-confirm.css" rel="stylesheet">
+        <link href="assets/plugins/jquery-blockui/jquery.blockUI.css" rel="stylesheet">
+        <link href="assets/plugins/bsmodal/bs.sm.css" rel="stylesheet">
+        <link href="assets/css/main.css" rel="stylesheet">
+        <link href="assets/css/config-web.css" rel="stylesheet">
+        <link href="assets/css/ingemmet-font.css" rel="stylesheet">
+        <link href="assets/css/login.css" rel="stylesheet">
+        <link href="assets/plugins/jquery-confirm/jquery-confirm-config.css" rel="stylesheet">
+        <link href="assets/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <link href="assets/plugins/chosen/chosen.css" rel="stylesheet">
+        <link href="assets/plugins/pqGrid/pqgrid.min.css" rel="stylesheet">
+        <link href="assets/plugins/pqGrid/themes/Office/pqgrid.css" rel="stylesheet">
+        
+        <style>
+            
+            #chartdiv-11,
+            #chartdiv-12,
+            #chartdiv-22,
+            #chartdiv-33,
+            #chartdiv-44 {
+                width       : 100%;
+                height      : 500px;
+                font-size   : 11px;
+            }
+        </style>
 
-        <div class="row">
-            <div class="cat-box-title button-inline col-md-12">
-                <h2>Muestras Geológicas</h2>
-                <div class="stripe-line"></div>
-            </div>   
-        </div>
+    </head>
+    <body>
+        <!-- Page Content -->
+        <div class="container">
+            <input type="hidden" id="txtObjectId" value="   " />
+            <input type="hidden" id="UsuarioRegistro" value="" />
 
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-body text-right">
-                    <button type="button" class="btn btn-info btn-md">
-                        <i class="fa fa-file-pdf-o"></i> Reporte
-                    </button>
-                    <button type="button" class="btn btn-info btn-md">
-                        <span class="glyphicon glyphicon-folder-open"></span> Archivo
-                    </button>
-                    <button type="button" class="btn btn-success btn-md">
-                        <span class="glyphicon glyphicon-import"></span> Importar
-                    </button>
-                    <button type="button" class="btn btn-success btn-md">
-                        <span class="glyphicon glyphicon-export"></span> Exportar
-                    </button>                    
+            <div class="row">
+                <div class="cat-box-title button-inline col-md-12">
+                    <h2>Muestras Geológicas</h2>
+                    <div class="stripe-line"></div>
+                </div>   
+            </div>
+            <div class="row">
+                <table id="tblMSQGeoquimica" class="table table-bordered table-condensed table-hover order-column">
+                    <thead >
+                        <tr>
+                            <th class="alinear-thead">Estado</th>   
+                            <th class="alinear-thead">Proyecto</th>      
+                            <th class="alinear-thead">Campaña</th>  
+                            <th class="alinear-thead">Colectado</th>     
+                            <th class="alinear-thead">Código Muestra</th>
+                            <th class="alinear-thead">F. Muestra</th>
+                            <th class="alinear-thead">Norte</th>         
+                            <th class="alinear-thead">Este</th>
+                            <th class="alinear-thead">Zona</th>      
+                            <th class="alinear-thead">Datum</th>             
+                            <th class="alinear-thead">Latitud</th>  
+                            <th class="alinear-thead">Longitud</th>      
+                            <th class="alinear-thead">Altitud</th>
+                            <th class="alinear-thead">Región</th>        
+                            <th class="alinear-thead">Provincia</th>  
+                            <th class="alinear-thead">Distrito</th>
+                        </tr>
+                    </thead>
+                </table>
+                
+            </div>
+
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body text-right">
+                        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#graficoModal">
+                            <i class="fa fa-area-chart"></i> 
+                            Gráfico - V1
+                        </button>
+                        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#graficoModal-V2">
+                            <i class="fa fa-area-chart"></i> 
+                            Gráfico - V2
+                        </button>
+                        <button type="button" class="btn btn-info btn-md">
+                            <i class="fa fa-file-pdf-o"></i> 
+                            Reporte
+                        </button>
+                        <button type="button" class="btn btn-info btn-md">
+                            <span class="glyphicon glyphicon-folder-open"></span> 
+                            Archivo
+                        </button>
+                        <button type="button" class="btn btn-success btn-md">
+                            <span class="glyphicon glyphicon-import"></span> 
+                            Importar
+                        </button>
+                        <button type="button" class="btn btn-success btn-md">
+                            <span class="glyphicon glyphicon-export"></span> 
+                            Exportar
+                        </button>                    
+                    </div>
                 </div>
             </div>
-        </div>
 
-
-       
-
-        
-         
-    </div>
-
-    <!-- Ventana Modal - ARCHIVOS -->
-    <div class="modal fade" id="modalBusquedaQuebrada" role="dialog">
-        <div class="modal-dialog">
-      <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header bg-info">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">
-                        <span class="glyphicon glyphicon-filter"></span> 
-                        Filtro de búsqueda de quebrada
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control input-sm" placeholder="Nombre de quebrada" value="" />
+            <div class="row">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a data-toggle="tab" href="#grafico-1">
+                            <i class="fa fa-pie-chart"></i>
+                            Gráfico de sectores - 3D
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#grafico-2">
+                            <i class="fa fa-bar-chart"></i>
+                            Gráfico de barras agrupadas
+                        </a>
+                    </li>
+                   <!--
+                    <li>
+                        <a data-toggle="tab" href="#grafico-3">
+                            <i class="fa fa-pie-chart"></i>
+                            Gráfico circular - Rebanadas rotas
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#grafico-4">
+                            <i class="fa fa-pie-chart"></i>
+                            Gráfico de anillos
+                        </a>
+                    </li>
+                -->
+                </ul>
+                
+                <div class="tab-content">
+                    <div id="grafico-1" class="tab-pane fade in active">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <fieldset class="dhhBorder">
+                                    <legend class="dhhBorder">
+                                        <span class="glyphicon glyphicon-filter"></span>
+                                        Filtro de búsqueda
+                                    </legend>
+                                    
+                                    <div class="row form-group">      
+                                        <div class="col-md-12">
+                                            <label class="control-label" for="cboProyecto" >
+                                                Muestra por año:
+                                            </label>
+                                            <select id="cboAño" class="form-control input-sm" 
+                                                    data-placeholder="Seleccione año"
+                                                    required="required" 
+                                                    name="cboProyecto">
+                                                <option>Seleccione</option>
+                                                <option>2018</option>
+                                                <option>2017</option>
+                                                <option>2016</option>
+                                                <option>2015</option>
+                                            </select>
                                         </div>
-                                        <div class="col-md-3">
-                                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
-                                                <span class="glyphicon glyphicon-search"></span> Buscar
-                                            </button>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <button type="button" class="btn btn-primary btn-sm btn-block" value="">
-                                                <span class="glyphicon glyphicon-trash"></span> Limpiar
+                                    </div>
+                                    <div class="row form-group">      
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-primary btn-md btn-block">
+                                                Gráficar
                                             </button>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="panel-body">
-                                    <table class="table table-bordered table-fixed table-popup">
-                                        <caption class="text-center">Resultado</caption>
-                                        <thead>
-                                            <tr>
-                                                <th class="col-xs-4 text-center">Código</th>
-                                                <th class="col-xs-8 text-center">Nombre</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Hola</th>
-                                                <td>Hola Nombre</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Hola</th>
-                                                <td>Hola Nombre</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Hola</th>
-                                                <td>Hola Nombre</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="alert alert-info">
+                                                <strong>Información!</strong>
+                                                Muestra de geológicas por año
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </fieldset>
+                            </div>
+                            <div class="col-md-8">
+                                <div id="chartdiv-11"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="grafico-2" class="tab-pane fade">
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <fieldset class="dhhBorder">
+                                    <legend class="dhhBorder">
+                                        <span class="glyphicon glyphicon-filter"></span>
+                                        Filtro de búsqueda
+                                    </legend>
+                                    
+                                    <div class="row form-group">      
+                                        <div class="col-md-12">
+                                            <label class="control-label" for="cboProyecto" >Muestra por año:</label>
+                                            <select id="cboAño" class="form-control input-sm" data-placeholder="Seleccione año" required="required" name="cboProyecto">
+                                                <option>Seleccione</option>
+                                                <option>2018</option>
+                                                <option>2017</option>
+                                                <option>2016</option>
+                                                <option>2015</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">      
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-primary btn-md btn-block">
+                                                Gráficar
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="alert alert-info">
+                                                <strong>Información!</strong>
+                                                Muestra de geológicas por año
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </fieldset>
+                            </div>
+                            <div class="col-md-8">
+                                <div id="chartdiv-12"></div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                   <!--
+                    <div id="grafico-3" class="tab-pane fade">
+                      <h3>Menu 2</h3>
+                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                    </div>
+                    <div id="grafico-4" class="tab-pane fade">
+                      <h3>Menu 3</h3>
+                      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    </div>
+                -->
+                </div>    
+                
+                
+            </div>
+            
+             
+        </div>
+
+        <!-- Ventana Modal - ARCHIVOS -->
+        <div class="modal fade" id="modalBusquedaQuebrada" role="dialog">
+            <div class="modal-dialog">
+          <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">
+                            <span class="glyphicon glyphicon-filter"></span> 
+                            Filtro de búsqueda de quebrada
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control input-sm" placeholder="Nombre de quebrada" value="" />
+                                            </div>
+                                            <div class="col-md-3">
+                                                <button type="button" class="btn btn-primary btn-sm btn-block" value="">
+                                                    <span class="glyphicon glyphicon-search"></span> Buscar
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <button type="button" class="btn btn-primary btn-sm btn-block" value="">
+                                                    <span class="glyphicon glyphicon-trash"></span> Limpiar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <table class="table table-bordered table-fixed table-popup">
+                                            <caption class="text-center">Resultado</caption>
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-xs-4 text-center">Código</th>
+                                                    <th class="col-xs-8 text-center">Nombre</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Hola</th>
+                                                    <td>Hola Nombre</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Hola</th>
+                                                    <td>Hola Nombre</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Hola</th>
+                                                    <td>Hola Nombre</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        <span class="glyphicon glyphicon-remove"></span> Cerrar
-                    </button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-remove"></span> Cerrar
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Ventana Modal - ARCHIVOS -->
-    <div class="modal fade" id="modalArchivo" role="dialog">
-        <div class="modal-dialog">
-      <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header bg-info">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">
-                    <span class="glyphicon glyphicon-cloud-upload"></span> Cargar Archivo
-                    </h4>
+        <!-- Ventana Modal - ARCHIVOS -->
+        <div class="modal fade" id="modalArchivo" role="dialog">
+            <div class="modal-dialog">
+          <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">
+                        <span class="glyphicon glyphicon-cloud-upload"></span> Cargar Archivo
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Some text in the modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-remove"></span> Cerrar
+                        </button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                  <p>Some text in the modal.</p>
+          
+            </div>
+        </div>
+
+        <!-- Ventana Modal - FOTOS -->
+        <div class="modal fade" id="modalFoto" role="dialog">
+            <div class="modal-dialog">
+          <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">
+                        <span class="glyphicon glyphicon-cloud-upload"></span> Cargar Foto
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Some text in the modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-remove"></span> Cerrar
+                        </button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        <span class="glyphicon glyphicon-remove"></span> Cerrar
-                    </button>
+          
+            </div>
+        </div>
+
+        <div id="graficoModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">
+                            <i class="fa fa-area-chart"></i> 
+                            Gráfico de Muestras
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <fieldset class="dhhBorder">
+                                    <legend class="dhhBorder">
+                                        <span class="glyphicon glyphicon-filter"></span>
+                                        Filtro de búsqueda
+                                    </legend>
+                                    
+                                    <div class="row form-group">      
+                                        <div class="col-md-12">
+                                            <label class="control-label" for="cboProyecto" >Muestra por año:</label>
+                                            <select id="cboAño" class="form-control input-sm" data-placeholder="Seleccione año" required="required" name="cboProyecto">
+                                                <option>Seleccione</option>
+                                                <option>2018</option>
+                                                <option>2017</option>
+                                                <option>2016</option>
+                                                <option>2015</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">      
+                                        <div class="col-md-12">
+                                            <label class="control-label" for="cboProyecto" >Gráfico:</label>
+                                            <select id="cboAño" class="form-control input-sm" data-placeholder="Seleccione año" required="required" name="cboProyecto">
+                                                <option value="">Sectores - 3D</option>
+                                                <option value="" selected>Barras agrupadas</option>
+                                                <option value="">Circular - Rebanadas rotas</option>
+                                                <option value="">Anillos</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">      
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-primary btn-md btn-block">
+                                                Gráficar
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="alert alert-info">
+                                                <strong>Información!</strong>
+                                                Muestra de geológicas por año
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </fieldset>
+                            </div>
+                            <div class="col-md-8">
+                                <div id="chartdiv-22"></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Cerrar
+                        </button>
+                    </div>
                 </div>
             </div>
-      
         </div>
-    </div>
 
-    <!-- Ventana Modal - FOTOS -->
-    <div class="modal fade" id="modalFoto" role="dialog">
-        <div class="modal-dialog">
-      <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header bg-info">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">
-                    <span class="glyphicon glyphicon-cloud-upload"></span> Cargar Foto
-                    </h4>
-                </div>
-                <div class="modal-body">
-                  <p>Some text in the modal.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        <span class="glyphicon glyphicon-remove"></span> Cerrar
-                    </button>
+        <div id="graficoModal-V2" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">
+                            <i class="fa fa-area-chart"></i> 
+                            Gráfico de Muestras
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <fieldset class="dhhBorder">
+                                    <legend class="dhhBorder">
+                                        <span class="glyphicon glyphicon-filter"></span>
+                                        Búsqueda
+                                    </legend>
+                                    
+                                    <div class="row form-group">      
+                                        <div class="col-md-12">
+                                            <label class="control-label" for="cboProyecto" >Muestra por año:</label>
+                                            <select id="cboAño" class="form-control input-sm" data-placeholder="Seleccione año" required="required" name="cboProyecto">
+                                                <option>Seleccione</option>
+                                                <option>2018</option>
+                                                <option>2017</option>
+                                                <option>2016</option>
+                                                <option>2015</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">      
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-primary btn-md btn-block">
+                                                Gráficar
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="alert alert-info">
+                                                <strong>Información!</strong>
+                                                Muestra de geológicas por año
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </fieldset>
+                            </div>
+                            <div class="col-md-9">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#grafico-11">
+                                            <i class="fa fa-pie-chart"></i>
+                                            Gráfico de sectores - 3D
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#grafico-22">
+                                            <i class="fa fa-bar-chart"></i>
+                                            Gráfico de barras agrupadas
+                                        </a>
+                                    </li>
+                                </ul>
+                                
+                                <div class="tab-content">
+                                    <div id="grafico-11" class="tab-pane fade in active">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div id="chartdiv-33"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="grafico-22" class="tab-pane fade">
+                                        
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div id="chartdiv-44"></div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>  
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Cerrar
+                        </button>
+                    </div>
                 </div>
             </div>
-      
         </div>
-    </div>
 
-    <script src="assets/js/jquery.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" ></script>
-    <script src="assets/js/jquery.backstretch.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bootstrap-popover-piker/dist/js/bootstrap-picker.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bootstrap-multiselect/bootstrap-multiselect.js" type="text/javascript" ></script>
-    <script src="assets/plugins/selectsize/dist/js/standalone/selectize.js" type="text/javascript" ></script>
-    <script src="assets/plugins/datatables/media/js/jquery.dataTables.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/datatables/media/js/dataTables.bootstrap.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/datatables/media/js/dataTables.responsive.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/datatables/media/js/dataTables.responsive.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/datatables/media/js/helper.datatables.js" type="text/javascript" ></script>
-    <script src="assets/plugins/datatables/media/js/dataTables.language.es.js" type="text/javascript" ></script>
-    <script src="assets/plugins/boostrap-fileinput/js/fileinput.js" type="text/javascript" ></script>
-    <script src="assets/plugins/boostrap-fileinput/js/fileinput_locale_es.js" type="text/javascript" ></script>
-    <script src="assets/plugins/jquery-validate/jquery.validate.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/jquery-validate/jquery.validate.es.js" type="text/javascript" ></script>
-    <script src="assets/plugins/jquery-confirm/jquery-confirm.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bootstrap/dist/js/modal.maxheiht.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bootbox/bootbox.js" type="text/javascript" ></script>
-    <script src="assets/plugins/jquery-mask/jquery.mask.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/jquery-blockui/jquery.blockUI.js" type="text/javascript" ></script>
-    <script src="assets/plugins/jquery-blockui/jquery.extend.blockUI.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bsmodal/bs.sm.js" type="text/javascript" ></script>
-    <script src="assets/js/jquery.modal.js" type="text/javascript" ></script>
-    <script src="assets/js/general.js" type="text/javascript" ></script>
-    <script src="assets/js/msgboxalert.js" type="text/javascript" ></script>
-    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/droptabs-master/jquery.droptabs.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bootstrap-datetimepicker/js/moment-with-locales.js" type="text/javascript" ></script>
-    <script src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript" ></script>
-    <script src="assets/plugins/chosen/chosen.jquery.js" type="text/javascript" ></script>
-    <script src="assets/plugins/jquery.pad/jquery.pad.min.js" type="text/javascript" ></script>
+        <script src="assets/js/jquery.min.js" type="text/javascript" ></script>
+        <script src="assets/plugins/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" ></script>
+        <script src="assets/js/jquery.backstretch.min.js" type="text/javascript" ></script>
+        <script src="assets/plugins/bootstrap-popover-piker/dist/js/bootstrap-picker.min.js" type="text/javascript" ></script>
+        <script src="assets/plugins/bootstrap-multiselect/bootstrap-multiselect.js" type="text/javascript" ></script>
+        <script src="assets/plugins/selectsize/dist/js/standalone/selectize.js" type="text/javascript" ></script>
+        <script src="assets/plugins/datatables/media/js/jquery.dataTables.min.js" type="text/javascript" ></script>
+        <script src="assets/plugins/datatables/media/js/dataTables.bootstrap.min.js" type="text/javascript" ></script>
+        <script src="assets/plugins/datatables/media/js/dataTables.responsive.min.js" type="text/javascript" ></script>
+        <script src="assets/plugins/datatables/media/js/dataTables.responsive.min.js" type="text/javascript" ></script>
+        <script src="assets/plugins/datatables/media/js/helper.datatables.js" type="text/javascript" ></script>
+        <script src="assets/plugins/datatables/media/js/dataTables.language.es.js" type="text/javascript" ></script>
+        <script src="assets/plugins/boostrap-fileinput/js/fileinput.js" type="text/javascript" ></script>
+        <script src="assets/plugins/boostrap-fileinput/js/fileinput_locale_es.js" type="text/javascript" ></script>
+        <script src="assets/plugins/jquery-validate/jquery.validate.min.js" type="text/javascript" ></script>
+        <script src="assets/plugins/jquery-validate/jquery.validate.es.js" type="text/javascript" ></script>
+        <script src="assets/plugins/jquery-confirm/jquery-confirm.js" type="text/javascript" ></script>
+        <script src="assets/plugins/bootstrap/dist/js/modal.maxheiht.js" type="text/javascript" ></script>
+        <script src="assets/plugins/bootbox/bootbox.js" type="text/javascript" ></script>
+        <script src="assets/plugins/jquery-mask/jquery.mask.min.js" type="text/javascript" ></script>
+        <script src="assets/plugins/jquery-blockui/jquery.blockUI.js" type="text/javascript" ></script>
+        <script src="assets/plugins/jquery-blockui/jquery.extend.blockUI.js" type="text/javascript" ></script>
+        <script src="assets/plugins/bsmodal/bs.sm.js" type="text/javascript" ></script>
+        <script src="assets/js/jquery.modal.js" type="text/javascript" ></script>
+        <script src="assets/js/general.js" type="text/javascript" ></script>
+        <script src="assets/js/msgboxalert.js" type="text/javascript" ></script>
+        <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="assets/plugins/droptabs-master/jquery.droptabs.min.js" type="text/javascript" ></script>
+        <script src="assets/plugins/bootstrap-datetimepicker/js/moment-with-locales.js" type="text/javascript" ></script>
+        <script src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript" ></script>
+        <script src="assets/plugins/chosen/chosen.jquery.js" type="text/javascript" ></script>
+        <script src="assets/plugins/jquery.pad/jquery.pad.min.js" type="text/javascript" ></script>
+
+        <!-- Resources - tab 1 -->
+        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+        <script src="https://www.amcharts.com/lib/3/pie.js"></script>
+        <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+        <!-- Resources - tab 2 -->
+        <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+
+        <script>
+            var chart;
+            chart = AmCharts.makeChart( "chartdiv-11", {
+                    "type": "pie",
+                    "theme": "light",
+                    "dataProvider": [ {
+                    "country": "Oro",
+                    "value": 260
+                }, {
+                    "country": "Plata",
+                    "value": 201
+                }, {
+                    "country": "Cobre",
+                    "value": 65
+                }, {
+                    "country": "Zinc",
+                    "value": 39
+                }, {
+                    "country": "Magnesio",
+                    "value": 19
+                }, {
+                    "country": "Plomo",
+                    "value": 10
+                } ],
+                "valueField": "value",
+                "titleField": "country",
+                "outlineAlpha": 0.4,
+                "depth3D": 30,
+                "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+                "angle": 30,
+                "export": {
+                    "enabled": true
+                }
+            } );
 
 
 
-    <!-- jQuery 
-    <script src="js/jquery.js"></script>-->
 
-    <!-- Bootstrap Core JavaScript 
-    <script src="js/bootstrap.min.js"></script>-->
 
-</body>
 
+            var chart = AmCharts.makeChart("chartdiv-22", {
+                "type": "serial",
+                 "theme": "light",
+                "categoryField": "year",
+                "rotate": true,
+                "startDuration": 1,
+                "categoryAxis": {
+                    "gridPosition": "start",
+                    "position": "left"
+                },
+                "trendLines": [],
+                "graphs": [
+                    {
+                        "balloonText": "Income:[[value]]",
+                        "fillAlphas": 0.8,
+                        "id": "AmGraph-1",
+                        "lineAlpha": 0.2,
+                        "title": "Income",
+                        "type": "column",
+                        "valueField": "income"
+                    },
+                    {
+                        "balloonText": "Expenses:[[value]]",
+                        "fillAlphas": 0.8,
+                        "id": "AmGraph-2",
+                        "lineAlpha": 0.2,
+                        "title": "Expenses",
+                        "type": "column",
+                        "valueField": "expenses"
+                    }
+                ],
+                "guides": [],
+                "valueAxes": [
+                    {
+                        "id": "ValueAxis-1",
+                        "position": "top",
+                        "axisAlpha": 0
+                    }
+                ],
+                "allLabels": [],
+                "balloon": {},
+                "titles": [],
+                "dataProvider": [
+                    {
+                        "year": 2005,
+                        "income": 23.5,
+                        "expenses": 18.1
+                    },
+                    {
+                        "year": 2006,
+                        "income": 26.2,
+                        "expenses": 22.8
+                    },
+                    {
+                        "year": 2007,
+                        "income": 30.1,
+                        "expenses": 23.9
+                    },
+                    {
+                        "year": 2008,
+                        "income": 29.5,
+                        "expenses": 25.1
+                    },
+                    {
+                        "year": 2009,
+                        "income": 24.6,
+                        "expenses": 25
+                    }
+                ],
+                "export": {
+                    "enabled": true
+                 }
+
+            });
+
+            var chart = AmCharts.makeChart("chartdiv-12", {
+                "type": "serial",
+                 "theme": "light",
+                "categoryField": "year",
+                "rotate": true,
+                "startDuration": 1,
+                "categoryAxis": {
+                    "gridPosition": "start",
+                    "position": "left"
+                },
+                "trendLines": [],
+                "graphs": [
+                    {
+                        "balloonText": "Income:[[value]]",
+                        "fillAlphas": 0.8,
+                        "id": "AmGraph-1",
+                        "lineAlpha": 0.2,
+                        "title": "Income",
+                        "type": "column",
+                        "valueField": "income"
+                    },
+                    {
+                        "balloonText": "Expenses:[[value]]",
+                        "fillAlphas": 0.8,
+                        "id": "AmGraph-2",
+                        "lineAlpha": 0.2,
+                        "title": "Expenses",
+                        "type": "column",
+                        "valueField": "expenses"
+                    }
+                ],
+                "guides": [],
+                "valueAxes": [
+                    {
+                        "id": "ValueAxis-1",
+                        "position": "top",
+                        "axisAlpha": 0
+                    }
+                ],
+                "allLabels": [],
+                "balloon": {},
+                "titles": [],
+                "dataProvider": [
+                    {
+                        "year": 2005,
+                        "income": 23.5,
+                        "expenses": 18.1
+                    },
+                    {
+                        "year": 2006,
+                        "income": 26.2,
+                        "expenses": 22.8
+                    },
+                    {
+                        "year": 2007,
+                        "income": 30.1,
+                        "expenses": 23.9
+                    },
+                    {
+                        "year": 2008,
+                        "income": 29.5,
+                        "expenses": 25.1
+                    },
+                    {
+                        "year": 2009,
+                        "income": 24.6,
+                        "expenses": 25
+                    }
+                ],
+                "export": {
+                    "enabled": true
+                 }
+
+            });
+        </script>
+        <script>
+            var chart;
+            chart = AmCharts.makeChart( "chartdiv-33", {
+                    "type": "pie",
+                    "theme": "light",
+                    "dataProvider": [ {
+                    "country": "Oro",
+                    "value": 260
+                }, {
+                    "country": "Plata",
+                    "value": 201
+                }, {
+                    "country": "Cobre",
+                    "value": 65
+                }, {
+                    "country": "Zinc",
+                    "value": 39
+                }, {
+                    "country": "Magnesio",
+                    "value": 19
+                }, {
+                    "country": "Plomo",
+                    "value": 10
+                } ],
+                "valueField": "value",
+                "titleField": "country",
+                "outlineAlpha": 0.4,
+                "depth3D": 30,
+                "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+                "angle": 30,
+                "export": {
+                    "enabled": true
+                }
+            } );
+
+            var chart = AmCharts.makeChart("chartdiv-44", {
+                "type": "serial",
+                 "theme": "light",
+                "categoryField": "year",
+                "rotate": true,
+                "startDuration": 1,
+                "categoryAxis": {
+                    "gridPosition": "start",
+                    "position": "left"
+                },
+                "trendLines": [],
+                "graphs": [
+                    {
+                        "balloonText": "Income:[[value]]",
+                        "fillAlphas": 0.8,
+                        "id": "AmGraph-1",
+                        "lineAlpha": 0.2,
+                        "title": "Income",
+                        "type": "column",
+                        "valueField": "income"
+                    },
+                    {
+                        "balloonText": "Expenses:[[value]]",
+                        "fillAlphas": 0.8,
+                        "id": "AmGraph-2",
+                        "lineAlpha": 0.2,
+                        "title": "Expenses",
+                        "type": "column",
+                        "valueField": "expenses"
+                    }
+                ],
+                "guides": [],
+                "valueAxes": [
+                    {
+                        "id": "ValueAxis-1",
+                        "position": "top",
+                        "axisAlpha": 0
+                    }
+                ],
+                "allLabels": [],
+                "balloon": {},
+                "titles": [],
+                "dataProvider": [
+                    {
+                        "year": 2005,
+                        "income": 23.5,
+                        "expenses": 18.1
+                    },
+                    {
+                        "year": 2006,
+                        "income": 26.2,
+                        "expenses": 22.8
+                    },
+                    {
+                        "year": 2007,
+                        "income": 30.1,
+                        "expenses": 23.9
+                    },
+                    {
+                        "year": 2008,
+                        "income": 29.5,
+                        "expenses": 25.1
+                    },
+                    {
+                        "year": 2009,
+                        "income": 24.6,
+                        "expenses": 25
+                    }
+                ],
+                "export": {
+                    "enabled": true
+                 }
+
+            });
+        </script>
+        <script>
+            $(function(){
+                /* Destrucción de etiqueta */
+                setTimeout(function(){ 
+                    $("#chartdiv-11 a:nth-child(2)").remove();
+                }, 3000);
+            });
+
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                // activated tab
+                /*var target = $(e.target).attr("href") */
+                
+                setTimeout(function(){ 
+                    $("#chartdiv-11 a:nth-child(2)").remove();
+                $("#chartdiv-12 a:nth-child(2)").remove();
+                }, 1000);
+            });
+        </script>
+        <!-- jQuery 
+        <script src="js/jquery.js"></script>-->
+
+        <!-- Bootstrap Core JavaScript 
+        <script src="js/bootstrap.min.js"></script>-->
+
+    </body>
 </html>

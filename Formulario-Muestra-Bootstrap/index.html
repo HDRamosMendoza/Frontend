@@ -75,181 +75,182 @@
         </div>
 
         <form id="frmPequenaMineria" class="form-horizontal" role="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="col-md-6 col-form-label text-right" for="cboRegistro">
+                        ---- Botones de Mantenimiento ----
+                     </label>
+                </div>
+                <div class="col-md-6">
+                    <div class="row form-group">
+                        <label class="col-md-6 control-label text-right" for="cboRegistro">
+                            Estado del Registro:
+                        </label>
+                        <div class="col-md-6">
+                            <select id="cboRegistro" class="form-control input-sm" data-placeholder="Seleccione Registro" required="required" name="cboRegistro">
+                                <option value="0">prueba</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="row">
-                <div class="row">
-                    <div class="col-md-6">
-                        <label class="col-md-6 col-form-label text-right" for="cboRegistro">
-                            ---- Botones de Mantenimiento ----
-                         </label>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row form-group">
-                            <label class="col-md-6 control-label text-right" for="cboRegistro">
-                                Estado del Registro:
-                            </label>
-                            <div class="col-md-6">
-                                <select id="cboRegistro" class="form-control input-sm" data-placeholder="Seleccione Registro" required="required" name="cboRegistro">
-                                    <option value="0">prueba</option>
-                                </select>
-                            </div>
+                <fieldset class="dhhBorder">
+                    <legend class="dhhBorder">Datos Generales</legend>
+                   
+                    <div class="row form-group">      
+                        <div class="col-md-6">
+                            <label class="control-label" for="cboProyecto" >Proyecto:</label>
+                            <select id="cboProyecto" class="form-control input-sm" data-placeholder="Seleccione Proyecto" required="required" name="cboProyecto">
+                                <option>prueba</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label" for="cboSubProyecto">Sub-Proyecto:</label>
+                            <select id="cboSubProyecto" class="form-control input-sm" data-placeholder="Seleccione SubProyecto" name="cboSubProyecto">
+                                <option>prueba</option>
+                            </select>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <fieldset class="dhhBorder">
-                        <legend class="dhhBorder">Datos Generales</legend>
-                       
-                        <div class="row form-group">      
-                            <div class="col-md-6">
-                                <label class="control-label" for="cboProyecto" >Proyecto:</label>
-                                <select id="cboProyecto" class="form-control input-sm" data-placeholder="Seleccione Proyecto" required="required" name="cboProyecto">
-                                    <option>prueba</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="control-label" for="cboSubProyecto">Sub-Proyecto:</label>
-                                <select id="cboSubProyecto" class="form-control input-sm" data-placeholder="Seleccione SubProyecto" name="cboSubProyecto">
-                                    <option>prueba</option>
-                                </select>
-                            </div>
-                        </div>
 
-                        <div class="row form-group">
-                            <div class="col-sm-8 col-md-2">
-                                <label class="control-label" for="txtCodigo">Código de Muestra:</label>
-                                <input type="text" id="txtCodigo" class="form-control input-sm" maxlength="20" required="required" name="txtCodigo" />
-                            </div>
-                            <div class="col-sm-2 col-md-2 col-lg-2">
-                                <label class="control-label" for="txtFecha">Fecha:</label>
-                                <div class='input-group date' id='fechaMuestra'>
-                                    <input id="txtFecha" class="form-control input-sm" required="required" maxlength="10" type="text" name="txtFecha" />
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-3">
-                                <label class="control-label" for="cboResponsable">Responsable del Proyecto:</label>
-                                <select id="cboResponsable" class="form-control input-sm" data-placeholder="Seleccione Geológo Responsable del proyecto" required="required" name="cboResponsable">
-                                        <option>prueba</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4 col-sm-3">
-                                <label class="control-label" for="cboGeologo">Geológo :</label>
-                                <select id="cboGeologo" class="form-control input-sm" data-placeholder="Seleccione Geológo" required="required" name="cboGeologo">
-                                        <option>prueba</option>
-                                </select>
+                    <div class="row form-group">
+                        <div class="col-sm-8 col-md-2">
+                            <label class="control-label" for="txtCodigo">Código de Muestra:</label>
+                            <input type="text" id="txtCodigo" class="form-control input-sm" maxlength="20" required="required" name="txtCodigo" />
+                        </div>
+                        <div class="col-sm-2 col-md-2 col-lg-2">
+                            <label class="control-label" for="txtFecha">Fecha:</label>
+                            <div class='input-group date' id='fechaMuestra'>
+                                <input id="txtFecha" class="form-control input-sm" required="required" maxlength="10" type="text" name="txtFecha" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
                             </div>
                         </div>
-                        <div class="row form-group">    
-                            <div class="col-md-2 col-sm-3">
-                                <label class="control-label" for="txtDuplicado">Duplicado:</label>
-                                <input type="text" value="" id="txtDuplicado" class="form-control input-sm" maxlength="50" />
-                            </div>
-                            <div class="col-md-2 col-sm-3">
-                                <label class="col-form-label" >&nbsp;</label>
-                                <!--<input type="text" value="" id="" class="form-control input-sm" maxlength="50" />-->
-                                <div class="input-group">
-                                    <span class="input-group-addon" >#</span>
-                                    <input id="txtDuplicadoN" type="text" class="form-control input-sm" aria-describedby="basic-addon1">
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-3">
-                                <label class="control-label" for="txtLocalidad">Localidad:</label>
-                                <input type="text" value="" id="txtLocalidad" class="form-control input-sm" maxlength="50" />
-                            </div>
-                            <div class="col-md-4 col-sm-3">
-                                <label class="control-label" for="cboEstado">Estado Actual:</label>
-                                <select id="cboEstado" class="form-control input-sm" data-placeholder="Seleccione Estado Actual" name="cboEstadoActual">
+                        <div class="col-md-4 col-sm-3">
+                            <label class="control-label" for="cboResponsable">Responsable del Proyecto:</label>
+                            <select id="cboResponsable" class="form-control input-sm" data-placeholder="Seleccione Geológo Responsable del proyecto" required="required" name="cboResponsable">
                                     <option>prueba</option>
-                                </select>
-                            </div>
-                        </div>   
-                        <div class="row form-group">   
-                            <div class="col-md-2 col-sm-2">
-                                <label class="control-label" for="txtHoja" >Hoja:</label>
-                                <input type="text" value="" id="txtHoja" class="form-control input-sm" maxlength="50" />
-                            </div>
-                            <div class="col-md-2 col-sm-2">
-                                <label class="control-label" for="txtCuenta" >Cuenta (nombre):</label>
-                                <input type="text" value="" id="txtCuenta" class="form-control input-sm" maxlength="50" />
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <label class="control-label" for="txtQuebrada" >Quebrada (nombre):</label>
-                                <div class='input-group'>
-                                    <input id="txtQuebrada" class="form-control input-sm" type="text" name="txtQuebrada" />
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-filter" data-toggle="modal" data-target="#modalBusquedaQuebrada"></span>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-2">
-                                <label class="control-label" for="txtAnchoQuebrada" >Ancho Quebrada:</label>
-                                <input type="text" value="" id="txtAnchoQuebrada" class="form-control input-sm text-right" maxlength="50" placeholder="#" />
-                            </div>                    
-                            <div class="col-md-2 col-sm-2">    
-                                <label class="control-label" for="txtPendiente" >Pendiente (°):</label>
-                                <input type="text" value="" id="txtPendiente" class="form-control input-sm text-right" maxlength="50" placeholder="#"/>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-sm-3">
+                            <label class="control-label" for="cboGeologo">Geológo :</label>
+                            <select id="cboGeologo" class="form-control input-sm" data-placeholder="Seleccione Geológo" required="required" name="cboGeologo">
+                                    <option>prueba</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">    
+                        <div class="col-md-2 col-sm-3">
+                            <label class="control-label" for="txtDuplicado">Duplicado:</label>
+                            <input type="text" value="" id="txtDuplicado" class="form-control input-sm" maxlength="50" />
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <label class="col-form-label" >&nbsp;</label>
+                            <!--<input type="text" value="" id="" class="form-control input-sm" maxlength="50" />-->
+                            <div class="input-group">
+                                <span class="input-group-addon" >#</span>
+                                <input id="txtDuplicadoN" type="text" class="form-control input-sm" aria-describedby="basic-addon1">
                             </div>
                         </div>
-                    </fieldset>
-                </div>
-                <div class="row">
-                    <fieldset class="dhhBorder">
-                        <legend class="dhhBorder">Ubicación:</legend>
-                        <div class="row form-group">
-                            <div class="col-sm-4 col-md-2">
-                                <label class="control-label" for="txtNorte" >Norte:</label>
-                                <input type="text" id="txtNorte" class="form-control input-sm" maxlength="12" required="required" name="txtNorte" />
-                            </div>
-                            <div class="col-sm-4 col-md-2">
-                                <label class="control-label" for="txtEste" >Este:</label>
-                                <input type="text" id="txtEste" class="form-control input-sm" maxlength="11" required="required" name="txtEste" />
-                            </div>
-                            <div class="col-sm-4 col-md-2">
-                                <label class="control-label" for="txtDatum" >Datum:</label>
-                                <input type="text" value="WGS84" id="txtDatum" class="form-control input-sm" disabled="disabled" />    
-                            </div>
-                            <div class="col-sm-4 col-md-2">
-                                <label class="control-label" for="cboZonaUTM" >Zona UTM:</label>
-                                <select id="cboZonaUTM" class="form-control input-sm" data-placeholder="Seleccione Zona UTM" name="cboZonaUTM" required="required">
-                                    <option>prueba</option>>
-                                </select>
-                            </div>
-                            <div class="col-sm-4 col-md-1">
-                                <label class="control-label" for="txtAltitud" >Altitud(m):</label>
-                                <input type="text" value="" id="txtAltitud" class="form-control input-sm text-right" placeholder="#" />
-                            </div>
-                            <div class="col-sm-4 col-md-3">
-                                <label class="control-label" for="txtCarta" >Cuadrángulo:</label>
-                                <input type="text" value="" id="txtCarta" class="form-control input-sm" disabled="disabled" />
+                        <div class="col-md-4 col-sm-3">
+                            <label class="control-label" for="txtLocalidad">Localidad:</label>
+                            <input type="text" value="" id="txtLocalidad" class="form-control input-sm" maxlength="50" />
+                        </div>
+                        <div class="col-md-4 col-sm-3">
+                            <label class="control-label" for="cboEstado">Estado Actual:</label>
+                            <select id="cboEstado" class="form-control input-sm" data-placeholder="Seleccione Estado Actual" name="cboEstadoActual">
+                                <option>prueba</option>
+                            </select>
+                        </div>
+                    </div>   
+
+                    <div class="row form-group">   
+                        <div class="col-md-2 col-sm-2">
+                            <label class="control-label" for="txtHoja" >Hoja:</label>
+                            <input type="text" value="" id="txtHoja" class="form-control input-sm" maxlength="50" />
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <label class="control-label" for="txtCuenta" >Cuenta (nombre):</label>
+                            <input type="text" value="" id="txtCuenta" class="form-control input-sm" maxlength="50" />
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <label class="control-label" for="txtQuebrada" >Quebrada (nombre):</label>
+                            <div class='input-group'>
+                                <input id="txtQuebrada" class="form-control input-sm" type="text" name="txtQuebrada" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-filter" data-toggle="modal" data-target="#modalBusquedaQuebrada"></span>
+                                </span>
                             </div>
                         </div>
-                        <div class="row form-group">
-                            <div class="col-md-2 col-sm-4">
-                                <label class="control-label" for="txtLatitud" >Latitud:</label>
-                                <input type="text" value="" id="txtLatitud" class="form-control input-sm" readonly="readonly" name="txt_latitud" />
-                            </div>
-                            <div class="col-md-2 col-sm-4">
-                                <label class="control-label" for="txtLongitud" >Longitud:</label>
-                                <input type="text" value="" id="txtLongitud" class="form-control input-sm" readonly="readonly" name="txt_longitud" />
-                            </div>
-                            <div class="col-md-2 col-sm-4">                                       
-                                <label class="control-label" for="txtRegion" >Región:</label>
-                                <input type="text" value="" id="txtRegion" readonly="readonly" class="form-control input-sm" name="txt_region" />
-                            </div>
-                            <div class="col-md-3 col-sm-4">
-                                <label class="control-label" for="txtProvincia" >Provincia:</label>
-                                <input type="text" value="" id="txtProvincia" readonly="readonly" class="form-control input-sm" name="txt_provincia" />
-                            </div>
-                            <div class="col-md-3 col-sm-4">
-                                <label class="control-label" for="txtDistrito" >Distrito:</label>
-                                <input type="text" value="" id="txtDistrito" readonly="readonly" class="form-control input-sm" name="txt_distrito" />
-                            </div>
+                        <div class="col-md-2 col-sm-2">
+                            <label class="control-label" for="txtAnchoQuebrada" >Ancho Quebrada:</label>
+                            <input type="text" value="" id="txtAnchoQuebrada" class="form-control input-sm text-right" maxlength="50" placeholder="#" />
+                        </div>                    
+                        <div class="col-md-2 col-sm-2">    
+                            <label class="control-label" for="txtPendiente" >Pendiente (°):</label>
+                            <input type="text" value="" id="txtPendiente" class="form-control input-sm text-right" maxlength="50" placeholder="#"/>
                         </div>
-                    </fieldset>
-                </div>
+                    </div>
+                </fieldset>
+            </div>
+            
+            <div class="row">
+                <fieldset class="dhhBorder">
+                    <legend class="dhhBorder">Ubicación:</legend>
+                    <div class="row form-group">
+                        <div class="col-sm-4 col-md-2">
+                            <label class="control-label" for="txtNorte" >Norte:</label>
+                            <input type="text" id="txtNorte" class="form-control input-sm" maxlength="12" required="required" name="txtNorte" />
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <label class="control-label" for="txtEste" >Este:</label>
+                            <input type="text" id="txtEste" class="form-control input-sm" maxlength="11" required="required" name="txtEste" />
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <label class="control-label" for="txtDatum" >Datum:</label>
+                            <input type="text" value="WGS84" id="txtDatum" class="form-control input-sm" disabled="disabled" />    
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <label class="control-label" for="cboZonaUTM" >Zona UTM:</label>
+                            <select id="cboZonaUTM" class="form-control input-sm" data-placeholder="Seleccione Zona UTM" name="cboZonaUTM" required="required">
+                                <option>prueba</option>>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 col-md-1">
+                            <label class="control-label" for="txtAltitud" >Altitud(m):</label>
+                            <input type="text" value="" id="txtAltitud" class="form-control input-sm text-right" placeholder="#" />
+                        </div>
+                        <div class="col-sm-4 col-md-3">
+                            <label class="control-label" for="txtCarta" >Cuadrángulo:</label>
+                            <input type="text" value="" id="txtCarta" class="form-control input-sm" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-2 col-sm-4">
+                            <label class="control-label" for="txtLatitud" >Latitud:</label>
+                            <input type="text" value="" id="txtLatitud" class="form-control input-sm" readonly="readonly" name="txt_latitud" />
+                        </div>
+                        <div class="col-md-2 col-sm-4">
+                            <label class="control-label" for="txtLongitud" >Longitud:</label>
+                            <input type="text" value="" id="txtLongitud" class="form-control input-sm" readonly="readonly" name="txt_longitud" />
+                        </div>
+                        <div class="col-md-2 col-sm-4">                                       
+                            <label class="control-label" for="txtRegion" >Región:</label>
+                            <input type="text" value="" id="txtRegion" readonly="readonly" class="form-control input-sm" name="txt_region" />
+                        </div>
+                        <div class="col-md-3 col-sm-4">
+                            <label class="control-label" for="txtProvincia" >Provincia:</label>
+                            <input type="text" value="" id="txtProvincia" readonly="readonly" class="form-control input-sm" name="txt_provincia" />
+                        </div>
+                        <div class="col-md-3 col-sm-4">
+                            <label class="control-label" for="txtDistrito" >Distrito:</label>
+                            <input type="text" value="" id="txtDistrito" readonly="readonly" class="form-control input-sm" name="txt_distrito" />
+                        </div>
+                    </div>
+                </fieldset>
             </div>
         </form>
 
