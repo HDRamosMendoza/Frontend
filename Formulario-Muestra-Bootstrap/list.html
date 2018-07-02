@@ -47,7 +47,7 @@
             input[type="text"] {
                 width: 100%;
                 display: block;
-                border: 0 solid white;
+                border-style: none;
                 background-color:rgba(255,255,255, 0.1);
             }
 
@@ -55,15 +55,24 @@
                 min-width: 380px !important;
             }
 
-            input:focus { 
-                    background-color: #ffffee;
+            input:focus, .editActived { 
+                background-color: #FEFEE9 !important;
                 box-sizing: border-box;
                 transition: background-color ease-in-out .15s;
-                border-width: 1px;
-                border-style: inset;
+                border: 1px solid black;
+                border-style: ridge;
                 border-color: initial;   
-                padding: 3px 2px;
+                padding: 2px 1px;
             }
+            
+            /*
+            #tblMSQGeoquimica td:nth-last-child(-n+1) button {
+              background-color: pink;
+            }
+            
+                border-width: 1px;
+            */
+
             /* FIN - Estilos de editar grilla */
 
         </style>
@@ -102,6 +111,16 @@
             <div class="row">
                 <table id="tblMSQGeoquimica" class="table table-bordered table-condensed table-hover order-column">
                     <thead >
+                        <tr class="hidden">
+                            <th></th>   
+                            <th></th>      
+                            <th></th>  
+                            <th></th>     
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
                         <tr>
                             <th class="alinear-thead">Estado</th>   
                             <th class="alinear-thead">Proyecto</th>      
@@ -109,8 +128,7 @@
                             <th class="alinear-thead">Colectado</th>     
                             <th class="alinear-thead">Código Muestra</th>
                             <th class="alinear-thead">F. Muestra</th>
-                            <th class="alinear-thead">Remover</th>
-                            <th class="alinear-thead">Editar</th>
+                            <th class="alinear-thead" colspan=2>Acción</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -223,11 +241,10 @@
                             <th>Colectado</th>
                             <th>Código Muestra</th>
                             <th>F. Muestra</th>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-primary btn-xs" >
+                            <td colspan=2>
+                                <button id="btnEditAll" type="button" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Guardar">
                                     <span class="glyphicon glyphicon-saved"></span>
-                                    Guardar Todo
+                                    Todo
                                 </button>
                             </td>
                         </tr>
@@ -828,38 +845,83 @@
                     },{ 
                         render: function (data, type, row) { 
                             return "<center>\
-                                        <button type=\"button\" class=\"btn btn-primary btn-xs\">\
+                                        <button type=\"button\" class=\"btn btn-default btn-xs\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Editar\">\
                                             <span class=\"glyphicon glyphicon-edit\"></span>\
-                                            Editar\
                                         </button>\
                                     </center>";
                         },"targets": 7
                     }
                     /*{ "visible": true, "targets": [2] }/*Para Ocultar*/
                 ]
-                //bProcessing: true,
-                //bServerSide: true
             });
-
-            /*$('.ClickDate').on('click',function(){
-                let idDate = $(this).attr('id');
-                console.log(idDate);
-                $('#'+idDate).datetimepicker({
-                    locale: 'es',
-                    format: 'DD/MM/YYYY',
-                    maxDate: new Date()
-                });
-            });*/
+            
+            /* Asignar a cada item el calendario */
             const SplitDate = idSplitDate.split(',');
-            SplitDate.forEach(element => {
-                $('#'+element).datetimepicker({
+            SplitDate.forEach(idElement => {
+                $('#' + idElement).datetimepicker({
                     locale: 'es',
                     format: 'DD/MM/YYYY',
                     maxDate: new Date()
                 });
             });
 
-             $('#tblMSQGeoquimica [data-toggle="tooltip"]').tooltip(); 
+            /* Eliminar registro */
+            $('#tblMSQGeoquimica tbody td:nth-last-child(2) button').on('click', function(){
+                alert("Eliminar Registro .......\n\n( * ) EN CONSTRUCCIÓN.");
+            });
+
+            /* Activar la edición */
+            $('#tblMSQGeoquimica tbody td:nth-last-child(1) button').on('click', function(){
+                /* NE CONSTRUCCION */
+                var $row = $(this).closest("tr");
+                $row.find('td input').addClass('editActived');
+
+
+                console.log($(this).hasClass("btn-primary"));
+                var $tdButton = $(this);
+                $tdButton.attr("title","");
+                if ($tdButton.hasClass("btn-primary")) {
+                    $tdButton.removeClass('btn-primary').addClass('btn-default');
+                    $tdButton.find('span').removeClass('glyphicon-saved').addClass('glyphicon-edit');
+                    $tdButton.attr("data-original-title","Editar");    
+                    $row.find('td input').removeClass('editActived');
+                    alert("Guardar los cambios de la fila .......\n\n( * ) EN CONSTRUCCIÓN.");
+                } else {
+                    $tdButton.removeClass('btn-default').addClass('btn-primary');
+                    $tdButton.find('span').removeClass('glyphicon-edit').addClass('glyphicon-saved');
+                    $tdButton.attr("data-original-title","Guardar");
+                }
+            });
+
+            /* Guardar todos los cambios */
+            $('#tblMSQGeoquimica tfoot td:nth-last-child(1) button').on('click', function(){
+                $('#tblMSQGeoquimica tr input').removeClass('editActived');
+                alert("Guardar todos los cambios .......\n\n( * ) EN CONSTRUCCIÓN.");
+            });
+
+            /*
+            $.alert({
+                closeIcon: true,
+                content: "warning",
+                confirmButton: 'Aceptar',
+                deleteButton: 'Aceptar',
+                confirmButtonClass: 'btn-aceptar',
+                confirm: function () { }
+            });
+            */
+
+            /*
+            $(".use-address").click(function() {
+                var $row = $(this).closest("tr");    // Find the row
+                var $text = $row.find(".nr").text(); // Find the text
+                
+                // Let's test it out
+                alert($text);
+            });
+            */
+
+            /* Etiqueta de apoyo */
+            $('#tblMSQGeoquimica [data-toggle="tooltip"]').tooltip(); 
 
             var chart;
             chart = AmCharts.makeChart( "chartdiv-11", {
