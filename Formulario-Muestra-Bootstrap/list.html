@@ -835,8 +835,27 @@
                 ]
             });
             let backupTable = [];
-            let matriz = new Array();
-            let coldMatris = new Array();
+            var colTable = new Array();
+            var rowTable = new Array();
+            colTable[0] = new Array();
+            colTable[1] = new Array();
+            colTable[2] = new Array();
+            colTable[3] = new Array();
+            colTable[4] = new Array();
+            colTable[5] = new Array();
+            colTable[6] = new Array();
+            colTable[7] = new Array();
+            colTable[8] = new Array();
+            colTable[9] = new Array();
+                //colTable[0] = new Array();
+            //colTable[1] = new Array();
+                //colTable[0][0]= "Heber";
+                //colTable[0][1]= "Daniel";
+            //colTable[1][0]= "Daniel";
+                //console.log(colTable[0][0]);
+                //console.log(colTable[0][1]);
+            //console.log(colTable[1][0]);
+
             /* Recorrer toda la celda para sacar una copia */
             /*$table.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
                 console.log(rowIdx);
@@ -857,12 +876,18 @@
                 //var data = this.data();
                 var itemCell = $(this).children()[0].defaultValue;
                 //console.log(itemCell);
-                var rowIdx = $table.cell(this).index().row;
+                const rowIdx = $table.cell(this).index().row;
                 //console.log(rowIdx+1);
-                var colIdx = $table.cell(this).index().column;
+                const colIdx = $table.cell(this).index().column;
+                
                 //console.log(colIdx+1);
-                console.log("[" + (rowIdx+1) + "] [" + (colIdx+1) + "] = " + itemCell + "");
-            } );
+                //rowTable[rowIdx][colIdx] = itemCell;
+                colTable[rowIdx][colIdx] = itemCell;
+                console.log("Contenido " + colTable[rowIdx][colIdx]);
+                console.log("[" + (rowIdx) + "] [" + (colIdx) + "] = " + itemCell + "");
+            });
+
+            console.log(colTable[1][1]);
 
             /* Captura el clic en cada celda */
             /*$('#tblMSQGeoquimica tbody').on( 'click', 'td', function () {
