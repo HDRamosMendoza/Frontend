@@ -29,8 +29,6 @@
         <link rel="stylesheet" type="text/css" href="assets/plugins/pqGrid/themes/Office/pqgrid.css" />
         
         <link rel="stylesheet" type="text/css" href="https://www.amcharts.com/lib/3/plugins/export/export.css" media="all"/>
-
-        
         <style>
             
             #chartdiv-11,
@@ -90,24 +88,6 @@
                     <div class="stripe-line"></div>
                 </div>   
             </div>
-            <!--
-                <th class="alinear-thead">Estado</th>   
-                <th class="alinear-thead">Proyecto</th>      
-                <th class="alinear-thead">Campaña</th>  
-                <th class="alinear-thead">Colectado</th>     
-                <th class="alinear-thead">Código Muestra</th>
-                <th class="alinear-thead">F. Muestra</th>
-                <th class="alinear-thead">Norte</th>         
-                <th class="alinear-thead">Este</th>
-                <th class="alinear-thead">Zona</th>      
-                <th class="alinear-thead">Datum</th>             
-                <th class="alinear-thead">Latitud</th>  
-                <th class="alinear-thead">Longitud</th>      
-                <th class="alinear-thead">Altitud</th>
-                <th class="alinear-thead">Región</th>        
-                <th class="alinear-thead">Provincia</th>  
-                <th class="alinear-thead">Distrito</th>
-                --->
             <div class="row">
                 <table id="tblMSQGeoquimica" class="table table-bordered table-condensed table-hover order-column">
                     <thead >
@@ -780,7 +760,7 @@
         $(function(){
             let idDate = 0;
             let idSplitDate = "";
-            $('#tblMSQGeoquimica').DataTable({
+            let $table = $('#tblMSQGeoquimica').DataTable({
                 //bFilter: false,
                 //bLengthChange: false,
                 //bScrollCollapse: false,
@@ -854,6 +834,29 @@
                     /*{ "visible": true, "targets": [2] }/*Para Ocultar*/
                 ]
             });
+            let backupTable = [];
+            $table.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
+                var data = this.data();
+                backupTable.push(data);
+                //console.log(data);
+                // ... do something with data(), or this.node(), etc
+            } );
+            //console.log(backupTable);
+            //console.log(backupTable[0]['proyecto']);
+
+            /*
+            $table.cells().every( function () {
+                //console.log(this.data());
+                var abc = $(this.node());
+                console.log(abc[0]);
+                if ( this.data() > 50 ) {
+                    
+                    //$(this.node()).addClass( 'warning' );
+                }else {
+                    //$(this.node()).removeClass( 'warning' );
+                }
+            } );
+            */
             
             /* Asignar a cada item el calendario */
             const SplitDate = idSplitDate.split(',');
@@ -875,7 +878,6 @@
                 /* NE CONSTRUCCION */
                 var $row = $(this).closest("tr");
                 $row.find('td input').addClass('editActived');
-
 
                 console.log($(this).hasClass("btn-primary"));
                 var $tdButton = $(this);
