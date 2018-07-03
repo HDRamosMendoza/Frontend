@@ -760,7 +760,10 @@
         $(function(){
             let idDate = 0;
             let idSplitDate = "";
-            let $table = $('#tblMSQGeoquimica').DataTable({
+
+            let tblIdContent = "tblMSQGeoquimica";
+let idRow = 0;
+            let $table = $('#'+ tblIdContent).DataTable({
                 //bFilter: false,
                 //bLengthChange: false,
                 //bScrollCollapse: false,
@@ -781,19 +784,20 @@
                 ],
                 columnDefs: [{ 
                         render: function (data, type, row) { 
-                            return "<input type='text' value='" + data + "'/>"; 
+                            return "<input id=\"\" type=\"text\" value=\"" + data + "\"/>"; 
                         },"targets": 0
                     },{ 
                         render: function (data, type, row) { 
-                            return "<input type='text' value='" + data + "'/>"; 
+                            idDate
+                            return "<input id=\"\" type=\"text\" value=\"" + data + "\"/>"; 
                         },"targets": 1 
                     },{ 
                         render: function (data, type, row) { 
-                            return "<input type='text' value='" + data + "'/>"; 
+                            return "<input id=\"\" type=\"text\" value=\"" + data + "\"/>"; 
                         },"targets": 2
                     },{ 
                         render: function (data, type, row) { 
-                            return "<input type='text' class='text-right' value='" + data + "'/>"; 
+                            return "<input id=\"\" type=\"text\" class=\"text-right\" value=\"" + data + "\"/>"; 
                         },"targets": 3
                     },{ 
                         render: function (data, type, row) { 
@@ -834,88 +838,51 @@
                     /*{ "visible": true, "targets": [2] }/*Para Ocultar*/
                 ]
             });
-            let backupTable = [];
-            var colTable = new Array();
-            var rowTable = new Array();
-            colTable[0] = new Array();
-            colTable[1] = new Array();
-            colTable[2] = new Array();
-            colTable[3] = new Array();
-            colTable[4] = new Array();
-            colTable[5] = new Array();
-            colTable[6] = new Array();
-            colTable[7] = new Array();
-            colTable[8] = new Array();
-            colTable[9] = new Array();
-                //colTable[0] = new Array();
-            //colTable[1] = new Array();
-                //colTable[0][0]= "Heber";
-                //colTable[0][1]= "Daniel";
-            //colTable[1][0]= "Daniel";
-                //console.log(colTable[0][0]);
-                //console.log(colTable[0][1]);
-            //console.log(colTable[1][0]);
 
-            /* Recorrer toda la celda para sacar una copia */
-            /*$table.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
-                console.log(rowIdx);
-                //console.log(rowLoop);
-                
-
-                //console.log(tableLoop);
-                var data = this.data();
-                backupTable.push(data);
-                //console.log(data);
-                // ... do something with data(), or this.node(), etc
-            } );
-            console.log(backupTable);*/
-            //console.log(backupTable[0]['proyecto']);
-
-            /* Captura el clic en cada celda */
-            $('#tblMSQGeoquimica tbody td').each(function () {
+            let rowTable = new Array();
+            
+            /* Cantidad de filas */
+            var $rowLength = $("#"+ tblIdContent +" tbody tr").length;
+            
+            /* Declarando la segunda dimensión del array */
+            function defineArray(){
+                for(let row = 0; row < $rowLength; row++){
+                    rowTable[row] = new Array();
+                }   
+            }
+            defineArray();
+            
+            /* Copia de los datos traidos */
+            $("#"+ tblIdContent +" tbody td").each( function () {
                 //var data = this.data();
-                var itemCell = $(this).children()[0].defaultValue;
-                //console.log(itemCell);
+                let itemCell = $(this).children()[0].defaultValue;
                 const rowIdx = $table.cell(this).index().row;
-                //console.log(rowIdx+1);
                 const colIdx = $table.cell(this).index().column;
-                
-                //console.log(colIdx+1);
-                //rowTable[rowIdx][colIdx] = itemCell;
-                colTable[rowIdx][colIdx] = itemCell;
-                console.log("Contenido " + colTable[rowIdx][colIdx]);
-                console.log("[" + (rowIdx) + "] [" + (colIdx) + "] = " + itemCell + "");
+                rowTable[rowIdx][colIdx] = itemCell;
+                /* Asignamos a cada celda un ID */
+                $(this).find('input').attr("id", (rowIdx + "" + colIdx));
             });
-
-            console.log(colTable[1][1]);
-
+            
             /* Captura el clic en cada celda */
-            /*$('#tblMSQGeoquimica tbody').on( 'click', 'td', function () {
-                var rowIdx = $table.cell(this).index().row;
-                console.log(rowIdx+1);
-                var colIdx = $table.cell(this).index().column;
-                console.log(colIdx+1);
-                
-            });*/
-
             /*
-            $table.cells().every( function (rowIdx, tableLoop, rowLoop ) {
-                //console.log(rowIdx);
-                //console.log(this.data());
-                console.log(" * * * * * * * * ");
-                //matriz[parseInt(rowIdx)][parseInt(rowLoop)] = this.data();
-                //console.log(this.data());
-                var abc = $(this.node());
-                //console.log(abc);
-                if ( this.data() > 50 ) {
-                    
-                    //$(this.node()).addClass( 'warning' );
-                }else {
-                    //$(this.node()).removeClass( 'warning' );
-                }
+            $('#tblMSQGeoquimica tbody').on( 'click', 'td', function () {
+                var rowIdx = $table.cell(this).index().row;
+                console.log(rowIdx);
+                var colIdx = $table.cell(this).index().column;
+                console.log(colIdx);
+                
             });
             */
-            
+
+            $('#tblMSQGeoquimica tbody tr td input').change( '', function () {
+                console.log("Cambio");
+                var rowIdx = $table.cell(this).index().row;
+                console.log(rowIdx);
+                var colIdx = $table.cell(this).index().column;
+                console.log(colIdx);
+                
+            });
+
             /* Asignar a cada item el calendario */
             const SplitDate = idSplitDate.split(',');
             SplitDate.forEach(idElement => {
@@ -927,12 +894,12 @@
             });
 
             /* Eliminar registro */
-            $('#tblMSQGeoquimica tbody td:nth-last-child(2) button').on('click', function(){
+            $("#"+ tblIdContent +" tbody td:nth-last-child(2) button").on("click", function(){
                 alert("Eliminar Registro .......\n\n( * ) EN CONSTRUCCIÓN.");
             });
 
             /* Activar la edición */
-            $('#tblMSQGeoquimica tbody td:nth-last-child(1) button').on('click', function(){
+            $("#"+ tblIdContent +" tbody td:nth-last-child(1) button").on("click", function(){
                 /* NE CONSTRUCCION */
                 var $row = $(this).closest("tr");
                 $row.find('td input').addClass('editActived');
@@ -954,8 +921,8 @@
             });
 
             /* Guardar todos los cambios */
-            $('#tblMSQGeoquimica tfoot td:nth-last-child(1) button').on('click', function(){
-                $('#tblMSQGeoquimica tr input').removeClass('editActived');
+            $("#"+ tblIdContent +" tfoot td:nth-last-child(1) button").on("click", function(){
+                $("#"+ tblIdContent +" tr input").removeClass("editActived");
                 alert("Guardar todos los cambios .......\n\n( * ) EN CONSTRUCCIÓN.");
             });
 
@@ -970,18 +937,8 @@
             });
             */
 
-            /*
-            $(".use-address").click(function() {
-                var $row = $(this).closest("tr");    // Find the row
-                var $text = $row.find(".nr").text(); // Find the text
-                
-                // Let's test it out
-                alert($text);
-            });
-            */
-
             /* Etiqueta de apoyo */
-            $('#tblMSQGeoquimica [data-toggle="tooltip"]').tooltip(); 
+            $("#"+ tblIdContent +" [data-toggle=\"tooltip\"]").tooltip(); 
 
             var chart;
             chart = AmCharts.makeChart( "chartdiv-11", {
@@ -1275,12 +1232,12 @@
                  }
 
             });
-            $(function(){
+            
                 /* Destrucción de etiqueta */
                 setTimeout(function(){ 
                     $("#chartdiv-11 a:nth-child(2)").remove();
                 }, 3000);
-            });
+            
 
             $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                 // activated tab
@@ -1291,6 +1248,8 @@
                 $("#chartdiv-12 a:nth-child(2)").remove();
                 }, 1000);
             });
+
+
 
         });
         </script>
