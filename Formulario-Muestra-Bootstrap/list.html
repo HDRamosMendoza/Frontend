@@ -755,27 +755,14 @@
         <!-- Resources - tab 2 -->
         <script type="text/javascript" src="https://www.amcharts.com/lib/3/serial.js"></script>
 
-
-  
-
         <!-- Simple inline editing -->
         <script type="text/javascript" charset="utf-8">
 
         $(function(){
             let idDate = 0;
             let idSplitDate = "";
-
             let tblIdContent = "tblMSQGeoquimica";
-let idRow = 0;
             let $table = $('#'+ tblIdContent).DataTable({
-                //bFilter: false,
-                //bLengthChange: false,
-                //bScrollCollapse: false,
-                //iDisplayLength: 50,
-                //bAutoWidth: false,
-                //bSort: false,
-                //responsive: true,
-                //scrollX: true,
                 columns: [
                     { 'data': 'estado'},
                     { 'data': 'proyecto'},
@@ -792,7 +779,6 @@ let idRow = 0;
                         },"targets": 0
                     },{ 
                         render: function (data, type, row) { 
-                            idDate
                             return "<input id=\"\" type=\"text\" value=\"" + data + "\"/>"; 
                         },"targets": 1 
                     },{ 
@@ -807,7 +793,6 @@ let idRow = 0;
                         render: function (data, type, row) { 
                             idDate = idDate + 1;
                             idSplitDate += "Date" + idDate + ",";
-
                             return "<input id='Date" + idDate + "' type='text' class='' value='" + data + "'/>";
                             /*
                             return "<div class='input-group date' id=\"Date" + counterDate + "\">\
