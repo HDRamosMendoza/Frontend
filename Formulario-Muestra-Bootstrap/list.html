@@ -835,27 +835,60 @@
                 ]
             });
             let backupTable = [];
-            $table.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
+            let matriz = new Array();
+            let coldMatris = new Array();
+            /* Recorrer toda la celda para sacar una copia */
+            /*$table.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
+                console.log(rowIdx);
+                //console.log(rowLoop);
+                
+
+                //console.log(tableLoop);
                 var data = this.data();
                 backupTable.push(data);
                 //console.log(data);
                 // ... do something with data(), or this.node(), etc
             } );
-            //console.log(backupTable);
+            console.log(backupTable);*/
             //console.log(backupTable[0]['proyecto']);
 
+            /* Captura el clic en cada celda */
+            $('#tblMSQGeoquimica tbody td').each(function () {
+                //var data = this.data();
+                var itemCell = $(this).children()[0].defaultValue;
+                //console.log(itemCell);
+                var rowIdx = $table.cell(this).index().row;
+                //console.log(rowIdx+1);
+                var colIdx = $table.cell(this).index().column;
+                //console.log(colIdx+1);
+                console.log("[" + (rowIdx+1) + "] [" + (colIdx+1) + "] = " + itemCell + "");
+            } );
+
+            /* Captura el clic en cada celda */
+            /*$('#tblMSQGeoquimica tbody').on( 'click', 'td', function () {
+                var rowIdx = $table.cell(this).index().row;
+                console.log(rowIdx+1);
+                var colIdx = $table.cell(this).index().column;
+                console.log(colIdx+1);
+                
+            });*/
+
             /*
-            $table.cells().every( function () {
+            $table.cells().every( function (rowIdx, tableLoop, rowLoop ) {
+                //console.log(rowIdx);
+                //console.log(this.data());
+                console.log(" * * * * * * * * ");
+                //matriz[parseInt(rowIdx)][parseInt(rowLoop)] = this.data();
                 //console.log(this.data());
                 var abc = $(this.node());
-                console.log(abc[0]);
+                //console.log(abc);
                 if ( this.data() > 50 ) {
                     
                     //$(this.node()).addClass( 'warning' );
                 }else {
                     //$(this.node()).removeClass( 'warning' );
                 }
-            } );
+            });
             */
             
             /* Asignar a cada item el calendario */
