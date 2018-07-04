@@ -29,8 +29,10 @@
         <link rel="stylesheet" type="text/css" href="assets/plugins/pqGrid/themes/Office/pqgrid.css" />
         
         <link rel="stylesheet" type="text/css" href="https://www.amcharts.com/lib/3/plugins/export/export.css" media="all"/>
+        
+        <!-- Simple inline editing -->
+        <link rel="stylesheet" type="text/css" href="./css/editing-table.css"/>
         <style>
-            
             #chartdiv-11,
             #chartdiv-12,
             #chartdiv-22,
@@ -40,38 +42,6 @@
                 height      : 500px;
                 font-size   : 11px;
             }
-
-            /* INICIO - Estilos de editar grilla */
-            input[type="text"] {
-                width: 100%;
-                display: block;
-                border-style: none;
-                background-color:rgba(255,255,255, 0.1);
-            }
-
-            .dropdown-menu{
-                min-width: 380px !important;
-            }
-
-            input:focus, .editActived { 
-                background-color: #FEFEE9 !important;
-                box-sizing: border-box;
-                transition: background-color ease-in-out .15s;
-                border: 1px solid #ddd;
-                border-style: solid !important; 
-                padding: 2px 1px;
-            }
-            
-            /*
-            #tblMSQGeoquimica td:nth-last-child(-n+1) button {
-              background-color: pink;
-            }
-            
-                border-width: 1px;
-            */
-
-            /* FIN - Estilos de editar grilla */
-
         </style>
 
     </head>
@@ -220,17 +190,20 @@
                             <th>Colectado</th>
                             <th>Código Muestra</th>
                             <th>F. Muestra</th>
-                            <td>
+                            <td colspan="2">
                                 <button id="btnRefreshAll" type="button" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="top" title="Refrescar">
-                                    <span class="glyphicon glyphicon-refresh"></span>
+                                    <span class="glyphicon glyphicon-refresh"></span> 
+                                    Actualizar
                                 </button>
                             </td>
+                            <!--
                             <td>
                                 <button id="btnEditAll" type="button" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Guardar">
                                     <span class="glyphicon glyphicon-saved"></span>
                                     Todo
                                 </button>
                             </td>
+                            -->
                         </tr>
                     </tfoot>
                 </table>
