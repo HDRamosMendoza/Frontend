@@ -74,8 +74,36 @@ $(function(){
     });
     
     /* Function de envio de datos */
-    function sendTableRow(){
-        alert();
+    function sendTableRow($this){
+        alert("Enviando datos .... \n\n EN CONSTRUCCION !!!");
+
+        let thisTr = $this.closest("tr");
+        let param = {
+            Operacion : "",
+            Estado    : thisTr.find('td:nth-child(1) input').val(),
+            Proyecto  : thisTr.find('td:nth-child(2) input').val(),
+            Campana   : thisTr.find('td:nth-child(3) input').val(),
+            colectado : thisTr.find('td:nth-child(4) input').val(),
+            CodigoMuestra : thisTr.find('td:nth-child(5) input').val(),
+            FechaMuestra  : thisTr.find('td:nth-child(6) input').val()
+        };
+        console.log(param);
+        /*
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: "{ clsMuestra:" + JSON.stringify(param) + "}",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (res) {
+                var varData = (typeof res.d) == 'string' ? eval('(' + res.d + ')') : res.d;
+                console.log("varData");
+            },
+            error: function () {
+                console.log("ERROR");
+            }
+        });
+        */
     }
 
     /* Declarando la segunda dimensión del array */
@@ -120,7 +148,7 @@ $(function(){
             $row.removeClass('editActived');
             buttonSiblings($this);
             /* EVENTO DE AJAX */
-            sendTableRow();
+            sendTableRow($this);
         } else {
             $row.addClass('editActived');
             buttonSiblings($this);
@@ -166,27 +194,21 @@ $(function(){
     });
 
     /* Guardar todos los cambios */
-    $("#"+ tblIdContent +" tfoot td:nth-last-child(2) button").on("click", function(){
+    $("#"+ tblIdContent +" tfoot td:nth-last-child(1) button").on("click", function(){
         alert("Se refrescara los datos de la base de datos .......\n\n( * ) EN CONSTRUCCIÓN.");
+        // Se agrega funcion de DATATABLE para mandar la consulta y con ello refrescar
+        // La funcion actual funciona si se tiene conectado con la base de datos.
+        $table.draw();
     });
 
     /* Guardar todos los cambios */
+    /*
     $("#"+ tblIdContent +" tfoot td:nth-last-child(1) button").on("click", function(){
         $("#"+ tblIdContent +" tr input").removeClass("editActived");
         alert("Guardar todos los cambios .......\n\n( * ) EN CONSTRUCCIÓN.");
     });
-
-    /*$.alert({
-        closeIcon: true,
-        content: "warning",
-        confirmButton: 'Aceptar',
-        deleteButton: 'Aceptar',
-        confirmButtonClass: 'btn-aceptar',
-        confirm: function () { }
-    });*/
+    */
 
     /* Etiqueta de apoyo */
     $("#"+ tblIdContent +" [data-toggle=\"tooltip\"]").tooltip(); 
-
-
 });
