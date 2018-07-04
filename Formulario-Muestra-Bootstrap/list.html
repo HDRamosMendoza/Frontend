@@ -916,18 +916,21 @@
                 const rowIdx = $table.cell(this).index().row;
                 const colIdx = $table.cell(this).index().column;
                 /* Que indique si es la celda se actualizo antes de que se guarde */
-                $('#'+rowIdx+""+colIdx).on('change',function(){
+                $('#'+rowIdx+""+colIdx).on('keyup',function(){
                     var $row = $(this).closest("tr");
                     var $tdButton = $row.find("td:nth-last-child(1) button");
                     if(rowTable[rowIdx][colIdx] == $(this).val()){
                         $(this).removeClass('editActived');
                         $tdButton.find('span').removeClass('glyphicon-saved').addClass('glyphicon-edit');
+                        $tdButton.removeClass('btn-primary').addClass('btn-warning');
                         $tdButton.attr("data-original-title","Editar");  
+                        console.log("Primera");
                     } else {
                         $(this).addClass('editActived');    
                         $tdButton.find('span').removeClass('glyphicon-edit').addClass('glyphicon-saved');
                         $tdButton.removeClass('btn-warning').addClass('btn-primary');
-                        
+                        $tdButton.attr("data-original-title","Guardar");  
+                        console.log("Segunda");
                     }
                     
                 }); 
