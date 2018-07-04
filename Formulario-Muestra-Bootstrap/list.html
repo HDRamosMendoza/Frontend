@@ -904,40 +904,32 @@
                 $('#'+rowIdx+""+colIdx).on('keyup',function(){
                     var $row = $(this).closest("tr");
                     var $tdButton = $row.find("td:nth-last-child(1) button");
-                    console.log(rowTable[rowIdx][colIdx]);
-                    console.log($(this).val());
                     if(rowTable[rowIdx][colIdx] == $(this).val()){
                         $(this).removeClass('editActived');
                         $tdButton.find('span').removeClass('glyphicon-saved').addClass('glyphicon-edit');
                         $tdButton.removeClass('btn-primary').addClass('btn-warning');
                         $tdButton.attr("data-original-title","Editar");  
-                        console.log("Primera");
                     } else {
                         $(this).addClass('editActived');    
                         $tdButton.find('span').removeClass('glyphicon-edit').addClass('glyphicon-saved');
                         $tdButton.removeClass('btn-warning').addClass('btn-primary');
                         $tdButton.attr("data-original-title","Guardar");  
-                        console.log("Segunda");
                     }
                 }); 
 
                 $('#'+rowIdx+""+colIdx).on("dp.change",function(){
                     var $row = $(this).closest("tr");
                     var $tdButton = $row.find("td:nth-last-child(1) button");
-                    console.log(rowTable[rowIdx][colIdx]);
-                    console.log($(this).val());
                     if(rowTable[rowIdx][colIdx] == $(this).val()){
                         $(this).removeClass('editActived');
                         $tdButton.find('span').removeClass('glyphicon-saved').addClass('glyphicon-edit');
                         $tdButton.removeClass('btn-primary').addClass('btn-warning');
                         $tdButton.attr("data-original-title","Editar");  
-                        console.log("Primera");
                     } else {
                         $(this).addClass('editActived');    
                         $tdButton.find('span').removeClass('glyphicon-edit').addClass('glyphicon-saved');
                         $tdButton.removeClass('btn-warning').addClass('btn-primary');
                         $tdButton.attr("data-original-title","Guardar");  
-                        console.log("Segunda");
                     }
                 }); 
             });
