@@ -49,6 +49,9 @@ $(function(){
                                 <button type=\"button\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Editar\" class=\"btn btn-warning btn-xs\" >\
                                     <span class=\"glyphicon glyphicon-edit\"></span>\
                                 </button>\
+                                <button type=\"button\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Guardar\" class=\"btn btn-primary btn-xs hidden\" >\
+                                    <span class=\"glyphicon glyphicon-saved\"></span>\
+                                </button>\
                             </center>";
                 },"targets": 7
             }
@@ -110,67 +113,62 @@ $(function(){
         alert("Eliminar Registro .......\n\n( * ) EN CONSTRUCCIÓN.");
     });
 
-    function activatedButton($row,$tdButton){
-        $tdButton.attr("title","");
-        if ($tdButton.hasClass("btn-primary")) {
-            $tdButton.removeClass('btn-primary').addClass('btn-warning');
-            $tdButton.find('span').removeClass('glyphicon-saved').addClass('glyphicon-edit');
-            $tdButton.attr("data-original-title","Editar");    
-            $row.find('td input').removeClass('editActived');
-            alert("Guardar los cambios de la fila .......\n\n( * ) EN CONSTRUCCIÓN.");
-        } else {
-            $row.find('td input').addClass('editActived');
-            $tdButton.removeClass('btn-warning').addClass('btn-primary');
-            $tdButton.find('span').removeClass('glyphicon-edit').addClass('glyphicon-saved');
-            $tdButton.attr("data-original-title","Guardar");
-        }
+    function buttonSiblings($this){
+        let btnSiblings = $this.siblings('button');
+        btnSiblings.removeClass('hidden').addClass('show');
     }
 
+    function activatedButton($this, $row){
+        $this.addClass('hidden');
+        if ($this.hasClass("btn-primary")) {
+            $row.removeClass('editActived');
+            buttonSiblings($this);
+            alert("Enviando datos .....\n\n EN CONSTRUCCIÓN !!");
+            /* sendTableRow(); EVENTO DE AJAX */
+        } else {
+            $row.addClass('editActived');
+            buttonSiblings($this);
+        }
+    }
+    
     /* Activar la edición */
     $("#"+ tblIdContent +" tbody td:nth-last-child(1) button").on("click", function(){
-        /* NE CONSTRUCCION */
-        var $row = $(this).closest("tr");
-        var $tdButton = $(this);
-        activatedButton($row,$tdButton);
+        let $row = $(this).closest("tr").find('td input');
+        activatedButton($(this), $row);
     });
 
     /* Obtiene la posicion y valida si se actualizo */
     $("#"+ tblIdContent +" tbody").on('click','td',function () {
         const rowIdx = $table.cell(this).index().row;
         const colIdx = $table.cell(this).index().column;
-        /* Que indique si es la celda se actualizo antes de que se guarde */
+        // Si el contenido de la celda se actualizo
         $('#'+rowIdx+""+colIdx).on('keyup',function(){
-            var $row = $(this).closest("tr");
-            var $tdButton = $row.find("td:nth-last-child(1) button");
+            let $tr = $(this).closest("tr");
+            let $btnSaved = $tr.find("td:nth-last-child(1) button:nth-last-child(1)");
+            let $btnEdit = $tr.find("td:nth-last-child(1) button:nth-last-child(2)");
+            let $row = $(this);
+
             if(rowTable[rowIdx][colIdx] == $(this).val()){
-                $(this).removeClass('editActived');
-                $tdButton.find('span').removeClass('glyphicon-saved').addClass('glyphicon-edit');
-                $tdButton.removeClass('btn-primary').addClass('btn-warning');
-                $tdButton.attr("data-original-title","Editar");  
+                activatedButton($btnSaved, $row); 
             } else {
-                $(this).addClass('editActived');    
-                $tdButton.find('span').removeClass('glyphicon-edit').addClass('glyphicon-saved');
-                $tdButton.removeClass('btn-warning').addClass('btn-primary');
-                $tdButton.attr("data-original-title","Guardar");  
+                activatedButton($btnEdit, $row);
             }
-        }); 
+        });
 
         $('#'+rowIdx+""+colIdx).on("dp.change",function(){
-            var $row = $(this).closest("tr");
-            var $tdButton = $row.find("td:nth-last-child(1) button");
+            let $tr = $(this).closest("tr");
+            let $btnSaved = $tr.find("td:nth-last-child(1) button:nth-last-child(1)");
+            let $btnEdit = $tr.find("td:nth-last-child(1) button:nth-last-child(2)");
+            let $row = $(this);
+
             if(rowTable[rowIdx][colIdx] == $(this).val()){
-                $(this).removeClass('editActived');
-                $tdButton.find('span').removeClass('glyphicon-saved').addClass('glyphicon-edit');
-                $tdButton.removeClass('btn-primary').addClass('btn-warning');
-                $tdButton.attr("data-original-title","Editar");  
+                activatedButton($btnSaved, $row); 
             } else {
-                $(this).addClass('editActived');    
-                $tdButton.find('span').removeClass('glyphicon-edit').addClass('glyphicon-saved');
-                $tdButton.removeClass('btn-warning').addClass('btn-primary');
-                $tdButton.attr("data-original-title","Guardar");  
+                activatedButton($btnEdit, $row);
             }
-        }); 
+        });       
     });
+    
 
     /* Guardar todos los cambios */
     $("#"+ tblIdContent +" tfoot td:nth-last-child(2) button").on("click", function(){
