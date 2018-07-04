@@ -45,7 +45,7 @@ $(function(){
             },{ 
                 render: function (data, type, row) { 
                     return "<center>\
-                                <button type=\"button\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Eliminar\" class=\"btn btn-danger btn-xs\" >\
+                                <button type=\"button\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Eliminar\" class=\"btn btn-danger btn-xs\" value=\"" + row['colectado'] + "\">\
                                     <span class=\"glyphicon glyphicon-remove\"></span>\
                                 </button>\
                             </center>";
@@ -76,7 +76,6 @@ $(function(){
     /* Function de envio de datos */
     function sendTableRow($this){
         alert("Enviando datos .... \n\n EN CONSTRUCCION !!!");
-
         let thisTr = $this.closest("tr");
         let param = {
             Operacion : "",
@@ -130,11 +129,6 @@ $(function(){
         locale: 'es',
         format: 'DD/MM/YYYY',
         maxDate: new Date()
-    });
-
-    /* Eliminar registro */
-    $("#"+ tblIdContent +" tbody td:nth-last-child(2) button").on("click", function(){
-        alert("Eliminar Registro .......\n\n( * ) EN CONSTRUCCIÓN.");
     });
 
     function buttonSiblings($this){
@@ -193,14 +187,21 @@ $(function(){
         });       
     });
 
-    /* Guardar todos los cambios */
+    /* Eliminar registro */
+    $("#"+ tblIdContent +" tbody td:nth-last-child(2) button").on("click", function(){
+        alert("Eliminar Registro .......\n\n( * ) EN CONSTRUCCIÓN.");
+        let param = $(this).val();
+        /* ID del registro a actualizar */
+        console.log(param);
+    });
+
+    /* Refrescar todos los cambios */
     $("#"+ tblIdContent +" tfoot td:nth-last-child(1) button").on("click", function(){
         alert("Se refrescara los datos de la base de datos .......\n\n( * ) EN CONSTRUCCIÓN.");
         // Se agrega funcion de DATATABLE para mandar la consulta y con ello refrescar
         // La funcion actual funciona si se tiene conectado con la base de datos.
         $table.draw();
     });
-
     /* Guardar todos los cambios */
     /*
     $("#"+ tblIdContent +" tfoot td:nth-last-child(1) button").on("click", function(){
@@ -208,7 +209,6 @@ $(function(){
         alert("Guardar todos los cambios .......\n\n( * ) EN CONSTRUCCIÓN.");
     });
     */
-
     /* Etiqueta de apoyo */
     $("#"+ tblIdContent +" [data-toggle=\"tooltip\"]").tooltip(); 
 });
