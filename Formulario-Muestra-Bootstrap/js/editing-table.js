@@ -136,13 +136,14 @@ $(function(){
         btnSiblings.removeClass('hidden').addClass('show');
     }
 
-    function activatedButton($this, $row){
+    function activatedButton($this, $row, $boolean){
         $this.addClass('hidden');
         if ($this.hasClass("btn-primary")) {
             $row.removeClass('editActived');
             buttonSiblings($this);
-            /* EVENTO DE AJAX */
-            sendTableRow($this);
+            if ($boolean){
+                sendTableRow($this);
+            }
         } else {
             $row.addClass('editActived');
             buttonSiblings($this);
@@ -152,7 +153,7 @@ $(function(){
     /* Activar la edición */
     $("#"+ tblIdContent +" tbody td:nth-last-child(1) button").on("click", function(){
         let $row = $(this).closest("tr").find('td input');
-        activatedButton($(this), $row);
+        activatedButton($(this), $row, true);
     });
 
     /* Obtiene la posicion y valida si se actualizo */
@@ -167,9 +168,9 @@ $(function(){
             let $row = $(this);
 
             if(rowTable[rowIdx][colIdx] == $(this).val()){
-                activatedButton($btnSaved, $row); 
+                activatedButton($btnSaved, $row, false); 
             } else {
-                activatedButton($btnEdit, $row);
+                activatedButton($btnEdit, $row, false);
             }
         });
 
@@ -180,9 +181,9 @@ $(function(){
             let $row = $(this);
 
             if(rowTable[rowIdx][colIdx] == $(this).val()){
-                activatedButton($btnSaved, $row); 
+                activatedButton($btnSaved, $row, false); 
             } else {
-                activatedButton($btnEdit, $row);
+                activatedButton($btnEdit, $row, false);
             }
         });       
     });
