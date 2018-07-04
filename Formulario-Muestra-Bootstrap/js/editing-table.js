@@ -1,5 +1,12 @@
 $(function(){
+    /* ID de la tabla de resultado */
     let tblIdContent = "tblMuestra";
+    
+    let rowTable = new Array();
+    
+    /* Cantidad de filas */
+    const $rowLength = $("#"+ tblIdContent +" tbody tr").length;
+
     let $table = $('#'+ tblIdContent).DataTable({
         columns: [
             { 'data': 'estado'},
@@ -65,12 +72,12 @@ $(function(){
             'Z': { pattern: /[0-9]/, optional: true }
         }
     });
+    
+    /* Function de envio de datos */
+    function sendTableRow(){
+        alert();
+    }
 
-    let rowTable = new Array();
-    
-    /* Cantidad de filas */
-    const $rowLength = $("#"+ tblIdContent +" tbody tr").length;
-    
     /* Declarando la segunda dimensión del array */
     function defineArray(){
         for(let row = 0; row < $rowLength; row++){
@@ -112,8 +119,8 @@ $(function(){
         if ($this.hasClass("btn-primary")) {
             $row.removeClass('editActived');
             buttonSiblings($this);
-            alert("Enviando datos .....\n\n EN CONSTRUCCIÓN !!");
-            /* sendTableRow(); EVENTO DE AJAX */
+            /* EVENTO DE AJAX */
+            sendTableRow();
         } else {
             $row.addClass('editActived');
             buttonSiblings($this);
@@ -180,4 +187,6 @@ $(function(){
 
     /* Etiqueta de apoyo */
     $("#"+ tblIdContent +" [data-toggle=\"tooltip\"]").tooltip(); 
+
+
 });
