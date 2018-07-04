@@ -89,18 +89,7 @@ $(function(){
         /* Asignamos a cada celda un ID */
         $(this).find('input').attr("id", (rowIdx + "" + colIdx));
     });
-    
-    /* Captura el clic en cada celda */
-    /*
-    $('#tblMSQGeoquimica tbody').on( 'click', 'td', function () {
-        var rowIdx = $table.cell(this).index().row;
-        console.log(rowIdx);
-        var colIdx = $table.cell(this).index().column;
-        console.log(colIdx);
-        
-    });
-    */
-
+  
     /* Asignar a cada item el calendario */
     $('.date-time-picker').datetimepicker({
         locale: 'es',
@@ -168,7 +157,6 @@ $(function(){
             }
         });       
     });
-    
 
     /* Guardar todos los cambios */
     $("#"+ tblIdContent +" tfoot td:nth-last-child(2) button").on("click", function(){
@@ -181,16 +169,14 @@ $(function(){
         alert("Guardar todos los cambios .......\n\n( * ) EN CONSTRUCCIÓN.");
     });
 
-    /*
-    $.alert({
+    /*$.alert({
         closeIcon: true,
         content: "warning",
         confirmButton: 'Aceptar',
         deleteButton: 'Aceptar',
         confirmButtonClass: 'btn-aceptar',
         confirm: function () { }
-    });
-    */
+    });*/
 
     /* Etiqueta de apoyo */
     $("#"+ tblIdContent +" [data-toggle=\"tooltip\"]").tooltip(); 
