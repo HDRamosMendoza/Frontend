@@ -793,15 +793,15 @@
                         render: function (data, type, row) { 
                             idDate = idDate + 1;
                             idSplitDate += "Date" + idDate + ",";
-                            return "<input id='Date" + idDate + "' type='text' class='' value='" + data + "'/>";
+                            return "<input id=\"\" type=\"text\" class=\"Date"+ idDate +"\" value=\"" + data + "\"/>";
                             /*
                             return "<div class='input-group date' id=\"Date" + counterDate + "\">\
-                                        <input id=\"txtDate" + counterDate + "\" name=\"txtDate" + counterDate + "\" type=\"text\" value=\"" + data + "\" class=\"form-control input-sm\" maxlength=\"10\"/>\
-                                        <span class=\"input-group-addon\">\
-                                            <span class=\"glyphicon glyphicon-calendar\"></span>\
-                                        </span>\
-                                    </div>";
-                                    */
+                                <input id=\"txtDate" + counterDate + "\" name=\"txtDate" + counterDate + "\" type=\"text\" value=\"" + data + "\" class=\"form-control input-sm\" maxlength=\"10\"/>\
+                                <span class=\"input-group-addon\">\
+                                    <span class=\"glyphicon glyphicon-calendar\"></span>\
+                                </span>\
+                            </div>";
+                            */
                         },"targets": 4
                     },{ 
                         render: function (data, type, row) { 
@@ -875,7 +875,8 @@
             /* Asignar a cada item el calendario */
             const SplitDate = idSplitDate.split(',');
             SplitDate.forEach(idElement => {
-                $('#' + idElement).datetimepicker({
+                console.log(idElement)
+                $('.' + idElement).datetimepicker({
                     locale: 'es',
                     format: 'DD/MM/YYYY',
                     maxDate: new Date()
