@@ -775,42 +775,32 @@
                 ],
                 columnDefs: [{ 
                         render: function (data, type, row) { 
-                            return "<input id=\"\" type=\"text\" value=\"" + data + "\"/>"; 
+                            return "<input id=\"\" type=\"text\" value=\"" + data + "\" />"; 
                         },"targets": 0
                     },{ 
                         render: function (data, type, row) { 
-                            return "<input id=\"\" type=\"text\" value=\"" + data + "\"/>"; 
+                            return "<input id=\"\" type=\"text\" value=\"" + data + "\" />"; 
                         },"targets": 1 
                     },{ 
                         render: function (data, type, row) { 
-                            return "<input id=\"\" type=\"text\" value=\"" + data + "\"/>"; 
+                            return "<input id=\"\" type=\"text\" value=\"" + data + "\" />"; 
                         },"targets": 2
                     },{ 
                         render: function (data, type, row) { 
-                            return "<input id=\"\" type=\"text\" class=\"text-right numero\" value=\"" + data + "\"/>"; 
+                            return "<input id=\"\" type=\"text\" value=\"" + data + "\" class=\"text-right number-mask\" />"; 
                         },"targets": 3
                     },{ 
                         render: function (data, type, row) { 
-                            idDate = idDate + 1;
-                            idSplitDate += "Date" + idDate + ",";
-                            return "<input id=\"\" type=\"text\" class=\"Date"+ idDate +"\" value=\"" + data + "\"/>";
-                            /*
-                            return "<div class='input-group date' id=\"Date" + counterDate + "\">\
-                                <input id=\"txtDate" + counterDate + "\" name=\"txtDate" + counterDate + "\" type=\"text\" value=\"" + data + "\" class=\"form-control input-sm\" maxlength=\"10\"/>\
-                                <span class=\"input-group-addon\">\
-                                    <span class=\"glyphicon glyphicon-calendar\"></span>\
-                                </span>\
-                            </div>";
-                            */
+                            return "<input id=\"\" type=\"text\" value=\"" + data + "\" class=\"date-time-picker\" />";
                         },"targets": 4
                     },{ 
                         render: function (data, type, row) { 
-                            return "<input type='text' class='text-right' value='" + data + "'/>"; 
+                            return "<input id=\"\" type=\"text\" value=\"" + data + "\" class=\"text-right\" />"; 
                         },"targets": 5
                     },{ 
                         render: function (data, type, row) { 
                             return "<center>\
-                                        <button type=\"button\" class=\"btn btn-danger btn-xs\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Eliminar\">\
+                                        <button type=\"button\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Eliminar\" class=\"btn btn-danger btn-xs\" >\
                                             <span class=\"glyphicon glyphicon-remove\"></span>\
                                         </button>\
                                     </center>";
@@ -818,7 +808,7 @@
                     },{ 
                         render: function (data, type, row) { 
                             return "<center>\
-                                        <button type=\"button\" class=\"btn btn-warning btn-xs\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Editar\">\
+                                        <button type=\"button\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Editar\" class=\"btn btn-warning btn-xs\" >\
                                             <span class=\"glyphicon glyphicon-edit\"></span>\
                                         </button>\
                                     </center>";
@@ -829,7 +819,7 @@
             });
             
             /* Se restringe el ingreso de valor numerico */
-            $('.numero').mask('ZZZZ', {
+            $('.number-mask').mask('ZZZZ', {
                 translation: {
                     'Z': { pattern: /[0-9]/, optional: true }
                 }
@@ -870,17 +860,11 @@
             });
             */
 
-            
-
             /* Asignar a cada item el calendario */
-            const SplitDate = idSplitDate.split(',');
-            SplitDate.forEach(idElement => {
-                console.log(idElement)
-                $('.' + idElement).datetimepicker({
-                    locale: 'es',
-                    format: 'DD/MM/YYYY',
-                    maxDate: new Date()
-                });
+            $('.date-time-picker').datetimepicker({
+                locale: 'es',
+                format: 'DD/MM/YYYY',
+                maxDate: new Date()
             });
 
             /* Eliminar registro */
@@ -920,6 +904,8 @@
                 $('#'+rowIdx+""+colIdx).on('keyup',function(){
                     var $row = $(this).closest("tr");
                     var $tdButton = $row.find("td:nth-last-child(1) button");
+                    console.log(rowTable[rowIdx][colIdx]);
+                    console.log($(this).val());
                     if(rowTable[rowIdx][colIdx] == $(this).val()){
                         $(this).removeClass('editActived');
                         $tdButton.find('span').removeClass('glyphicon-saved').addClass('glyphicon-edit');
@@ -933,7 +919,26 @@
                         $tdButton.attr("data-original-title","Guardar");  
                         console.log("Segunda");
                     }
-                    
+                }); 
+
+                $('#'+rowIdx+""+colIdx).on("dp.change",function(){
+                    var $row = $(this).closest("tr");
+                    var $tdButton = $row.find("td:nth-last-child(1) button");
+                    console.log(rowTable[rowIdx][colIdx]);
+                    console.log($(this).val());
+                    if(rowTable[rowIdx][colIdx] == $(this).val()){
+                        $(this).removeClass('editActived');
+                        $tdButton.find('span').removeClass('glyphicon-saved').addClass('glyphicon-edit');
+                        $tdButton.removeClass('btn-primary').addClass('btn-warning');
+                        $tdButton.attr("data-original-title","Editar");  
+                        console.log("Primera");
+                    } else {
+                        $(this).addClass('editActived');    
+                        $tdButton.find('span').removeClass('glyphicon-edit').addClass('glyphicon-saved');
+                        $tdButton.removeClass('btn-warning').addClass('btn-primary');
+                        $tdButton.attr("data-original-title","Guardar");  
+                        console.log("Segunda");
+                    }
                 }); 
             });
 
