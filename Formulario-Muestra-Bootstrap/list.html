@@ -429,14 +429,14 @@
                                     <span class="input-group-addon input-xls" title="Buscar Excel">
                                         <label for="fileXls">
                                             <span class="fa fa-file-excel-o"></span>
-                                            .xls / .xls
+                                            .xls / .csv
                                         </label>
                                     </span>
                                     <input id="fileXls" type="file" name="postedFile" class="fileXLS" />
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <select id="cboFileName" name="cboFileName" class="form-control input-sm" data-placeholder="Seleccione Registro" >
+                                <select id="cboFileName" name="cboFileName" class="form-control input-sm" data-placeholder="Seleccione Hoja" >
                                 </select>
                             </div>
                             <!--
@@ -842,7 +842,7 @@
                 let $TblImport = $("#TblImport");
                 // Obtener el archivo del input
                 var oFile = oEvent.target.files[0];
-                var sFilename = oFile.name;
+                //var sFilename = oFile.name;
                 // Crear un Archivo de Lectura HTML5
                 var reader = new FileReader();
 
@@ -857,6 +857,7 @@
                     //wb.SheetNames
                     $TblImport.empty();
                     $cboFileName.empty();
+                    $cboFileName.append("<option value=\"\">Seleccione Hoja</option>").trigger("chosen:updated");
                     $.each(wb.SheetNames, function(indexR, valueR){
                         console.log("Entro");
 
