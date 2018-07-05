@@ -1,16 +1,18 @@
 /* INICIO - Estilos de editar grilla */
-input[type="text"] {
+table tr td > input[type="text"] {
     width: 100%;
     display: block;
     border-style: none;
     background-color:rgba(255,255,255, 0.1);
+    box-sizing: border-box !important; 
+    -webkit-box-sizing: border-box !important;
 }
 
 .dropdown-menu{
     min-width: 380px !important;
 }
 
-input:focus, .editActived { 
+#tblMuestra input:focus, .editActived { 
     background-color: #FEFEE9 !important;
     box-sizing: border-box;
     transition: background-color ease-in-out .15s;

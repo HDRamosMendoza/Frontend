@@ -42,6 +42,25 @@
                 height      : 500px;
                 font-size   : 11px;
             }
+
+
+            /* Inicio - Importar Excel */
+            .input-xls {
+                border-radius: 0 4px 4px 0 !important;
+                background-color: #5cb85c !important;
+                border-color: #4cae4c !important;
+                padding: 0 10px;
+            }
+
+            .input-xls label {
+                color: #FFFFFF !important;
+                margin: 3px 0;
+            }
+            
+            .fileXLS, .ckbXlsFile {
+                display: none !important;
+            }
+            /* Fin - Importar Excel */
         </style>
 
     </head>
@@ -207,15 +226,15 @@
                         </tr>
                     </tfoot>
                 </table>
-                
             </div>
 
             <div class="row">
+
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-success btn-md">
+                                <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#importModal">
                                     <span class="glyphicon glyphicon-import"></span> 
                                     Importar
                                 </button>
@@ -248,6 +267,7 @@
             </div>
 
             <div class="row">
+                
                 <ul class="nav nav-tabs">
                     <li class="active">
                         <a data-toggle="tab" href="#grafico-1">
@@ -385,11 +405,74 @@
                     </div>
                 -->
                 </div>    
-                
-                
             </div>
             
              
+        </div>
+
+        <!-- Ventana Modal - IMPORTAR -->
+        <div class="modal fade" id="importModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">
+                            <span class="glyphicon glyphicon-import"></span> 
+                            Importar Muestra
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class='input-group'>
+                                    <input id="txtFileName" name="txtFileName" type="text" class="form-control input-sm"/>
+                                    <span class="input-group-addon input-xls" title="Buscar Excel">
+                                        <label for="fileXls">
+                                            <span class="fa fa-file-excel-o"></span>
+                                            .xls / .xls
+                                        </label>
+                                    </span>
+                                    <input id="fileXls" type="file" name="postedFile" class="fileXLS" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <select id="cboFileName" name="cboFileName" class="form-control input-sm" data-placeholder="Seleccione Registro" >
+                                </select>
+                            </div>
+                            <!--
+                            <div class="col-md-2">
+                                <button type="button" title="Limpiar" class="btn btn-primary btn-sm btn-block"  >
+                                    <span class="fa fa-spinner fa-spin"></span> 
+                                    Procesar
+                                </button>
+                            </div>
+                            -->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <hr>
+                            </div>
+                        </div>        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div style="height: 20em; overflow: scroll;">
+                                    <table id='TblImport' class="table table-bordered table-condensed table-hover" ></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-remove"></span> 
+                            Cerrar
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-trash"></span> 
+                            Limpiar
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Ventana Modal - ARCHIVOS -->
@@ -688,10 +771,9 @@
                 </div>
             </div>
         </div>
-
+        <script language="JavaScript" src="./js/js-xls-master/node_modules/xlsx/xlsx.js"></script>
         <script type="text/javascript" src="assets/js/jquery.min.js"></script>
         <!-- (A)-->
-
         <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
         <script type="text/javascript" src="assets/plugins/bootstrap-popover-piker/dist/js/bootstrap-picker.min.js"></script>
         <script type="text/javascript" src="assets/plugins/bootstrap-multiselect/bootstrap-multiselect.js"></script>
@@ -736,9 +818,100 @@
 
         <!-- Simple inline editing -->
         <script type="text/javascript" src="./js/editing-table.js"></script>
+        
+        <script language="JavaScript">
+            $('select').chosen({
+                allow_single_deselect: true,
+                width: '100%'
+            }).append($("<option/>", {
+                value: "",
+                text: ""
+            }));
+            var oFileIn;
+            //Código JQuery
+            $(function() {
+                oFileIn = document.getElementById('fileXls');
+                if (oFileIn.addEventListener) {
+                    oFileIn.addEventListener('change', filePicked, false);
+                }
+            });
+
+            //MĂ©todo que hace el proceso de importar excel a html
+            function filePicked(oEvent) {
+                let $cboFileName = $("#cboFileName");
+                let $TblImport = $("#TblImport");
+                // Obtener el archivo del input
+                var oFile = oEvent.target.files[0];
+                var sFilename = oFile.name;
+                // Crear un Archivo de Lectura HTML5
+                var reader = new FileReader();
+
+                // Leyendo los eventos cuando el archivo ha sido seleccionado
+                reader.onload = function(e) {
+                    var data = e.target.result;
+                    var cfb = XLS.CFB.read(data, {
+                        type: 'binary'
+                    });
+                    var wb = XLS.parse_xlscfb(cfb);
+                    // Iterando sobre cada sheet
+                    //wb.SheetNames
+                    $TblImport.empty();
+                    $cboFileName.empty();
+                    $.each(wb.SheetNames, function(indexR, valueR){
+                        console.log("Entro");
+
+                        $cboFileName.append("<option value=\"" + valueR + "\">" + valueR + "</option>").trigger("chosen:updated");
+                        //$('#cboFileName').append('<option value="NSO">No se observa</option>').trigger("chosen:updated");
+                    });
+                    //$("#cboFileName").trigger("chosen:updated");
+                    
+                    $cboFileName.on('change',function(){
+                        $TblImport.empty();
+                        var data= $(this).val();
+                        
+                        var sCSV = XLS.utils.make_csv(wb.Sheets[data]);
+                        var data = XLS.utils.sheet_to_json(wb.Sheets[data], {
+                            header: 1
+                        });
+
+                        $.each(data, function(indexR, valueR) {
+                            var sRow = "<tr>";
+                            $.each(data[indexR], function(indexC, valueC) {
+                                sRow = sRow + "<td>" + valueC + "</td>";
+                            });
+                            sRow = sRow + "</tr>";
+                            $TblImport.append(sRow);
+                        });
+                    });
+
+                    /*wb.SheetNames.forEach(function(sheetName) {
+                        // Obtener la fila actual como CSV
+
+                        if( sheetName == "GPT_IS_InfoSuelo"){
+                            var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);
+                            var data = XLS.utils.sheet_to_json(wb.Sheets[sheetName], {
+                                header: 1
+                            });
+
+                            $.each(data, function(indexR, valueR) {
+                                var sRow = "<tr>";
+                                $.each(data[indexR], function(indexC, valueC) {
+                                    sRow = sRow + "<td>" + valueC + "</td>";
+                                });
+                                sRow = sRow + "</tr>";
+                                $("#TblImport").append(sRow);
+                            });
+                        }
+                    });*/
+                };
+                // Llamar al JS Para empezar a leer el archivo .. Se podrĂ­a retrasar esto si se desea
+               reader.readAsBinaryString(oFile);
+            }
+        </script>
 
         <script type="text/javascript" charset="utf-8">
         $(function(){
+
             var chart;
             chart = AmCharts.makeChart( "chartdiv-11", {
                     "type": "pie",
@@ -1047,17 +1220,7 @@
                 $("#chartdiv-12 a:nth-child(2)").remove();
                 }, 1000);
             });
-
-
-
         });
         </script>
-        
-        <!-- jQuery 
-        <script src="js/jquery.js"></script>-->
-
-        <!-- Bootstrap Core JavaScript 
-        <script src="js/bootstrap.min.js"></script>-->
-
     </body>
 </html>
