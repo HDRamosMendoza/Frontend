@@ -10,13 +10,39 @@ const url = require('url')
 
 let win /* Ciclo de vida */
 function  createWindow(){
-	win = new BrowserWindow({width: 800,height: 600})
+	win = new BrowserWindow({
+		
+		center: true,
+		title: "Automatic Continuum Analysis of Reflectance Spectra",
+    	resizable: true,
+    	transparent: true,
+		width: 900,
+		height: 700,
+     	backgroundColor: '#312450',
+     	show: true,
+     	icon: path.join(__dirname, 'icons8-informe-gráfico-64.png')
+     	//frame: false
+     })
+
+	// y carga el archivo index.html de la aplicación.
+    //win.loadFile('index.html')
+
 	win.loadURL(url.format({
 		pathname: path.join(__dirname, 'index.html'),
 		protocol: 'file',
 		slashes: true
 	}))
+
+	win.setMenu(null);
 	win.webContents.openDevTools() 
+
+	// Emitido cuando la ventana es cerrada.
+    win.on('closed', () => {
+    	// Desreferencia el objeto ventana, usualmente tu guardarias ventanas
+      	// en un arreglo si tu aplicación soporta multi ventanas, este es el momento
+      	// cuando tu deberías borrar el elemento correspiente.
+      	win = null
+    })
 }
 // Exportar procesos.
 // Y llamando una nueva ventana
@@ -29,4 +55,7 @@ exports.openWindow = () => {
 	}))
 }
 
+// Este método será llamado cuando Electron haya terminado
+// la inicialización y esté listo para crear ventanas del navegador.
+// Algunas APIs pueden solamente ser usadas despues de que este evento ocurra.
 app.on('ready', createWindow)
