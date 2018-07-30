@@ -87,6 +87,10 @@
                                     <span class="glyphicon glyphicon-filter"></span> 
                                     Filtro
                                 </button>
+                                <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#filtroModal2">
+                                    <span class="glyphicon glyphicon-filter"></span> 
+                                    Filtro 2
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -286,7 +290,7 @@
              
         </div>
 
-        <!-- Ventana Modal - IMPORTAR -->
+        <!-- Ventana Modal - FILTRO PERSONALIZADO -->
         <div class="modal fade" id="filtroModal" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -294,7 +298,7 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">
                             <span class="glyphicon glyphicon-filter"></span> 
-                            Filtro personalizado
+                            Filtro Personalizado
                         </h4>
                     </div>
                     <div class="modal-body">       
@@ -443,6 +447,278 @@
                                     </div>
                                     <div id="CategoriaProduccion" class="tab-pane fade">
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table id="tblFiltro" class="table table-bordered table-condensed table-hover order-column">
+                                    <caption class="text-center text-info"><u>Resultado de filtro de búsqueda</u></caption>
+                            <thead >
+                                <tr class="hidden">
+                                    <th></th>   
+                                    <th></th>      
+                                    <th></th>  
+                                    <th></th>     
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th class="alinear-thead">Estado</th>   
+                                    <th class="alinear-thead">Proyecto</th>      
+                                    <th class="alinear-thead">Campaña</th>  
+                                    <th class="alinear-thead">Colectado</th>     
+                                    <th class="alinear-thead">Código Muestra</th>
+                                    <th class="alinear-thead">F. Muestra</th>
+                                    <th class="alinear-thead" colspan=2>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>System Architect</td>
+                                    <td>Edinburgh</td>
+                                    <td>61</td>
+                                    <td>25/04/2011</td>
+                                    <td>$320,800</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Garrett Winters</td>
+                                    <td>Accountant</td>
+                                    <td>Tokyo</td>
+                                    <td>63</td>
+                                    <td>25/07/2011</td>
+                                    <td>$170,750</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Ashton Cox</td>
+                                    <td>Junior Technical Author</td>
+                                    <td>San Francisco</td>
+                                    <td>66</td>
+                                    <td>12/01/2009</td>
+                                    <td>$86,000</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Cedric Kelly</td>
+                                    <td>Senior Javascript Developer</td>
+                                    <td>Edinburgh</td>
+                                    <td>22</td>
+                                    <td>29/03/2012</td>
+                                    <td>$433,060</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Airi Satou</td>
+                                    <td>Accountant</td>
+                                    <td>Tokyo</td>
+                                    <td>33</td>
+                                    <td>28/11/2008</td>
+                                    <td>$162,700</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Brielle Williamson</td>
+                                    <td>Integration Specialist</td>
+                                    <td>New York</td>
+                                    <td>61</td>
+                                    <td>02/12/2012</td>
+                                    <td>$372,000</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Herrod Chandler</td>
+                                    <td>Sales Assistant</td>
+                                    <td>San Francisco</td>
+                                    <td>59</td>
+                                    <td>06/08/2012</td>
+                                    <td>$137,500</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Rhona Davidson</td>
+                                    <td>Integration Specialist</td>
+                                    <td>Tokyo</td>
+                                    <td>55</td>
+                                    <td>14/10/2010</td>
+                                    <td>$327,900</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Colleen Hurst</td>
+                                    <td>Javascript Developer</td>
+                                    <td>San Francisco</td>
+                                    <td>39</td>
+                                    <td>15/09/2009</td>
+                                    <td>$205,500</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Sonya Frost</td>
+                                    <td>Software Engineer</td>
+                                    <td>Edinburgh</td>
+                                    <td>23</td>
+                                    <td>13/12/2008</td>
+                                    <td>$103,600</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Estado</th>
+                                    <th>Proyecto</th>
+                                    <th>Campaña</th>
+                                    <th>Colectado</th>
+                                    <th>Código Muestra</th>
+                                    <th>F. Muestra</th>
+                                    <td colspan="2">
+                                        <button id="btnRefreshAll" type="button" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="top" title="Refrescar">
+                                            <span class="glyphicon glyphicon-refresh"></span> 
+                                            Actualizar
+                                        </button>
+                                    </td>
+                                    <!--
+                                    <td>
+                                        <button id="btnEditAll" type="button" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Guardar">
+                                            <span class="glyphicon glyphicon-saved"></span>
+                                            Todo
+                                        </button>
+                                    </td>
+                                    -->
+                                </tr>
+                            </tfoot>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-md" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-remove"></span> 
+                            Cerrar
+                        </button>
+                        <button type="button" class="btn btn-success btn-md">
+                            <span class="glyphicon glyphicon-export"></span> 
+                            Exportar .xlsx
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ventana Modal - FILTRO AVANZADO -->
+        <div class="modal fade" id="filtroModal2" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">
+                            <span class="glyphicon glyphicon-filter"></span> 
+                            Filtro Avanzado
+                        </h4>
+                    </div>
+                    <div class="modal-body">       
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h5>Proyectos</h5>
+                                                    <select id="cbo" name="cbo" class="form-control input-sm" data-placeholder="Seleccione Hoja" >
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h5>Sustancia</h5>
+                                                    <select id="cbo" name="cbo" class="form-control input-sm" data-placeholder="Seleccione Hoja" >
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <h5>Actividad Económica</h5>
+                                                    <select id="cbo" name="cbo" class="form-control input-sm" data-placeholder="Seleccione Hoja" >
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <h5>Industria</h5>
+                                                    <select id="cbo" name="cbo" class="form-control input-sm" data-placeholder="Seleccione Hoja" >
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <h5>Productos Insumos</h5>
+                                                    <select id="cbo" name="cbo" class="form-control input-sm" data-placeholder="Seleccione Hoja" >
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <h5>Usos o Aplicación</h5>
+                                                    <select id="cbo" name="cbo" class="form-control input-sm" data-placeholder="Seleccione Hoja" >
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <h5>Departamento</h5>
+                                                    <select id="cbo" name="cbo" class="form-control input-sm" data-placeholder="Seleccione Hoja" >
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <h5>Provincia</h5>
+                                                    <select id="cbo" name="cbo" class="form-control input-sm" data-placeholder="Seleccione Hoja" >
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <h5>Distrito</h5>
+                                                    <select id="cbo" name="cbo" class="form-control input-sm" data-placeholder="Seleccione Hoja" >
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <h5>Carta</h5>
+                                                    <select id="cbo" name="cbo" class="form-control input-sm" data-placeholder="Seleccione Hoja" >
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <h5>Categoria de Depósito</h5>
+                                                    <select id="cbo" name="cbo" class="form-control input-sm" data-placeholder="Seleccione Hoja" >
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <h5>Tamaño de Depósito</h5>
+                                                    <select id="cbo" name="cbo" class="form-control input-sm" data-placeholder="Seleccione Hoja" >
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h5>&nbsp;</h5>
+                                                    <button type="button" class="btn btn-primary btn-block btn-sm">
+                                                        <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp; Buscar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="CategoriaProduccion" class="tab-pane fade">
                                 </div>
                             </div>
                         </div>
