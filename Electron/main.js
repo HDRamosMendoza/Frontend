@@ -59,3 +59,12 @@ exports.openWindow = () => {
 // la inicialización y esté listo para crear ventanas del navegador.
 // Algunas APIs pueden solamente ser usadas despues de que este evento ocurra.
 app.on('ready', createWindow)
+
+// Salir cuando todas las ventanas estén cerradas.
+app.on('window-all-closed', () => {
+	// En macOS es común para las aplicaciones y sus barras de menú
+	// que estén activas hasta que el usuario salga explicitamente con Cmd + Q
+	if (process.platform !== 'darwin') {
+	  app.quit()
+	}
+})
