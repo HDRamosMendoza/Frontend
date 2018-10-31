@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">  
+  <head>    
+    <title>Título de la WEB</title>    
+    <meta charset="UTF-8">
+    <meta name="title" content="Título de la WEB">
+    <meta name="description" content="Descripción de la WEB">    
+    <link href="http://dominio.com/hoja-de-estilos.css" rel="stylesheet" type="text/css"/>    
+  </head>  
+  <body>    
+    <section id="WidgetTemplate">
+    </section>
+    
+    <!-- JS -->
+    <!--  Punto de entrada en donde voy a configurar REQUIREJS(js/main) -->
+    <!--  Una vez que la biblioteca RequireJS se haya cargado, buscará el 
+          data-mainatributo e intentará cargarlo de forma asíncrona. En este
+          caso, nuestro main.js. -->
+    <script type="text/javascript" src="js/lib/require.js" data-main="js/main" ></script>
+  </body>  
+</html>
