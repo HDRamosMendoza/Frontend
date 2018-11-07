@@ -1,5 +1,8 @@
+// Dependencies
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'; 
 
+// Assets
 import './css/Content.css';
 
 class Content extends Component {
@@ -8,7 +11,7 @@ class Content extends Component {
   // THIS de la clase.
   // - Si tenemos que leer los PROPS se debe de pasar en el
   // CONSTRUCTOR y en el SUPER los PROPS.
-  constructor(){
+  /*constructor(){
     super();
     //console.log(this.props);
     this.state = {
@@ -23,16 +26,16 @@ class Content extends Component {
     this.handleResultClick = this.handleResultClick.bind(this);
     this.handleResetClick = this.handleResetClick.bind(this);
     this.handleInputChanged = this.handleInputChanged.bind(this);
-  }
+  }*/
 
   // - Sivre para ver si nuestro componente ya cargo.
-  componentDidMount() {
+  /*componentDidMount() {
      this.setState({
       count: 1
      });
-  }
+  }*/
 
-  handleCountClick(e) {
+  /*handleCountClick(e) {
     //console.log(e);
     if(e.target.id === 'add') {
       this.setState({
@@ -47,22 +50,22 @@ class Content extends Component {
         count: 0
       });
     }
-  }
+  }*/
 
-  handleResultClick(e) {
+  /*handleResultClick(e) {
     console.log("RESET");
     this.setState({
       result: this.state.number1 + this.state.number2 
     });
-  }
+  }*/
 
-  handleResetClick(e){
+  /*handleResetClick(e){
     this.setState({
       count: 0
     });
-  }
+  }*/
 
-  handleInputChanged(e) {
+  /*handleInputChanged(e) {
     if(e.target.id === 'number1') {
       this.setState({
         number1: Number(e.target.value)
@@ -72,10 +75,10 @@ class Content extends Component {
         number2: Number(e.target.value)
       });
     }
-  }
+  }*/
 
   // - Cuando el STATE cambia el RENDER se vuelve a ejecutar.
-  render() {
+  /*render() {
     console.log('Ejecuta Render');
     return (
       <div className="Content">
@@ -98,6 +101,19 @@ class Content extends Component {
           {this.state.result}
         </p>
 
+      </div>
+    );
+  }*/
+  static propTypes = {
+    body: PropTypes.object.isRequired
+  };
+
+  render(){
+    const { body } = this.props;
+
+    return (
+      <div className="Content">
+        {body}
       </div>
     );
   }

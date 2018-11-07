@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 //import logo from './logo.svg';
 //import './App.css';
 
@@ -14,11 +15,17 @@ import items from '../data/menu';
 //React trabaja con un jsx. Una especie de html en donde podemos
 //ejecutar componentes.
 class App extends Component {
+  static propTypes = {
+    children: PropTypes.object.isRequired
+  };
+
   render() {
+    const { children } = this.props;
+
     return (
       <div className="App">
         <Header title="CodeJobs" items={items}/>
-        <Content />
+        <Content body={children} />
         <Footer copyright="&copy; Codejobs 2017"/> 
       </div>
     );

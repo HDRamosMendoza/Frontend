@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// Para crear enlaces en vez de usar el tag <a>
+import { Link } from 'react-router-dom';
 
 // Assets
 import logo from './images/logo.svg';
@@ -33,7 +35,9 @@ class Header extends Component {
             Learn React
           </a>
           <ul className="Menu">
-            {items && items.map((item,key) => <li key={key}>{item.title}</li>)}
+            {
+              items && items.map((item,key) => <li key={key}><Link to={item.url}>{item.title}</Link></li>)
+            }
           </ul>
         </header>
       </div>
