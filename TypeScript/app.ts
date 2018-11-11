@@ -87,3 +87,105 @@ let villano:string[] = ["Omega", "Dormamu", "Duende Verde"];
 console.log(villano[0].charAt(0));
 
 // 11. Objetos basicos en typescript
+let flash = {
+    nombre: "Barry Allen",
+    edad: 24,
+    poderes: ["Puede coorer muy rapido", "Viajar por el tiempo"]
+};
+// 12 Tipos especificos.
+let flash2: {
+        nombre:string, 
+        edad:number, 
+        poderes:string[]
+    } = {
+    nombre: "Barry Allen",
+    edad: 24,
+    poderes: ["Puede coorer muy rapido", "Viajar por el tiempo"]
+};
+
+// 13. Tipos personalizados
+// Estoy creando una definicion de
+// un tipo.
+type Heroe = {
+    nombre:string,
+    edad:number,
+    poderes:any[],
+    getNombre:() => string
+}
+
+let flashHeroe:Heroe = {
+    nombre: "Barry",
+    edad:24,
+    poderes:["Puede","Ser"],
+    getNombre(){
+        return this.nombre;
+    }
+}
+
+// 14 . Interfaz basica.
+
+interface Xmen {
+    nombre:string,
+    poder:string
+};
+/*function enviarMision ( xmen: {nombreXmen:string}){
+    console.log("Enviando a: " + xmen.nombreXmen);
+};*/
+function enviarMision ( xmen: Xmen){
+    console.log("Enviando a: " + xmen.nombre);
+};
+
+/*function enviarCuartel ( xmen: {nombre:string}){
+    console.log("Enviando al cuartel: " + xmen.nombre);
+};*/
+
+function enviarCuartel ( xmen: Xmen){
+    console.log("Enviando al cuartel: " + xmen.nombre);
+};
+
+/*let wolverine = {
+    nombreXmen: "Wolverine",
+    poder: "Regeneracion"
+};*/
+
+let wolverine:any = {
+    nombre: "Wolverine",
+    poder: "Regeneracion"
+};
+
+enviarMision(wolverine);
+enviarCuartel(wolverine);
+
+// 15 Definición de una clase básica en
+//    TypeScript
+
+class Avenger {
+    nombre:string = "Antman";
+    //equipo:string;
+    //nombreReal:string;
+    //puedePelear:boolean; 
+}
+
+let antman:Avenger = new Avenger();
+console.log(antman);
+
+// 16 Constructorees en las clase
+//      de TypeScript.
+
+class Avenger2 {
+    nombre:string = "Antman";
+    //equipo:string = undefined;
+    //nombreReal:string = undefined;
+
+    puedePelear:boolean = true;
+    peleasGanadas:number = 0;
+
+    constructor( nombre:string, equipo:string, nombreReal:string) {
+        this.nombre = nombre;
+        //this.equipo = equipo;
+        //this.nombreReal = nombreReal;
+    }
+}
+
+let antman2:Avenger2 = new Avenger2("Antman","cap","Scott Lang");
+console.log(antman2);

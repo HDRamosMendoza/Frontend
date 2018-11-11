@@ -68,3 +68,77 @@ var arreglo = [1, 2, 3, 4, 5, 6];
 var villano = ["Omega", "Dormamu", "Duende Verde"];
 console.log(villano[0].charAt(0));
 // 11. Objetos basicos en typescript
+var flash = {
+    nombre: "Barry Allen",
+    edad: 24,
+    poderes: ["Puede coorer muy rapido", "Viajar por el tiempo"]
+};
+// 12 Tipos especificos.
+var flash2 = {
+    nombre: "Barry Allen",
+    edad: 24,
+    poderes: ["Puede coorer muy rapido", "Viajar por el tiempo"]
+};
+var flashHeroe = {
+    nombre: "Barry",
+    edad: 24,
+    poderes: ["Puede", "Ser"],
+    getNombre: function () {
+        return this.nombre;
+    }
+};
+;
+/*function enviarMision ( xmen: {nombreXmen:string}){
+    console.log("Enviando a: " + xmen.nombreXmen);
+};*/
+function enviarMision(xmen) {
+    console.log("Enviando a: " + xmen.nombre);
+}
+;
+/*function enviarCuartel ( xmen: {nombre:string}){
+    console.log("Enviando al cuartel: " + xmen.nombre);
+};*/
+function enviarCuartel(xmen) {
+    console.log("Enviando al cuartel: " + xmen.nombre);
+}
+;
+/*let wolverine = {
+    nombreXmen: "Wolverine",
+    poder: "Regeneracion"
+};*/
+var wolverine = {
+    nombre: "Wolverine",
+    poder: "Regeneracion"
+};
+enviarMision(wolverine);
+enviarCuartel(wolverine);
+// 15 Definición de una clase básica en
+//    TypeScript
+var Avenger = /** @class */ (function () {
+    function Avenger() {
+        this.nombre = "Antman";
+        //equipo:string;
+        //nombreReal:string;
+        //puedePelear:boolean; 
+    }
+    return Avenger;
+}());
+var antman = new Avenger();
+console.log(antman);
+// 16 Constructorees en las clase
+//      de TypeScript.
+var Avenger2 = /** @class */ (function () {
+    function Avenger2(nombre, equipo, nombreReal) {
+        this.nombre = "Antman";
+        //equipo:string = undefined;
+        //nombreReal:string = undefined;
+        this.puedePelear = true;
+        this.peleasGanadas = 0;
+        this.nombre = nombre;
+        //this.equipo = equipo;
+        //this.nombreReal = nombreReal;
+    }
+    return Avenger2;
+}());
+var antman2 = new Avenger2("Antman", "cap", "Scott Lang");
+console.log(antman2);
