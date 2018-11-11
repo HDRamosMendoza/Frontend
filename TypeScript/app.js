@@ -142,3 +142,33 @@ var Avenger2 = /** @class */ (function () {
 }());
 var antman2 = new Avenger2("Antman", "cap", "Scott Lang");
 console.log(antman2);
+// Adicional
+// FOR OF
+var thor = {
+    nombre: "Thor",
+    arma: "Mijolnir"
+};
+var iroman = {
+    nombre: "Iroman",
+    arma: "Armorsuit"
+};
+var capitan = {
+    nombre: "Capitan America",
+    arma: "Escudo"
+};
+var avengersA = [thor, iroman, capitan];
+for (var _i = 0, avengersA_1 = avengersA; _i < avengersA_1.length; _i++) {
+    var avenger = avengersA_1[_i];
+    console.log(avenger.nombre, avenger.arma);
+}
+/*
+for(let i in avengersA){
+    let avenger = avengersA[i];
+    console.log(avenger.nombre, avenger.arma);
+}
+
+for(let j = 0; avengersA.length - 1; j++){
+    let avenger = avengersA[j];
+    console.log(avenger.nombre, avenger.arma);
+}
+*/ 

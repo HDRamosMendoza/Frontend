@@ -189,3 +189,39 @@ class Avenger2 {
 
 let antman2:Avenger2 = new Avenger2("Antman","cap","Scott Lang");
 console.log(antman2);
+
+// Adicional
+// FOR OF
+
+let thor = {
+    nombre: "Thor",
+    arma: "Mijolnir"
+};
+
+let iroman = {
+    nombre: "Iroman",
+    arma: "Armorsuit"
+};
+
+let capitan = {
+    nombre: "Capitan America",
+    arma: "Escudo"
+};
+
+let avengersA = [thor, iroman, capitan];
+
+for(let avenger of avengersA) {
+    console.log(avenger.nombre, avenger.arma);
+}
+
+/*
+for(let i in avengersA){
+    let avenger = avengersA[i];
+    console.log(avenger.nombre, avenger.arma);
+}
+
+for(let j = 0; avengersA.length - 1; j++){
+    let avenger = avengersA[j];
+    console.log(avenger.nombre, avenger.arma);
+}
+*/
