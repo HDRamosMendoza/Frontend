@@ -6,6 +6,8 @@
 // Tipos de datos
 // - Primitivos(string, numero, booleanos, null, undefined).
 // - Compuestos(objetos literales, clases, funciones).
+// Comentarios de una Linea
+/* Comentario de varias lineas */
 // Objetos literales
 var persona = {
     nombre: "Daniel",
