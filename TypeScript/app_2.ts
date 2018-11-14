@@ -72,3 +72,31 @@ var num = 12;
 console.log(typeof num);   //output: number
 
 // 6. Funciones.
+// - Definir una función. Tipo de retorno.
+function greet():string { //the function returns a string 
+    return "Hello World" 
+}
+function caller() { 
+    var msg = greet() //function greet() invoked 
+    console.log(msg) 
+}
+ //invoke function 
+ caller()
+
+ // - Posición de parametros.
+ function test_param(n1:number,s1:string) { 
+    console.log(n1) 
+    console.log(s1) 
+ } 
+ test_param(123,"this is a string")
+ 
+ // - Parametros opcionales.
+ function disp_details(id:number,name:string,mail_id?:string) { 
+    console.log("ID:", id); 
+    console.log("Name",name); 
+    
+    if(mail_id!=undefined)  
+    console.log("Email Id",mail_id); 
+ }
+ disp_details(123,"John");
+ disp_details(111,"mary","mary@xyz.com");
