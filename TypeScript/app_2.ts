@@ -284,3 +284,204 @@ function disp3():string[] {
  for(var p in nums8) { 
     console.log(nums8[i]) 
  }
+
+ // 9. Tuplas.
+ var mytuple1 = []; 
+mytuple1[0] = 120 
+mytuple1[1] = 234
+
+var mytuple2 = [10,"Hello"]; //create a  tuple 
+console.log(mytuple2[0]) 
+console.log(mytuple2[1])
+
+var tup = [] 
+tup[0] = 12 
+tup[1] = 23 
+
+console.log(tup[0]) 
+console.log(tup[1])
+
+// - Actualizando TUPLAS.
+var mytuple = [10,"Hello","World","typeScript"]; //create a  tuple 
+console.log("Tuple value at index 0 "+mytuple[0]) 
+
+//update a tuple element 
+mytuple[0] = 121     
+console.log("Tuple value at index 0 changed to   "+mytuple[0])
+
+// - Destructurando tuplas
+var a =[10,"hello"] 
+var [b,c] = a 
+console.log( b )    
+console.log( c ) 
+
+// 10. Union
+// - Variable Tipo Unión
+var val:string|number 
+val = 12 
+console.log("numeric value of val "+val) 
+val = "This is a string" 
+console.log("string value of val "+val)
+
+// - Tipo de unión y parámetro de función.
+function disp7(name:string|string[]) { 
+    if(typeof name == "string") { 
+       console.log(name) 
+    } else { 
+       var i; 
+       
+       for(i = 0;i<name.length;i++) { 
+          console.log(name[i])
+       } 
+    } 
+ } 
+ disp7("mark") 
+ console.log("Printing names array....") 
+ disp7(["Mark","Tom","Mary","John"])
+
+ // - Tipo de unión y matrices. Los tipos de unión también se 
+ // pueden aplicar a matrices, propiedades e interfaces
+ var arr:number[]|string[]; 
+var i:number; 
+arr = [1,2,4] 
+console.log("**numeric array**")  
+
+for(i = 0;i<arr.length;i++) { 
+   console.log(arr[i]) 
+}  
+
+arr = ["Mumbai","Pune","Delhi"] 
+console.log("**string array**")  
+
+for(i = 0;i<arr.length;i++) { 
+   console.log(arr[i]) 
+} 
+
+// 11. Interfaz. define la sintaxis a la que debe adherirse cualquier entidad.
+// - interfaz y objetos
+interface IPerson { 
+    firstName:string, 
+    lastName:string, 
+    sayHi: ()=>string 
+ } 
+ 
+ var customer:IPerson = { 
+    firstName:"Tom",
+    lastName:"Hanks", 
+    sayHi: ():string =>{return "Hi there"} 
+ } 
+ 
+ console.log("Customer Object ") 
+ console.log(customer.firstName) 
+ console.log(customer.lastName) 
+ console.log(customer.sayHi())  
+ 
+ var employee:IPerson = { 
+    firstName:"Jim",
+    lastName:"Blakes", 
+    sayHi: ():string =>{return "Hello!!!"} 
+ } 
+   
+ console.log("Employee  Object ") 
+ console.log(employee.firstName)
+ console.log(employee.lastName)
+
+ // - Tipo de unión e interfaz
+ interface RunOptions { 
+    program:string; 
+    commandline:string[]|string|(()=>string); 
+ } 
+ 
+ //commandline as string 
+ var options9:RunOptions = {program:"test1",commandline:"Hello"}; 
+ console.log(options9.commandline)  
+ 
+ //commandline as a string array 
+ options9 = {program:"test1",commandline:["Hello","World"]}; 
+ console.log(options9.commandline[0]); 
+ console.log(options9.commandline[1]);  
+ 
+ //commandline as a function expression 
+ options9 = {program:"test1",commandline:()=>{return "**Hello World**";}}; 
+ 
+ var fn:any = options9.commandline; 
+ console.log(fn());
+
+ // - Interfaces y matrices
+ interface namelist { 
+    [index:number]:string 
+ } 
+ 
+ var list2:namelist = ["John",1,"Bran"] //Error. 1 is not type string  
+ interface ages { 
+    [index:string]:number 
+ } 
+ 
+ var agelist:ages; 
+ agelist["John"] = 15   // Ok 
+ agelist[2] = "nine"   // Error
+
+ // - Interfaces y herencia
+/*
+Sintaxis: Herencia de interfaz única
+    Child_interface_name extends super_interface_name
+Sintaxis: Herencia de interfaz múltiple
+    Child_interface_name extends super_interface1_name, 
+    super_interface2_name,…,super_interfaceN_name
+ */
+
+ // - Herencia de interfaz simple
+ interface Person { 
+    age:number 
+ } 
+ 
+ interface Musician extends Person { 
+    instrument:string 
+ } 
+ 
+ var drummer = <Musician>{}; 
+ drummer.age = 27 
+ drummer.instrument = "Drums" 
+ console.log("Age:  "+drummer.age) console.log("Instrument:  "+drummer.instrument)
+
+ // - Herencia de interfaz múltiple
+interface IParent1 { 
+   v1:number 
+} 
+
+interface IParent2 { 
+   v2:number 
+} 
+
+interface Child extends IParent1, IParent2 { } 
+var Iobj:Child = { v1:12, v2:23} 
+console.log("value 1: "+this.v1+" value 2: "+this.v2)
+
+// 12. Clase.
+// - declarar una clase
+class Car { 
+    //field 
+    engine:string; 
+    
+    //constructor 
+    constructor(engine:string) { 
+       this.engine = engine 
+    }  
+    
+    //function 
+    disp():void { 
+       console.log("Function displays Engine is  :   "+this.engine) 
+    } 
+ } 
+ 
+ //create an object 
+ var objr = new Car("XXSY1")
+ 
+ //access the field 
+ console.log("Reading attribute value Engine as :  "+objr.engine)  
+ 
+ //access the function
+ objr.disp()
+
+ // - Herencia de clase
+ //* Repasar el tema. */
