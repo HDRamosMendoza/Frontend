@@ -187,3 +187,100 @@ var disp =()=> {
     console.log("Function invoked"); 
     } 
     disp();
+
+// Prototype
+/* var emp = new employee(123,"Smith") 
+ employee.prototype.email = "smith@abc.com" 
+ 
+ console.log("Employee 's Id: "+emp.id) 
+ console.log("Employee's name: "+emp.name) 
+ console.log("Employee's Email ID: "+emp.email)*/
+
+// Precision
+var num5 = new Number(7.123456); 
+console.log(num5.toPrecision()); 
+
+// ToFixed
+var num3 = 177.234 
+console.log("num3.toFixed() is "+num3.toFixed()) 
+console.log("num3.toFixed(2) is "+num3.toFixed(2)) 
+console.log("num3.toFixed(6) is "+num3.toFixed(6))
+/*num3.toFixed() is 177 
+num3.toFixed(2) is 177.23 
+num3.toFixed(6) is 177.234000*/
+
+// 7. Cadenas.
+// https://www.tutorialspoint.com/typescript/typescript_strings.htm
+
+// 8. Array
+
+// - Array simple.
+var alphas:string[]; 
+alphas = ["1","2","3","4"] 
+console.log(alphas[0]); 
+console.log(alphas[1]);
+
+// - declaración de declaración única e inicialización.
+var nums:number[] = [1,2,3,3] 
+console.log(nums[0]); 
+console.log(nums[1]); 
+console.log(nums[2]); 
+console.log(nums[3]);
+
+// - Objeto de matriz
+var arr_names:number[] = new Array(4)  
+for(var i = 0;i<arr_names.length;i++) { 
+   arr_names[i] = i * 2 
+   console.log(arr_names[i]) 
+}
+
+// - Array Constructor acepta valores separados por comas
+var names:string[] = new Array("Mary","Tom","Jack","Jill")
+for(var i = 0;i<names.length;i++) { 
+   console.log(names[i]) 
+}
+
+// - Metodos de la matriz
+// https://www.tutorialspoint.com/typescript/typescript_arrays.htm
+
+// - Desestructuración de matrices
+// var arr:number[] = [12,13] 
+// var[x,y] = arr 
+// console.log(x) 
+// console.log(y)
+
+// - Array Traversal usando for ... in loop
+var j:any; 
+var nums:number[] = [1001,1002,1003,1004] 
+
+for(j in nums) { 
+   console.log(nums[j]) 
+} 
+
+// - Array de 2 dimensiones.
+var multi:number[][] = [[1,2,3],[23,24,25]]  
+console.log(multi[0][0]) 
+console.log(multi[0][1]) 
+console.log(multi[0][2]) 
+console.log(multi[1][0]) 
+console.log(multi[1][1]) 
+console.log(multi[1][2])
+
+// Pasando un array por función
+var names:string[] = new Array("Mary","Tom","Jack","Jill")  
+function disp2(arr_names:string[]) {
+   for(var i = 0;i<arr_names.length;i++) { 
+      console.log(names[i]) 
+   }  
+}  
+disp2(names)
+
+// Retorno de un array en una función
+function disp3():string[] { 
+    return new Array("Mary","Tom","Jack","Jill") 
+ } 
+  
+ var nums8:string[] = disp3() 
+ for(var p in nums8) { 
+    console.log(nums8[i]) 
+ }
