@@ -1,0 +1,12 @@
+body{
+    color: white;
+    font-family: "Lato";
+    font-weight: light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(150deg, #4e7a89 0%, #4e7a89 50%, #005c90 50%, #005c90 100%);
+}
