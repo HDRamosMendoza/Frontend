@@ -1,0 +1,13 @@
+¿Que es un componente?
+
+Wweb component. Es una carateristicas de que van a 
+implemementar los navegadores con la finalidad de que
+podamos definir nuestra propias etiquetas HTML las cuales
+ya tienen la funcionalidad implementada.
+
+No se enbebemos fragmento de código sino agarramos un
+componente y lo reutilizamos, agreamos a nuestra página,
+la diferencia es que nuestro web componente es un objeto o
+encapsulado lo cual tiene un comportamiento y un estado.
+
+
