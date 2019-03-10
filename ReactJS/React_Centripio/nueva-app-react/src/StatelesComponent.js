@@ -1,6 +1,7 @@
 import React from 'react'
 
 // Este es la PRIMERA forma de crear un COMPONENTE
+// Se usa cuando se tiene estados
 class StatelesComponent extends React.Component{
   constructor(args){
       super(args)

@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import StatelesComponent from  './StatelesComponent'
+import StatusFullComponent from  './StatusFullComponent'
 
 class App extends Component {
   render() {
     return (
-      <StatelesComponent />
+      <div>
+        <StatelesComponent />
+        <StatusFullComponent/>
+      </div>
     /*  <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
