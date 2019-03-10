@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head runat="server" id="PageHeader">
+        <title>Plantilla</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon"       href="../../assets/iconos/favicon.ico" type="image/ico">
+        <link rel="stylesheet" href="assets/plugins/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/plugins/bootstrap-popover-piker/dist/css/bootstrap-picker.min.css">
+        <link rel="stylesheet" href="assets/plugins/bootstrap-multiselect/bootstrap-multiselect.css">
+        <link rel="stylesheet" href="assets/plugins/selectsize/dist/css/selectize.bootstrap3.css">
+        <link rel="stylesheet" href="assets/plugins/selectsize/dist/css/selectize.css">
+        <link rel="stylesheet" href="assets/plugins/datatables/media/css/dataTables.bootstrap.css">
+        <link rel="stylesheet" href="assets/plugins/datatables/media/css/responsive.bootstrap.css">
+        <link rel="stylesheet" href="assets/plugins/selectsize/dist/css/selectize.default.css">
+        <link rel="stylesheet" href="assets/plugins/boostrap-fileinput/css/fileinput.css">
+        <link rel="stylesheet" href="assets/plugins/jquery-confirm/jquery-confirm.css">
+        <link rel="stylesheet" href="assets/plugins/jquery-blockui/jquery.blockUI.css">
+        <link rel="stylesheet" href="assets/plugins/bsmodal/bs.sm.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/config-web.css">
+        <link rel="stylesheet" href="assets/css/ingemmet-font.css">
+        <link rel="stylesheet" href="assets/css/login.css">
+        <link rel="stylesheet" href="assets/plugins/jquery-confirm/jquery-confirm-config.css">
+        <link rel="stylesheet" href="assets/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="assets/plugins/chosen/chosen.css">
+        <link rel="stylesheet" href="assets/plugins/pqGrid/pqgrid.min.css">
+        <link rel="stylesheet" href="assets/plugins/pqGrid/themes/Office/pqgrid.css">
+        <link rel="stylesheet" href="https://js.arcgis.com/3.27/esri/css/esri.css">
+    </head>
+    <body>
+        <!-- Page Content -->
+        <div class="container">
+            <input type="hidden" id="txtObjectId" value="   " />
+            <input type="hidden" id="UsuarioRegistro" value="" />
+
+            <div class="row">
+                <div class="cat-box-title button-inline col-md-12">
+                    <h2>Muestra</h2>
+                    <div class="stripe-line"></div>
+                </div>   
+            </div>
+
+            <form id="frmMuestra" class="form-horizontal" role="form">
+                <div class="row">
+                    
+                </div>
+            </form>
+            <div id="map">
+            </div>
+        </div>
+
+        <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/bootstrap-popover-piker/dist/js/bootstrap-picker.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+        <script type="text/javascript" src="assets/plugins/selectsize/dist/js/standalone/selectize.js"></script>
+        <script type="text/javascript" src="assets/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/datatables/media/js/dataTables.bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/datatables/media/js/dataTables.responsive.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/datatables/media/js/dataTables.responsive.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/datatables/media/js/helper.datatables.js"></script>
+        <script type="text/javascript" src="assets/plugins/datatables/media/js/dataTables.language.es.js"></script>
+        <script type="text/javascript" src="assets/plugins/boostrap-fileinput/js/fileinput.js"></script>
+        <script type="text/javascript" src="assets/plugins/boostrap-fileinput/js/fileinput_locale_es.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery-validate/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery-validate/jquery.validate.es.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery-confirm/jquery-confirm.js"></script>
+        <script type="text/javascript" src="assets/plugins/bootstrap/dist/js/modal.maxheiht.js"></script>
+        <script type="text/javascript" src="assets/plugins/bootbox/bootbox.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery-mask/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery-blockui/jquery.blockUI.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery-blockui/jquery.extend.blockUI.js"></script>
+        <script type="text/javascript" src="assets/plugins/bsmodal/bs.sm.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.modal.js"></script>
+        <script type="text/javascript" src="assets/js/general.js"></script>
+        <script type="text/javascript" src="assets/js/msgboxalert.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/droptabs-master/jquery.droptabs.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/bootstrap-datetimepicker/js/moment-with-locales.js"></script>
+        <script type="text/javascript" src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/chosen/chosen.jquery.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery.pad/jquery.pad.min.js"></script>
+        
+        <script src="https://js.arcgis.com/3.27/"></script>
+        <script type="text/javascript">
+            
+            require([
+                    "dojo/dom",
+                    "dojo/_base/array",
+                    "dojo/date/locale",
+                    "dojo/parser",
+                    "dijit/registry",
+
+                    "esri/domUtils",
+                    "esri/map",
+                    "esri/graphic",
+                    "esri/layers/ArcGISDynamicMapServiceLayer",
+                    "esri/layers/FeatureLayer",
+                    "esri/tasks/Geoprocessor",
+                    "esri/dijit/Legend",
+
+                    "dijit/form/DateTextBox",
+                    "dijit/layout/BorderContainer",
+                    "dijit/layout/ContentPane"
+                ], function(
+                        dom, array, locale, parser, registry,
+             domUtils, Map, Graphic, ArcGISDynamicMapServiceLayer, FeatureLayer, Geoprocessor, Legend
+                    ) {
+                    /* Procedimiento para leer servicios GIS */
+                    
+                    var services_path = "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services";
+                    var services_gpserver = "temp/agol2bdgeocientifica/GPServer/agol2gdb";
+                    
+
+                    /*
+                    gp.getResultData(r.jobId, "response",function(){
+                        if(result != null) {
+                            let varcd_mtra = result.value.result.CD_MTRA;
+                            console.log(varcd_mtra);
+                        }
+                    });
+                    */
+                    console.log("CARGO");
+
+                    var map = new Map("map", {
+                        center: [-118, 34.5],
+                        zoom: 8,
+                        basemap: "topo"
+                    });
+
+                    var gp = new Geoprocessor(services_path + services_gpserver);
+                    gp.setOutputSpatialReference({wkid:4326}); 
+                    var params = {
+                        "modulo" : "DRME_ROCASMENAS",
+                        "codes" : "CONTEO"
+                    };
+
+                   
+
+                    /*gp.submitJob(params, displayTrack);*/
+                    gp.execute(params, displayTrack);
+
+                    console.log(gp);
+
+                     function displayTrack(results, messages){
+                        console.log("Devolvio");
+                        var features = results;
+                        console.log(features);
+                    };
+                    
+            });
+        </script>
+    </body>
+</html>
