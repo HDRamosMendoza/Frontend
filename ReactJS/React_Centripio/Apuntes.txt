@@ -1,13 +1,23 @@
-¿Que es un componente?
+ï¿½Que es un componente?
 
-Wweb component. Es una carateristicas de que van a 
+Wweb component. Es una carateristicas de que van a
 implemementar los navegadores con la finalidad de que
 podamos definir nuestra propias etiquetas HTML las cuales
 ya tienen la funcionalidad implementada.
 
-No se enbebemos fragmento de código sino agarramos un
-componente y lo reutilizamos, agreamos a nuestra página,
+No se enbebemos fragmento de cï¿½digo sino agarramos un
+componente y lo reutilizamos, agreamos a nuestra pï¿½gina,
 la diferencia es que nuestro web componente es un objeto o
 encapsulado lo cual tiene un comportamiento y un estado.
 
-
+JXS (JAVASCRIPT XML).
+Es un lenguaje muy potente para crear interfaz grÃ¡ficas.
+Combina lo mejor JS y XML. Es un lenguaje identado. Basadp en XML
+Una de las reglas:
+1. Debe de haber un unico elemento padre.
+2. Todos nuestros elementos debe de estar balanceados(etiqueta de cierre).
+3. Los estilos en linea. Los estilos deben de ser colocados como
+   objetos de JAVASCRIPT. style={{color: 'red', backgroundColor: 'blue'}}.
+   Todas las propiedades de estilos que se componente con dos nombres se
+   usa camelcase backgroundColor.
+4. Las funciones son camelcase onClick
