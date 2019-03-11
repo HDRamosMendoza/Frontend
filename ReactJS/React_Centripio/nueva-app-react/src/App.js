@@ -5,20 +5,35 @@ import './App.css';
 // import StatusFullComponent from  './StatusFullComponent'
 
 class App extends Component {
+  constructor(args){
+    super(args)
+    // Inicializamos el constructor
+    this.state = {
+      counter: 0
+    }
+  }
 
-  evento(e) {
+  sumar(e) {
+    this.setState({
+      counter: this.state.counter + 1
+    })
+  }
+
+  restar(e) {
+    this.setState({
+      counter: this.state.counter - 1
+    })
   }
 
   render() {
-
-
+    console.log('render =>');
     return (
       <div>
-        //<StatelesComponent />
-        //<StatusFullComponent/>
-
-
-
+        <span>Contador {this.state.counter}</span>
+        <div>
+          <button onClick={this.sumar.bind(this)}>+</button>
+          <button onClick={this.restar.bind(this)}>-</button>
+        </div>
       </div>
     /*  <div className="App">
         <header className="App-header">

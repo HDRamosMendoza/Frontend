@@ -1,6 +1,6 @@
 import React from 'react'
-import StatelesComponent from  './StatelesComponent'
-import StatusFullComponent from  './StatusFullComponent'
+//import StatelesComponent from  './StatelesComponent'
+//import StatusFullComponent from  './StatusFullComponent'
 
 class App extends Component {
 
@@ -29,8 +29,8 @@ class App extends Component {
 
     return (
       <div>
-        <StatelesComponent />
-        <StatusFullComponent/>
+        //<StatelesComponent />
+        //<StatusFullComponent/>
 
         <h1>Hola Mundo</h1>
         <h1>desde JSX</h1>
