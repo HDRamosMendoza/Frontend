@@ -10,6 +10,9 @@ Registro de muestra.
 Listado de muestras, importación, exportación, carga de archivo y reporte.
 * https://HDRamosMendoza.github.io/Frontend/Formulario-Muestra-Bootstrap/list.html
 
+Carga de GEPROCESAMIENTO a DATATABLE de Jquery
+* https://HDRamosMendoza.github.io/Frontend/Formulario-Muestra-Bootstrap/indexAPI.html
+
 ## Carpeta: Formulario-Muestra-CalciteWeb
 CALCITE WEB. Carpeta de formulario de registro general de muestra.
 

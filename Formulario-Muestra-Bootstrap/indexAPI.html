@@ -47,9 +47,104 @@
                     
                 </div>
             </form>
-            <div id="map">
+            
+            <div class="row">
+                <div id="map">
+                </div>        
             </div>
+            
+            <div class="row">
+                <table id="tblMuestra" class="table table-bordered table-condensed table-hover order-column">
+                    <thead >
+                        <tr class="hidden">
+                            <th></th>   
+                            <th></th>      
+                            <th></th>  
+                            <th></th>     
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th class="alinear-thead text-center">
+                                <span class="glyphicon">&#xe067;</span>
+                            </th>
+                            <th class="alinear-thead">Código Muestra</th>
+                            <th class="alinear-thead">Proyecto</th>      
+                            <th class="alinear-thead">Latitud</th>  
+                            <th class="alinear-thead">Longitud</th>
+                            <th class="alinear-thead">Zona</th>
+                            <th class="alinear-thead">Colectado</th>     
+                            <th class="alinear-thead">F. Muestra</th>
+                            <th class="alinear-thead text-center"">
+                                <span class="glyphicon">&#xe067;</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>25/04/2011</td>
+                            <td>$320,800</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                       -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class="text-center">
+                                <span class="glyphicon">&#xe067;</span>
+                            </th>
+                            <th>Código Muestra</th>
+                            <th>Proyecto</th>      
+                            <th>Latitud</th>  
+                            <th>Longitud</th>
+                            <th>Zona</th>
+                            <th>Colectado</th>     
+                            <th>F. Muestra</th>
+                            <th class="text-center">
+                                <span class="glyphicon">&#xe067;</span>
+                            </th>
+                            <!--
+                            <td>
+                                <button id="btnEditAll" type="button" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Guardar">
+                                    <span class="glyphicon glyphicon-saved"></span>
+                                    Todo
+                                </button>
+                            </td>
+                            -->
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
         </div>
+        <!-- Modal -->
+          <div class="modal fade" id="ModalLoad" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modal del MEDIO HUEVO</h4>
+                </div>
+                <div class="modal-body">
+                  <p>Espera un momento <strong>MEDIO HUEVO</strong> esta cargando .....</p>
+                </div>
+                <!--
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>-->
+              </div>
+              
+            </div>
+          </div>
 
         <script type="text/javascript" src="assets/js/jquery.min.js"></script>
         <script type="text/javascript" src="assets/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -113,17 +208,6 @@
                     
                     var services_path = "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/";
                     var services_gpserver = "temp/agol2bdgeocientifica/GPServer/agol2gdb";
-                    
-
-                    /*
-                    gp.getResultData(r.jobId, "response",function(){
-                        if(result != null) {
-                            let varcd_mtra = result.value.result.CD_MTRA;
-                            console.log(varcd_mtra);
-                        }
-                    });
-                    */
-                    console.log("CARGO");
 
                     var map = new Map("map", {
                         center: [-118, 34.5],
@@ -139,15 +223,33 @@
                     };
 
                     gp.submitJob(params, gpJobComplete, gpJobStatus, gpJobFailed);
+                    let dataTable = $('#tblMuestra').DataTable();
 
 
                     function gpJobComplete(jobinfo){
                         //get the result map service layer and add to map
-                        
                         gp.getResultData(jobinfo.jobId, "response", function(result){
                           if(result != null){
-                            var abc_mtra = result.value;
-                            console.log(abc_mtra);
+                            let resultValue = result.value;
+                            resultValue.forEach(function(entry) {
+                                dataTable.row.add( [
+                                    "<center>\
+                                        <input type=\"checkbox\" class=\"form-check-input\">\
+                                    </center>",
+                                    entry.attributes.CD_MTRA,
+                                    entry.attributes.PROY,
+                                    entry.attributes.LATITUD,
+                                    entry.attributes.LONGITUD,
+                                    entry.attributes.ZONA,
+                                    entry.attributes.COLECTADO,
+                                    entry.attributes.F_MTRA,
+                                    "<center>\
+                                        <input type=\"checkbox\" class=\"form-check-input\">\
+                                    </center>"
+                                ] ).draw( false );
+                            });
+
+                            $("#ModalLoad").modal('hide');
                           }
                           
                         });
@@ -156,7 +258,7 @@
                       
                     function gpJobStatus(jobinfo){
                         
-                        
+                        $("#ModalLoad").modal('show');//ocultamos el modal
                         console.log(jobinfo.jobStatus);
                           
                         
