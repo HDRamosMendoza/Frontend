@@ -111,7 +111,7 @@
                     ) {
                     /* Procedimiento para leer servicios GIS */
                     
-                    var services_path = "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services";
+                    var services_path = "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/";
                     var services_gpserver = "temp/agol2bdgeocientifica/GPServer/agol2gdb";
                     
 
@@ -138,18 +138,38 @@
                         "codes" : "CONTEO"
                     };
 
-                   
+                    gp.submitJob(params, gpJobComplete, gpJobStatus, gpJobFailed);
 
-                    /*gp.submitJob(params, displayTrack);*/
-                    gp.execute(params, displayTrack);
 
-                    console.log(gp);
+                    function gpJobComplete(jobinfo){
+                        //get the result map service layer and add to map
+                        
+                        gp.getResultData(jobinfo.jobId, "response", function(result){
+                          if(result != null){
+                            var abc_mtra = result.value;
+                            console.log(abc_mtra);
+                          }
+                          
+                        });
+                        
+                      }      
+                      
+                    function gpJobStatus(jobinfo){
+                        
+                        
+                        console.log(jobinfo.jobStatus);
+                          
+                        
+                    }
 
-                     function displayTrack(results, messages){
-                        console.log("Devolvio");
-                        var features = results;
-                        console.log(features);
-                    };
+                    function gpJobFailed(error){
+                    }
+
+                    function buildDefinitionQuery(){
+                    }
+                      
+                    function cleanup(){
+                    }
                     
             });
         </script>
