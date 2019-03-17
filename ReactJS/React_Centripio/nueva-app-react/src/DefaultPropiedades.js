@@ -43,7 +43,7 @@ class Propiedades extends Component{
       id: new Date().getTime(),
       name: nameInput.value,
       role: roleInput.value,
-      tel: telInput.value,
+      tel: parseInt(telInput.value),
     })
 
     this.setState({
@@ -83,6 +83,7 @@ class Propiedades extends Component{
         */}
 
         <ul>
+        {/* PRIMERA FORMA
           {
             this.state.users.map(user => {
               // Compoente ITEM
@@ -91,6 +92,17 @@ class Propiedades extends Component{
                 name={user.name}
                 role={user.role}
                 tel={user.tel}
+                deleteOp={this.delete.bind(this)} />
+            })
+          }
+          */
+        }
+          {
+            this.state.users.map(user => {
+              // Compoente ITEM
+              return <Item
+                key={user.id}
+                user= {user}
                 deleteOp={this.delete.bind(this)} />
             })
           }
