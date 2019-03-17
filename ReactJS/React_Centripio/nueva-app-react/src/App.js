@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 // import StatelesComponent from  './StatelesComponent'
 // import StatusFullComponent from  './StatusFullComponent'
- import DefaultPropiedades from  './DefaultPropiedades'
+import DefaultPropiedades from  './DefaultPropiedades'
+import Formulario from  './Formulario'
 
 class App extends Component {
   constructor(args){
@@ -36,6 +37,7 @@ class App extends Component {
           <button onClick={this.restar.bind(this)}>-</button>
         </div>
         <DefaultPropiedades/>
+        <Formulario/>
       </div>
     /*  <div className="App">
         <header className="App-header">
