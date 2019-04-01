@@ -76,9 +76,6 @@
                             <th class="alinear-thead">Zona</th>
                             <th class="alinear-thead">Colectado</th>     
                             <th class="alinear-thead">F. Muestra</th>
-                            <th class="alinear-thead text-center"">
-                                <span class="glyphicon">&#xe067;</span>
-                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -107,9 +104,6 @@
                             <th>Zona</th>
                             <th>Colectado</th>     
                             <th>F. Muestra</th>
-                            <th class="text-center">
-                                <span class="glyphicon">&#xe067;</span>
-                            </th>
                             <!--
                             <td>
                                 <button id="btnEditAll" type="button" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Guardar">
@@ -121,6 +115,10 @@
                         </tr>
                     </tfoot>
                 </table>
+            </div>
+
+            <div class="row">
+                <button type="button" class="btn btn-primary" onclick="alertCodigoMuestra()" id="btnGuardarCD_Muestra">Guardar</button>       
             </div>
 
         </div>
@@ -180,8 +178,14 @@
         <script type="text/javascript" src="assets/plugins/jquery.pad/jquery.pad.min.js"></script>
         
         <script src="https://js.arcgis.com/3.27/"></script>
+        <style>
+            .check-Row {
+                background:#cff4c3 !important; 
+            }
+        </style>
         <script type="text/javascript">
-            
+            /* Lista a enviar */
+            let jsonCode =[];
             require([
                     "dojo/dom",
                     "dojo/_base/array",
@@ -205,7 +209,8 @@
              domUtils, Map, Graphic, ArcGISDynamicMapServiceLayer, FeatureLayer, Geoprocessor, Legend
                     ) {
                     /* Procedimiento para leer servicios GIS */
-                    
+                    let btnGuardarCD = document.getElementById("btnGuardarCD_Muestra")
+                    btnGuardarCD.disabled = true;
                     var services_path = "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/";
                     var services_gpserver = "temp/agol2bdgeocientifica/GPServer/agol2gdb";
 
@@ -214,6 +219,8 @@
                         zoom: 8,
                         basemap: "topo"
                     });
+
+                   
 
                     var gp = new Geoprocessor(services_path + services_gpserver);
                     gp.setOutputSpatialReference({wkid:4326}); 
@@ -224,17 +231,27 @@
 
                     gp.submitJob(params, gpJobComplete, gpJobStatus, gpJobFailed);
                     let dataTable = $('#tblMuestra').DataTable();
-
-
+                    //var colCount = dataTable.columns().header().length;
+                    //var colCount = dataTable.row(0).data().length;
+                    /* La columna de ESTADO para pintar */
+                    let columnCount = dataTable.columns()[0].length;
+                    //dataTable.columns([columnCount-2]).visible(false);
+                    
                     function gpJobComplete(jobinfo){
                         //get the result map service layer and add to map
                         gp.getResultData(jobinfo.jobId, "response", function(result){
                           if(result != null){
                             let resultValue = result.value;
+
                             resultValue.forEach(function(entry) {
                                 dataTable.row.add( [
-                                    "<center>\
-                                        <input type=\"checkbox\" class=\"form-check-input\">\
+                                    /* En "data-estado" se colocara el valor del ESTADO que pintara la fila. */
+                                    "<center \
+                                        data-estado=\"" + parseInt(1) + "\" \
+                                        data-code=\"" + entry.attributes.CD_MTRA + "\" >\
+                                        <input \
+                                            type=\"checkbox\" \
+                                            class=\"form-check-input\" />\
                                     </center>",
                                     entry.attributes.CD_MTRA,
                                     entry.attributes.PROY,
@@ -242,38 +259,90 @@
                                     entry.attributes.LONGITUD,
                                     entry.attributes.ZONA,
                                     entry.attributes.COLECTADO,
-                                    entry.attributes.F_MTRA,
-                                    "<center>\
-                                        <input type=\"checkbox\" class=\"form-check-input\">\
-                                    </center>"
+                                    entry.attributes.F_MTRA
                                 ] ).draw( false );
                             });
-
                             $("#ModalLoad").modal('hide');
                           }
-                          
                         });
-                        
-                      }      
+                        /*
+                            Se ejecutara despues de la 
+                            finalización del Geoprocesamiento
+                        */
+                        setTimeout(
+                            function(){
+                                rowsColor();
+                            },500
+                        );
+                    }      
                       
                     function gpJobStatus(jobinfo){
-                        
-                        $("#ModalLoad").modal('show');//ocultamos el modal
+                        /* Ocultar modal solo una vez si se tiene procesando */
+                        let modalLoad = $('#ModalLoad');
+                        if(!modalLoad.hasClass('in')){ 
+                            modalLoad.modal('show');
+                        } 
                         console.log(jobinfo.jobStatus);
-                          
-                        
                     }
 
-                    function gpJobFailed(error){
-                    }
+                    function gpJobFailed(error){};
 
-                    function buildDefinitionQuery(){
-                    }
+                    function buildDefinitionQuery(){};
                       
-                    function cleanup(){
-                    }
-                    
+                    function cleanup(){};
+
+                    function rowsColor(){
+                        $('#tblMuestra tbody tr td:first-child center').each(
+                            function () {
+                                let $this = $(this);
+                                let thisData = $this.data('estado');
+                                /* Es 1 pinta y 0 no pinta */
+                                if(parseInt(thisData)){
+                                    $this.parent().parent().addClass('check-Row');
+                                }
+                            }
+                        );
+                    };
+
+                    /* Detecta el CheckBox de la primera columna */
+                    $('#tblMuestra tbody').on('click', 'tr td:first-child center input', function () {
+                        let $this = $(this);
+                        let thisCenter = $this.parent();
+                        let thisCode = thisCenter.data('code');
+                        if($this.prop('checked')){
+                            /* Búsqueda si existe */
+                            let atr = jsonCode.filter( function(item) {
+                                        if(item==thisCode){
+                                            return 0;
+                                        } else {
+                                            return 1;
+                                        }
+                                       }); 
+                            /* Agrega */
+                            if(atr){
+                                jsonCode.push(thisCode);       
+                            }
+                        } else {
+                            /* Busca su posición */
+                            let index = jsonCode.indexOf(thisCode);
+                            /* Elimina por su posición */
+                            if (index > -1) {
+                                jsonCode.splice(index, 1);
+                            }
+                        }
+                        console.log(jsonCode);
+                        if(jsonCode.length > 0){
+                            btnGuardarCD.disabled = false;
+                        } else {
+                            btnGuardarCD.disabled = true;
+                        }
+                    });
             });
+
+            function alertCodigoMuestra(){
+                alert(jsonCode.toString());
+            };
+
         </script>
     </body>
 </html>
