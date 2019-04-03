@@ -247,7 +247,7 @@
                                 dataTable.row.add( [
                                     /* En "data-estado" se colocara el valor del ESTADO que pintara la fila. */
                                     "<center \
-                                        data-estado=\"" + parseInt(1) + "\" \
+                                        data-estado=\"" + parseInt(0) + "\" \
                                         data-code=\"" + entry.attributes.CD_MTRA + "\" >\
                                         <input \
                                             type=\"checkbox\" \
@@ -322,7 +322,9 @@
                             if(atr){
                                 jsonCode.push(thisCode);       
                             }
+                            $this.parent().parent().parent().addClass('check-Row');
                         } else {
+                            $this.parent().parent().parent().removeClass('check-Row');
                             /* Busca su posición */
                             let index = jsonCode.indexOf(thisCode);
                             /* Elimina por su posición */
