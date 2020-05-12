@@ -1,0 +1,71 @@
+.tab-content {
+  border-top: 1px solid #abc;
+  display: none;
+  padding: 2px 0 0 0;
+  overflow-y: hidden; 
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
+  margin-bottom: -100px;
+}
+
+/* Activa el scroll del menú */
+.scroll-menu {
+  border-bottom: 1px solid #FFFFFF;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.scroll-menu input {
+  display: none;
+}
+
+.scroll-menu label {
+  color: #abc;
+  border: 1px solid transparent;
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 8px 20px;/* Pestaña */
+  font-weight: 600;
+  text-align: center;
+}
+
+.scroll-menu label:hover {
+  color: #789;
+  cursor: pointer;
+}
+
+.scroll-menu input:checked + label {
+  color: #FFFFFF;
+  border-top: 3px solid #0af;
+  border-left: 1px solid #FFFFFF;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #214595;
+  display: inline-block;
+}
+
+
+/*
+.ST_panelClose:hover {
+  border: 1px solid white;
+}
+
+.ST_panelClose {
+  position: absolute;
+  left: auto;
+  right:2px;
+  width: 24px;
+  top: 3px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  background-image: url('images/x.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 12px;
+}
+*/

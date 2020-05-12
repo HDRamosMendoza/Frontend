@@ -1,0 +1,183 @@
+<div>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<div class="scroll-menu">
+		<input id="PoblacionesVulnerables" type="radio" name="tabs">
+		<label for="PoblacionesVulnerables">
+			Poblaciones Vulnerables
+		</label>
+
+		<input id="VertimientosVigentes" type="radio" name="tabs">
+		<label for="VertimientosVigentes">
+			Vertimientos Vigentes
+		</label>
+
+		<input id="Presas" type="radio" name="tabs">
+		<label for="Presas" name="Presas">
+			Presas
+		</label>
+
+		<input id="InventarioLagunas" type="radio" name="tabs">
+		<label for="InventarioLagunas">
+			Inventario de Lagunas
+		</label>
+
+		<input id="UnidadesHidrograficas" type="radio" name="tabs">
+		<label for="UnidadesHidrograficas">
+			Unidades Hidrográficas
+		</label>
+
+		<input id="ConsejoRecursosHidricosCuenca" type="radio" name="tabs">
+		<label for="ConsejoRecursosHidricosCuenca">
+			Consejo de Recursos Hidrícos de Cuenca
+		</label>
+
+		<input id="FajasMarginales" type="radio" name="tabs">
+		<label for="FajasMarginales">
+			Fajas Marginales
+		</label>
+
+		<input id="PuntosCriticos" type="radio" name="tabs">
+		<label for="PuntosCriticos">
+			Puntos Criticos
+		</label>
+
+		<input id="Pozos" type="radio" name="tabs">
+		<label for="Pozos">
+			Pozos
+		</label>
+
+		<input id="Acuiferos" type="radio" name="tabs">
+		<label for="Acuiferos">
+			Acuiferos
+		</label>
+
+		<input id="CuerposAguaCodificadas" type="radio" name="tabs">
+		<label for="CuerposAguaCodificadas">
+			Cuerpos de Agua Codificadas
+		</label>		
+	</div>
+
+	<!--<div class="ST_panelClose" data-dojo-attach-event="onclick:_close" title="Cerrar"></div>-->
+	
+	<section id="PoblacionesVulnerables_TAB" class="tab-content" style="background-color: red">
+		<div>
+			TAB 1
+		</div>
+	</section>
+
+	<section id="VertimientosVigentes_TAB" class="tab-content" style="background-color: blue">
+		<div>
+			TAB 2
+		</div>
+	</section>
+
+	<section id="Presas_TAB" class="tab-content" style="background-color: green">
+		<div>
+			TAB 3
+		</div>
+	</section>
+
+	<section id="InventarioLagunas_TAB" class="tab-content" style="background-color: yellow">
+		<div>
+			TAB 4
+		</div>
+	</section>
+
+	<section id="UnidadesHidrograficas_TAB" class="tab-content" style="background-color: black">
+		<div>
+			TAB 5
+		</div>
+	</section>
+
+	<section id="ConsejoRecursosHidricosCuenca_TAB" class="tab-content" style="background-color: orange">
+		<div>
+			TAB 6
+		</div>
+	</section>
+
+	<section id="FajasMarginales_TAB" class="tab-content" style="background-color: brown">
+		<div>
+			TAB 7
+		</div>
+	</section>
+
+	<section id="PuntosCriticos_TAB" class="tab-content" style="background-color: pink">
+		<div>
+			TAB 8
+		</div>
+	</section>
+
+	<section id="Pozos_TAB" class="tab-content" style="background-color: purple">
+		<div>
+			TAB 9
+		</div>
+	</section>
+
+	<section id="Acuiferos_TAB" class="tab-content" style="background-color: #3d800091">
+		<div>
+			TAB 10
+		</div>
+	</section>
+
+	<section id="CuerposAguaCodificadas_TAB" class="tab-content" style="background-color: lightblue">
+		<div>
+			TAB 11
+		</div>
+	</section>
+	
+	<script type="text/javascript">
+		
+        let _elementById = function (paramId) {
+        	try {
+			    let id = document.getElementById(paramId);
+			    if(id !== null && id !== undefined){
+			        return id;
+			    } else {
+			        console.log(`
+			        	Error: ID(${id}) => null || undefined
+			        `);
+			    }
+			} catch(error) {
+          		console.error(`
+          			_elementById: ${error.name} - ${error.message}.
+          		`);
+        	}
+		};
+
+        let _tabDesactive = function(node) {
+        	try {
+	        	for (let i = 0; i < node.length; i++) {
+					_elementById(node[i].id + "_TAB").style.display = "none";
+	        	}
+	        } catch(error) {
+          		console.error(`
+          			_tabDesactive: ${error.name} - ${error.message}.
+          		`);
+        	}
+        };
+
+        let _tabActive = function() {
+        	try {
+	        	const nodeCheckboxTabs = document.querySelectorAll(`
+	        		.scroll-menu input[name='tabs']
+	        	`);
+	        	for(let i = 0; i<nodeCheckboxTabs.length; i++){
+	        		nodeCheckboxTabs[i].addEventListener('click', function(){
+	        			_tabDesactive(nodeCheckboxTabs);
+	        			let id = this.id;
+	                	_elementById(id).click();
+	                    _elementById(id + "_TAB").style.display = "block";
+	            	});
+	            }
+            } catch(error) {
+          		console.error(`
+          			_tabActive: ${error.name} - ${error.message}.
+          		`);
+        	}
+    	};
+
+    	_tabActive();
+
+	</script>
+
+</div>
