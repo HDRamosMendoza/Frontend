@@ -30,3 +30,9 @@ HTML5 y CSS3. Árbol para lista de capas por grupo o lista simple de capa.
 
 Registro de muestra.
 * https://HDRamosMendoza.github.io/Frontend/Lista-Capas/index.html
+
+## Carpeta: Pestaña-Horizontal
+HTML5 y CSS3. Para las pestañas horizontales para widget o WAB.
+
+Registro de muestra.
+* https://HDRamosMendoza.github.io/Frontend/Pestana-Horizontal/index.html
