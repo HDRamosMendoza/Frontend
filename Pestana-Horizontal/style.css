@@ -38,14 +38,14 @@
 }
 
 .scroll-menu input:checked + label {
-  color: #FFFFFF;
-  border-top: 3px solid #0af;
+  color: #0AF;
+  background-color: #f0f7ff;
+  border-top: 3px solid #0AF;
   border-left: 1px solid #FFFFFF;
   border-right: 1px solid #FFFFFF;
   border-bottom: 1px solid #214595;
   display: inline-block;
 }
-
 
 /*
 .ST_panelClose:hover {
@@ -69,3 +69,33 @@
   background-size: 12px;
 }
 */
+
+/* BEGIN - Scroll personalizado */
+.scroll-menu::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.scroll-menu::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.scroll-menu::-webkit-scrollbar-button:increment,
+.scroll-menu::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.scroll-menu::-webkit-scrollbar:horizontal {
+  background-color: #abc;
+  height: 10px;  
+}
+
+.scroll-menu::-webkit-scrollbar-thumb {
+  background-color: #0AF;
+  border-radius: 20px;
+  /*border: 1px solid #024f49;*/
+}
+
+.scroll-menu::-webkit-scrollbar-track {
+  border-radius: 10px;  
+}
+/* END - Scroll personalizado */
