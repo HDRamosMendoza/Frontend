@@ -36,3 +36,9 @@ HTML5 y CSS3. Para las pestañas horizontales para widget o WAB.
 
 Registro de muestra.
 * https://HDRamosMendoza.github.io/Frontend/Pestana-Horizontal/index.html
+
+## Carpeta: Login
+HTML5 y CSS3. Maquetas modificadas
+
+Login V1.
+* https://HDRamosMendoza.github.io/Frontend/Login/Login_v1/index.html
