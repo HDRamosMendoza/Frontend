@@ -4,9 +4,45 @@
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <title>Hello Bulma!</title>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!--
+		<link rel="stylesheet" href="../node_modules/bulma/css/bulma.min.css">
+		<link rel="stylesheet" href="../bulma-extensions/bulma-switch/dist/css/bulma-switch.min.css">
+		<link rel="stylesheet" href="https://wikiki.github.io/css/documentation.css?v=201911011043">
+		-->
+		<link rel="stylesheet" href="../node_modules/bulma/css/bulma.io.min.v0.7.5.css">
 		
+		<style type="text/css">
+			td {
+				padding: 0 !important;
+			}
+			.columns {
+				margin-bottom: 6px !important; 
+			}
+			.column {
+				padding-top: 0;
+				padding-bottom: 5px;
+			}
+			.dropdown-content {
+				height: 150px;
+			  	max-height: 13em;
+			  	margin-top: 4px;
+			  	overflow-y: scroll;
+			}
+
+			#tabs-with-content .tabs:not(:last-child) {
+			  	margin-bottom: 0;
+			}
+
+			#tabs-with-content .tab-content {
+			  	padding: 1rem;
+			  	display: none;
+			}
+
+			#tabs-with-content .tab-content.is-active {
+			  	display: block;
+			}
+		</style>
 	</head>
   	<body>
   		<section class="section">
@@ -16,12 +52,12 @@
 	      		</h1>
 		      
 			    <div class="columns">
-				  	<div class="column is-half">
+				  	<div class="column is-three-fifths">
 				  		<div id="tabs-with-content">
-				  			<p>
+				  			<label class="label is-size-7">
 				  				1. Busque el limite politico de su interés.
-				  			</p>
-						  	<div class="tabs">
+				  			</label>
+						  	<div class="tabs is-size-7">
 						    	<ul>
 						      		<li class="is-active">
 						      			<a>
@@ -39,27 +75,36 @@
 						  	</div>
 						  	<div>
 						  		<!-- Especificaciones -->
-						    	<section class="tab-content">
+						    	<section class="tab-content is-size-7">
 						    		<div class="columns">
 				  						<div class="column">
-				  							<p class="is-size-6 has-text-centered">Departamento</p>
+				  							<p class="has-text-centered">Departamento</p>
 				  							<div class="dropdown-content">
 				  								sdfdsf
 				  							</div>
 				  						</div>
 				  						<div class="column">
-				  							<p class="is-size-6 has-text-centered">Provincia</p>
+				  							<p class="has-text-centered">Provincia</p>
 				  							<div class="dropdown-content">
 				  								sdfdsf
 				  							</div>
 				  						</div>
 				  						<div class="column">
-				  							<p class="is-size-6 has-text-centered">Distrito</p>
+				  							<p class="has-text-centered">Distrito</p>
 				  							<div class="dropdown-content">
 				  								dfdsffsdfsd
 				  							</div>
 				  						</div>
 									</div>
+
+									<div class="field">
+									 	<input id="switchRoundedInfo" type="checkbox" name="switchRoundedInfo" class="switch is-rounded is-info is-small" checked="checked">
+									  	<label for="switchRoundedInfo">
+									  		<i class='fa fa-map'></i>&nbsp;
+									  		Zoom al límite político
+									  	</label>
+									</div>
+
 						    	</section>
 						    	<!-- /Especificaciones -->
 						    	<!-- General -->
@@ -77,162 +122,138 @@
 									  	</div>
 									</div>
 						    		
-									<table class="table is-fullwidth">
+									<table class="table is-fullwidth is-size-7">
 										<thead>
 										    <tr>
-										      <td>Departamento</td>
-										      <td>Provincia</td>
-										      <td>Distrito</td>
+										      <td class="has-text-centered">Departamento</td>
+										      <td class="has-text-centered">Provincia</td>
+										      <td class="has-text-centered">Distrito</td>
 										    </tr>
 										</thead>
 										<tbody>
 										    <tr>
 										      <td>
-										      	<label class="checkbox">
-												  <input type="checkbox">
-												  texto 1
+										      	<label class="checkbox" for="ramos">
+										      		<span class="tag">
+										      			<input type="checkbox" id="ramos">&nbsp;&nbsp;
+										      			<i class='fa fa-map'></i>&nbsp;
+										      			Madre de Dios Mendoza
+										      		</span>
 												</label>
-												<button class="button is-small is-pulled-right">
-													<span class="icon is-small">
-														<i class="fa fa-search-plus"></i>
-													</span>
-												</button>
-												
 										      </td>
 										      <td>
 										      	<label class="checkbox">
-												  <input type="checkbox">
-												  texto 2
+												  	<span class="tag">
+										      			<input type="checkbox">&nbsp;&nbsp;
+										      			<i class='fa fa-map'></i>&nbsp;
+										      			Tambopata Ramos
+										      		</span>
 												</label>
-												<button class="button is-small is-pulled-right">
-													<span class="icon is-small">
-														<i class="fa fa-search-plus"></i>
-													</span>
-												</button>
 										      </td>
 										      <td>
 										      	<label class="checkbox">
-												  <input type="checkbox">
-												  texto 3
+												  	<span class="tag">
+										      			<input type="checkbox">&nbsp;&nbsp;
+										      			<i class='fa fa-map'></i>&nbsp;
+												  		Puerto Maldonado Mendoza
 												</label>
-												<button class="button is-small is-pulled-right">
-													<span class="icon is-small">
-														<i class="fa fa-search-plus"></i>
-													</span>
-												</button>
 										      </td>
 										    </tr>
 										    <tr>
 										      <td>
-										      	<label class="checkbox">
-												  <input type="checkbox">
-												  texto 1
+										      	<label class="checkbox" for="ramos">
+										      		<span class="tag">
+										      			<input type="checkbox" id="ramos">&nbsp;&nbsp;
+										      			<i class='fa fa-map'></i>&nbsp;
+										      			Madre de Dios Mendoza
+										      		</span>
 												</label>
-												<button class="button is-small is-pulled-right">
-													<span class="icon is-small">
-														<i class="fa fa-search-plus"></i>
-													</span>
-												</button>
-												
 										      </td>
 										      <td>
 										      	<label class="checkbox">
-												  <input type="checkbox">
-												  texto 2
+												  	<span class="tag">
+										      			<input type="checkbox">&nbsp;&nbsp;
+										      			<i class='fa fa-map'></i>&nbsp;
+										      			Tambopata
+										      		</span>
 												</label>
-												<button class="button is-small is-pulled-right">
-													<span class="icon is-small">
-														<i class="fa fa-search-plus"></i>
-													</span>
-												</button>
 										      </td>
 										      <td>
 										      	<label class="checkbox">
-												  <input type="checkbox">
-												  texto 3
+												  	<span class="tag">
+										      			<input type="checkbox">&nbsp;&nbsp;
+										      			<i class='fa fa-map'></i>&nbsp;
+												  		Puerto Maldonado Mendoza
 												</label>
-												<button class="button is-small is-pulled-right">
-													<span class="icon is-small">
-														<i class="fa fa-search-plus"></i>
-													</span>
-												</button>
 										      </td>
 										    </tr>
 										    <tr>
 										      <td>
-										      	<label class="checkbox">
-												  <input type="checkbox">
-												  texto 1
+										      	<label class="checkbox" for="ramos">
+										      		<span class="tag">
+										      			<input type="checkbox" id="ramos">&nbsp;&nbsp;
+										      			<i class='fa fa-map'></i>&nbsp;
+										      			Madre de Dios
+										      		</span>
 												</label>
-												<button class="button is-small is-pulled-right">
-													<span class="icon is-small">
-														<i class="fa fa-search-plus"></i>
-													</span>
-												</button>
-												
 										      </td>
 										      <td>
 										      	<label class="checkbox">
-												  <input type="checkbox">
-												  texto 2
+												  	<span class="tag">
+										      			<input type="checkbox">&nbsp;&nbsp;
+										      			<i class='fa fa-map'></i>&nbsp;
+										      			Tambopata Ramos
+										      		</span>
 												</label>
-												<button class="button is-small is-pulled-right">
-													<span class="icon is-small">
-														<i class="fa fa-search-plus"></i>
-													</span>
-												</button>
 										      </td>
 										      <td>
 										      	<label class="checkbox">
-												  <input type="checkbox">
-												  texto 3
+												  	<span class="tag">
+										      			<input type="checkbox">&nbsp;&nbsp;
+										      			<i class='fa fa-map'></i>&nbsp;
+												  		Puerto Maldonado
 												</label>
-												<button class="button is-small is-pulled-right">
-													<span class="icon is-small">
-														<i class="fa fa-search-plus"></i>
-													</span>
-												</button>
 										      </td>
 										    </tr>
 										    <tr>
 										      <td>
-										      	<label class="checkbox">
-												  <input type="checkbox">
-												  texto 1
+										      	<label class="checkbox" for="ramos">
+										      		<span class="tag">
+										      			<input type="checkbox" id="ramos">&nbsp;&nbsp;
+										      			<i class='fa fa-map'></i>&nbsp;
+										      			Madre de Dios
+										      		</span>
 												</label>
-												<button class="button is-small is-pulled-right">
-													<span class="icon is-small">
-														<i class="fa fa-search-plus"></i>
-													</span>
-												</button>
-												
 										      </td>
 										      <td>
 										      	<label class="checkbox">
-												  <input type="checkbox">
-												  texto 2
+												  	<span class="tag">
+										      			<input type="checkbox">&nbsp;&nbsp;
+										      			<i class='fa fa-map'></i>&nbsp;
+										      			Tambopata Ramos
+										      		</span>
 												</label>
-												<button class="button is-small is-pulled-right">
-													<span class="icon is-small">
-														<i class="fa fa-search-plus"></i>
-													</span>
-												</button>
 										      </td>
 										      <td>
 										      	<label class="checkbox">
-												  <input type="checkbox">
-												  texto 3
+												  	<span class="tag">
+										      			<input type="checkbox">&nbsp;&nbsp;
+										      			<i class='fa fa-map'></i>&nbsp;
+												  		Puerto Maldonado Mendoza
 												</label>
-												<button class="button is-small is-pulled-right">
-													<span class="icon is-small">
-														<i class="fa fa-search-plus"></i>
-													</span>
-												</button>
 										      </td>
 										    </tr>
+
 										</tbody>
 									</table>
 
+									<div class="field is-size-7">
+									  	<input id="tupapisoyyo" type="checkbox" name="tupapisoyyo" class="switch is-rounded is-info is-small" checked="checked">
+									  	<label for="tupapisoyyo">
+									  		<i class='fa fa-map'></i>&nbsp;
+									  		Zoom al límite político
+									  	</label>
+									</div>
 
 
 
@@ -242,11 +263,11 @@
 						  	</div>
 						</div>
 				  	</div>
-				  	<div class="column is-half">
-				  		<p>
+				  	<div class="column is-two-fifths">
+				  		<label class="label is-size-7">
 			  				2. Seleccione la(s) capa(s) de su interés.
-			  			</p>
-			  			<table class="table">
+			  			</label>
+			  			<table class="table is-size-7">
 							<thead>
 							    <tr>
 							      <td>Lista de Capas</td>
@@ -273,10 +294,10 @@
 							    </tr>
 							</tbody>
 						</table>
-				  		<p>
+				  		<label class="label is-size-7">
 			  				3. Especificar acción.
-			  			</p>
-			  			<div class="field is-grouped">
+			  			</label>
+			  			<div class="field is-grouped is-size-7">
 							<p class="control">
 							    <button class="button is-info is-small">
 							    	<i class="fa fa-flask"></i>&nbsp;
@@ -295,58 +316,39 @@
     		</div>
   		</section>
   	</body>
-  	<style type="text/css">
-  		.dropdown-content {
-		  max-height: 13em;
-		  overflow: auto;
-		}
-
-		#tabs-with-content .tabs:not(:last-child) {
-		  margin-bottom: 0;
-		}
-
-		#tabs-with-content .tab-content {
-		  padding: 1rem;
-		  display: none;
-		}
-
-		#tabs-with-content .tab-content.is-active {
-		  display: block;
-		}
-  	</style>
   	<script type="text/javascript">
   		let tabs = document.querySelectorAll('.tabs li');
-  let tabsContent = document.querySelectorAll('.tab-content');
+  		let tabsContent = document.querySelectorAll('.tab-content');
 
-  let deactvateAllTabs = function () {
-    tabs.forEach(function (tab) {
-      tab.classList.remove('is-active');
-    });
-  };
+		let deactvateAllTabs = function () {
+		    tabs.forEach(function (tab) {
+		      tab.classList.remove('is-active');
+		    });
+		};
 
-  let hideTabsContent = function () {
-    tabsContent.forEach(function (tabContent) {
-      tabContent.classList.remove('is-active');
-    });
-  };
+  		let hideTabsContent = function () {
+    		tabsContent.forEach(function (tabContent) {
+      			tabContent.classList.remove('is-active');
+    		});
+  		};
 
-  let activateTabsContent = function (tab) {
-    tabsContent[getIndex(tab)].classList.add('is-active');
-  };
+  		let activateTabsContent = function (tab) {
+    		tabsContent[getIndex(tab)].classList.add('is-active');
+  		};
 
-  let getIndex = function (el) {
-    return [...el.parentElement.children].indexOf(el);
-  };
+  		let getIndex = function (el) {
+    		return [...el.parentElement.children].indexOf(el);
+  		};
 
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      deactvateAllTabs();
-      hideTabsContent();
-      tab.classList.add('is-active');
-      activateTabsContent(tab);
-    });
-  })
+  		tabs.forEach(function (tab) {
+    		tab.addEventListener('click', function () {
+      			deactvateAllTabs();
+      			hideTabsContent();
+      			tab.classList.add('is-active');
+      			activateTabsContent(tab);
+    		});
+  		})
 
-  tabs[0].click();
+  		tabs[0].click();
   	</script>
 </html>

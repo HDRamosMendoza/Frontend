@@ -42,3 +42,9 @@ HTML5 y CSS3. Maquetas modificadas
 
 Login V1.
 * https://HDRamosMendoza.github.io/Frontend/Login/Login_v1/index.html
+
+## Carpeta: Widget WEBAPPBUILDER - ESRI
+Maquetas con BULMA JS. Carpeta en donde se subira las maquetas de los widgets que voy desarrollando.
+
+Widget de Proyectos.
+* https://hdramosmendoza.github.io/Frontend/Widget/Proyectos/index.html

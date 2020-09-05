@@ -1,0 +1,15 @@
+{
+  "name": "Widget",
+  "version": "1.0.0",
+  "description": "https://hdramosmendoza.github.io/Perfil-Profesional/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "https://hdramosmendoza.github.io/Perfil-Profesional/",
+  "license": "ISC",
+  "dependencies": {
+    "bulma": "^0.9.0"
+  }
+}
