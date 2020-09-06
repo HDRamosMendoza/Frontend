@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Descargar Información</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../node_modules/bulma/css/bulma.io.min.v0.7.5.css">
+		<style type="text/css">
+			.dropdown-content {
+				height: 180px;
+			  	max-height: 13em;
+			  	margin-top: 4px;
+			  	overflow-y: scroll;
+			}
+			.column-padding{
+				padding-bottom: 0;
+			}
+			.column-margin {
+				margin-bottom: 3px !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="title">
+        		Maqueta del WIDGET DESCARGAR INFORMACIÓN - WebAppBuilder - ESRI
+      		</h1>
+		    <div class="columns">
+		    	<!-- Columna 1 -->
+			  	<div class="column">
+			  		<!-- Seleccionar capa -->
+					<label class="label is-size-7">
+				  		1. Seleccionar información (capas)
+				  	</label>
+				  	<div class="dropdown-content">
+					</div>
+					<!-- /Seleccionar capa -->
+			  	</div>
+			  	<!-- /Columna 1 -->
+
+			  	<!-- Columna 2 -->
+			  	<div class="column">
+			  		<!-- Seleccionar área de interés -->
+			  		<label class="label is-size-7">
+				  		2. Seleccionar y dibujar área de interés
+			  		</label>
+			  		<div class="columns column-margin">
+			  			<div class="column has-text-centered column-padding">
+			  				<span class="tag is-light">
+				      			<img src="./polygon_1-20.png" alt="Polígono">
+				      		</span>
+				      		<p class="is-size-7">Polígono</p>
+			  			</div>
+			  			<div class="column has-text-centered column-padding">
+			  				<span class="tag is-light">
+				      			<img src="./polygon_2-20.png" alt="Polígono de Mano Alzada">
+				      		</span>
+				      		<p class="is-size-7">Polígono de Mano Alzada</p>
+			  			</div>
+			  			<div class="column has-text-centered column-padding">
+			  				<button class="button is-info is-small">
+						    	<i class="fa fa-trash"></i>&nbsp;
+						     	Limpiar
+						    </button>
+			  			</div>
+			  		</div>
+					<!-- /Seleccionar área de interés -->
+					
+					<!-- Especificar formato -->
+					<label class="label is-size-7">
+				  		3. Seleccionar formato
+				  	</label>
+				  	<div class="field">
+						<div class="select is-small is-fullwidth">
+						    <select>
+						        <option value="">Seleccionar</option>
+						        <option value="shp">Shapefile - SHP - .shp</option>
+						        <option value="gdb">File Geodatabase - GDB - .gdb</option>
+						    </select>
+						</div>
+					</div>
+					<!-- /Especificar formato -->
+					
+					<!-- Espeficiar acción -->
+					<label class="label is-size-7">
+				  		4. Espeficiar acción
+			  		</label>
+			  		<div class="columns is-centered is-size-7">
+						<div class="column has-text-centered">
+						    <button class="button is-info is-small">
+						    	<i class="fa fa-cloud-download"></i>&nbsp;
+						    	Descargar
+						    </button>
+						</div>
+						<div class="column has-text-centered">
+						    <button class="button is-small">
+						    	<i class="fa fa-eraser"></i>&nbsp;
+						     	Limpiar
+						    </button>
+						</div>
+					</div>
+				  	
+					<!-- /Espeficiar acción -->
+			  	</div>
+			  	<!-- /Columna 2 -->
+			</div>
+
+		</div>
+	</body>
+</html>
