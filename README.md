@@ -48,3 +48,6 @@ Maquetas con BULMA JS. Carpeta en donde se subira las maquetas de los widgets qu
 
 Widget de Proyectos.
 * https://hdramosmendoza.github.io/Frontend/Widget/Proyectos/index.html
+
+Widget de Descargar Información.
+* https://hdramosmendoza.github.io/Frontend/Widget/DescargarInformacion/index.html
