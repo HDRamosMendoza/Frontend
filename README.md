@@ -51,3 +51,6 @@ Widget de Proyectos.
 
 Widget de Descargar Información.
 * https://hdramosmendoza.github.io/Frontend/Widget/DescargarInformacion/index.html
+
+Widget de Imprimir.
+* https://hdramosmendoza.github.io/Frontend/Widget/Imprimir/index.html
