@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Imprimir</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../node_modules/bulma/css/bulma.io.min.v0.7.5.css">
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">
+          Maqueta del WIDGET IMPRIMIR - WebAppBuilder - ESRI
+        </h1>
+      </div>
+
+      <div class="columns">
+        <div class="column">
+
+          <!-- TITULO -->
+          <div class="field is-horizontal">
+            <div class="field-label is-small">
+              <label class="label" for="ID_Titulo">Título</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input is-small" type="text" placeholder="Ingrese título" id="ID_Titulo">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /TITULO -->
+
+          <!-- TAMAÑO -->
+          <div class="field is-horizontal">
+            <div class="field-label is-small">
+              <label class="label" for="ID_Diseno">Diseño</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <div class="select is-small is-fullwidth">
+                    <select id="ID_Diseno">
+                      <option value="">A3 Horizontal</option>
+                      <option value="">A3 Horizontal Grilla</option>
+                      <option value="">A3 Vertical</option>
+                      <option value="">A3 Vertical Grilla</option>
+                      <option value="">A4 Horizontal</option>
+                      <option value="" selected="selected">A4 Horizontal Grilla</option>
+                      <option value="">A4 Vertical</option>
+                      <option value="">A4 Vertical Grilla</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- /TAMAÑO -->
+
+          <!-- FORMATO -->
+          <div class="field is-horizontal">
+            <div class="field-label is-small">
+              <label class="label" for="ID_Formato">Formato</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <div class="select is-small is-fullwidth">
+                    <select id="ID_Formato">
+                      <option value="EPS">EPS</option>
+                      <option value="GIF">GIF</option>
+                      <option value="JPG">JPG</option>
+                      <option value="PDF" selected="selected">PDF</option>
+                      <option value="PNG32">PNG32</option>
+                      <option value="PNG8">PNG8</option>
+                      <option value="SVG">SVG</option>
+                      <option value="SVGZ">SVGZ</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /FORMATO -->
+
+          <!-- BARRA DE PROCESO -->
+          <div class="field is-horizontal">
+            <div class="field-body">
+              <progress class="progress is-small is-info" max="100">15%</progress>
+            </div>
+          </div>
+          <!-- /BARRA DE PROCESO -->
+
+          <!-- BOTONES DE ACCIÓN -->
+          <div class="field is-grouped is-grouped-centered">
+            <p class="control">
+              <a class="button is-info">
+                <i class="fa fa-print"></i>&nbsp;
+                Imprimir
+              </a>
+            </p>
+            <p class="control">
+              <a class="button is-light">
+                <i class="fa fa-eraser"></i>&nbsp;
+                Limpiar
+              </a>
+            </p>
+          </div>
+          <!-- /BOTONES DE ACCIÓN -->
+
+        </div>
+      </div>
+
+    </section>
+  </body>
+</html>
