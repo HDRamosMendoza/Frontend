@@ -46,8 +46,11 @@ Login V1.
 ## Carpeta: Widget WEBAPPBUILDER - ESRI
 Maquetas con BULMA JS. Carpeta en donde se subira las maquetas de los widgets que voy desarrollando.
 
-Widget de Proyectos.
+Widget de Proyectos v1.
 * https://hdramosmendoza.github.io/Frontend/Widget/Proyectos/index.html
+
+Widget de Proyectos v2.
+* https://hdramosmendoza.github.io/Frontend/Widget/Proyectos_v2/index.html
 
 Widget de Descargar Información.
 * https://hdramosmendoza.github.io/Frontend/Widget/DescargarInformacion/index.html
