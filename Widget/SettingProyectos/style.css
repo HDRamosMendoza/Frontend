@@ -12,6 +12,11 @@
 .content-row p {
     margin: 5px 5px 10px 5px;
 }
+.content-row select {
+    height: 22px !important;
+    margin-bottom: 5px;
+    width: 100% !important;
+}
 .content-row .col-field {
     height: 140px;
 }
@@ -37,7 +42,6 @@
 .content-row .col-size {
     box-sizing: border-box;
     display: inline-block;
-    
     width: 49.5%;
 }
 
