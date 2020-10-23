@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Document</title>
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <!--
+        <label>${nls.serviceUrl}</label>
+        <input data-dojo-attach-point="textNode">
+        -->
+
+        <!-- Tabs -->
+        <div class="content-row">
+            <!-- Tab 1 -->
+            <div class="col-tab">
+                <span class="fa fa-tag"></span>
+                <label for="ID_Tab1">${nls.labelTab_1} :</label>
+                <input type="text" id="ID_Tab1" value="${nls.contentTab_1}" onkeyup="_changeTitleContentTab(this)"/>
+            </div>
+            <!-- /Tab 1 -->
+            <!-- Tab 2 -->
+            <div class="col-tab" style="float: right;">
+                <span class="fa fa-tag"></span>
+                <label for="ID_Tab1">${nls.labelTab_2} :</label>
+                <input type="text" id="ID_Tab2" value="${nls.contentTab_2}" onkeyup="_changeTitleContentTab(this)"/>
+            </div>
+            <!-- /Tab 2 -->
+        </div>
+        <!-- /Tabs -->
+
+        <!-- Title TAB 1 -->
+        <div class="content-row">
+            <span class="fa fa-bookmark"></span>
+            <label id="ID_Tab1_Title"> TITLE 1</label>
+            <hr>
+        </div>
+        
+        <!-- /Title TAB 1 -->
+
+        <!-- Content TAB 1 -->
+        <div class="content-row">
+            <div class="col-field">
+                <label for="ID_Label_1"> Name Filter:</label>
+                <input type="text" id="ID_Label" value="" style="width: 90%;margin-left: 10px;"/>
+            </div>
+            <div class="col-field" style="float: right;">
+                <p>${nls.descriptionTab_1} :</p>
+                <div class="scroll-height">
+                    <div class="ramos"> 
+                        <div class="item-order">_</div>
+                        <input type="checkbox" name="Field 1" onclick="_fieldFilter(this)"/>
+                        Field 1
+                    </div>
+                    <div class="ramos"> 
+                        <div class="item-order">_</div>
+                        <input type="checkbox" name="Field 2" onclick="_fieldFilter(this)"/>
+                        Field 2
+                    </div>
+                    <div class="ramos"> 
+                        <div class="item-order">_</div>
+                        <input type="checkbox" name="Field 3" onclick="_fieldFilter(this)"/>
+                        Field 3
+                    </div>
+                    <div class="ramos">
+                        <div class="item-order">_</div>
+                        <input type="checkbox" name="Field 4" onclick="_fieldFilter(this)"/>
+                        Field 4
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Content TAB 1 -->
+
+        <!-- Title TAB 2 -->
+        <div class="content-row">
+            <span class="fa fa-bookmark"></span>
+            <label id="ID_Tab2_Title">TITLE 2</label>
+            <hr>
+        </div>
+        <!-- /Title TAB 2 -->
+
+        <!-- Content TAB 2 -->
+        <div class="content-row">
+            <p>${nls.descriptionTab_2} :</p>
+            <div class="col-scroll">
+                <div class="scroll-height" id="ID_Field">
+                    <div class="ramos"> 
+                        <div class="item-order">_</div>
+                        <input type="checkbox" name="Field 1" onclick="_fieldOrder(this)"/>
+                        Filed 1
+                    </div>
+                    <div class="ramos"> 
+                        <div class="item-order">_</div>
+                        <input type="checkbox" name="Field 2" onclick="_fieldOrder(this)"/>
+                        Filed 2
+                    </div>
+                    <div class="ramos"> 
+                        <div class="item-order">_</div>
+                        <input type="checkbox" name="Field 3" onclick="_fieldOrder(this)"/>
+                        Filed 3
+                    </div>
+                    <div class="ramos">
+                        <div class="item-order">_</div>
+                        <input type="checkbox" name="Field 4" onclick="_fieldOrder(this)"/>
+                        Filed 4
+                    </div>
+                    <div class="ramos"> 
+                        <div class="item-order">_</div>
+                        <input type="checkbox" name="Field 5" onclick="_fieldOrder(this)"/>
+                        Filed 5
+                    </div>
+                    <div class="ramos"> 
+                        <div class="item-order">_</div>
+                        <input type="checkbox" name="Field 6" onclick="_fieldOrder(this)"/>
+                        Filed 6
+                    </div>
+                    <div class="ramos"> 
+                        <div class="item-order">_</div>
+                        <input type="checkbox" name="Field 7" onclick="_fieldOrder(this)"/>
+                        Filed 7
+                    </div>
+                    <div class="ramos">
+                        <div class="item-order">_</div>
+                        <input type="checkbox" name="Field 8" onclick="_fieldOrder(this)"/>
+                        Filed 8
+                    </div>
+                </div>
+            </div>
+            <div class="col-scroll" style="float: right;">
+                <div class="scroll-height" id="ID_Order">
+                </div>
+            </div>
+            
+        </div>
+        <!-- /Content TAB 2 -->
+
+        <!-- Title Widget -->
+        <div class="content-row">
+            <span class="fa fa-window-restore"></span>
+            <label>${nls.titleWidgetize}</label>
+            <hr>
+        </div>
+        <!-- /Title Widget -->
+
+        <!-- Widget Size -->
+        <div class="content-row">
+            <!-- Width -->
+            <div class="col-size">
+                <label for="ID_Width">${nls.labelWidgetWidth} :</label>
+                <input type="text" id="ID_Width" value="${nls.contentWidgetWidth}"/>
+            </div>
+            <!-- /Width -->
+            <!-- Height -->
+            <div class="col-size" style="float: right;">
+                <label for="ID_Height">${nls.labelWidgetHeight} :</label>
+                <input type="text" id="ID_Height" value="${nls.contentWidgetHeight}"/>
+            </div>
+            <!-- /Height -->
+        </div>
+        <!-- /Widget Size -->
+
+    </body>
+    <script ></script>
+    <script>
+        let arrayOrder = [], arrayFilter = [],characterOrder = "_";
+        // Change TITLE
+        let _changeTitleContentTab = function(paramThis) {
+            try {
+                document.getElementById(paramThis.id + "_Title").innerText = paramThis.value.trim();
+            } catch (error) {
+                console.error(`Error: _changeTitleContentTab ${error.name} - ${error.message}`);
+            }
+        }
+        /* Add Field Filter */
+        let _fieldFilter = function(paramThis) {
+            try {
+                let nameLayer = paramThis.getAttribute("name");
+                let idArrayFilter = arrayFilter.includes(nameLayer);
+                paramThis.parentNode.childNodes[1].innerText = characterOrder;
+                if (!idArrayFilter) {
+                    /* Si no existe lo agrega */
+                    arrayFilter.push(paramThis.getAttribute("name"));
+                    paramThis.parentNode.childNodes[1].innerText=(arrayFilter.indexOf(nameLayer) + 1);
+                } else {
+                    /* Si existe lo eliminar */
+                    let positionItem = arrayFilter.indexOf(nameLayer);
+                    arrayFilter.splice(positionItem,1);
+                }
+                console.log(arrayFilter);
+            } catch (error) {
+                console.error(`Error: _fieldFilter ${error.name} - ${error.message}`);
+            }
+        }
+        /* Add Field Order */
+        let _fieldOrder = function(paramThis) {
+            try {
+                let nameLayer = paramThis.getAttribute("name");
+                let idArrayOrder = arrayOrder.includes(nameLayer);
+                paramThis.parentNode.childNodes[1].innerText = characterOrder;
+                if (!idArrayOrder) {
+                    /* Si no existe lo agrega */
+                    arrayOrder.push(paramThis.getAttribute("name"));
+                    paramThis.parentNode.childNodes[1].innerText=(arrayOrder.indexOf(nameLayer) + 1);
+                } else {
+                    /* Si existe lo eliminar */
+                    let positionItem = arrayOrder.indexOf(nameLayer);
+                    arrayOrder.splice(positionItem,1);
+                    let ID_Field = document.getElementById("ID_Field");
+                    ID_Field.childNodes.forEach(function(element, index, array) {
+                        if(array[index].className == "ramos") {
+                            let itemLayer = array[index].childNodes[3].getAttribute("name");
+                            let positionNow = arrayOrder.indexOf(itemLayer);
+                            if(positionNow != -1) {
+                                array[index].childNodes[1].innerText = (positionNow + 1);
+                            }
+                        } 
+                    });
+                }
+                _itemOrder();
+            } catch (error) {
+                console.error(`Error: _fieldOrder ${error.name} - ${error.message}`);
+            }
+        }
+        /* Item Order */
+        let _itemOrder = function() {
+            try {
+                let ID_Order = document.getElementById("ID_Order");
+                let tagHtml = []; ID_Order.innerHTML = "";
+                arrayOrder.forEach(function(element, index, array) {
+                    tagHtml.push(`${index + 1} ${element}<br>`);
+                });
+                ID_Order.innerHTML = tagHtml.join("");
+            } catch (error) {
+                console.error(`Error: _fieldOrder ${error.name} - ${error.message}`);
+            }
+        }
+        /*
+        Ejemplo IDEAL para la búsqueda de nombre de capas:
+        var fruits = ['apple', 'banana', 'grapes', 'mango', 'orange'];
+        function filterItems(query) {
+            return fruits.filter(function(el) {
+                return el.toLowerCase().indexOf(query.toLowerCase()) > -1;
+            })
+        }
+        console.log(filterItems('ap')); // ['apple', 'grapes']
+        console.log(filterItems('an')); // ['banana', 'mango', 'orange']
+        */
+    </script>
+</html>

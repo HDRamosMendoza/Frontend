@@ -1,0 +1,68 @@
+.content-row {
+    /*background-color: red;*/
+    box-sizing: border-box;
+    padding: 5px;
+    width: 100%;
+    border: crimson;
+}
+
+.content-row hr {
+    margin: 0;
+}
+.content-row p {
+    margin: 5px 5px 10px 5px;
+}
+.content-row .col-field {
+    height: 140px;
+}
+.content-row .scroll-height {
+    box-sizing: border-box;
+    background-color: #f1f1f1;
+    height: 140px;
+    width: 100%;
+    padding: 5px;
+    overflow-y: scroll;
+}
+
+.content-row .col-tab {
+    background-color: beige;
+}
+.content-row .col-field {
+    width: 49.5%;
+    display: inline-block;
+}
+
+.content-row .col-tab,
+.content-row .col-scroll,
+.content-row .col-size {
+    box-sizing: border-box;
+    display: inline-block;
+    
+    width: 49.5%;
+}
+
+.content-row .col-tab label {
+    color: black;
+}
+
+.content-row input {
+    height: 22px;
+    line-height: 26px !important;
+    font-size: 14px;
+}
+
+.content-row span,
+.content-row label{
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px 5px 5px 10px;
+}
+
+.content-row .ramos {
+    width: 100%;
+}
+
+.content-row .ramos .item-order,
+.content-row .ramos input {
+    display: inline-block;
+}
