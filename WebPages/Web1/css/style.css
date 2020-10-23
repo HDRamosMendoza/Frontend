@@ -1,0 +1,13 @@
+body {
+	padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-family: "Play", sans-serif;
+}
+
+.header {
+	background-color: red;
+	background-image: url(../img/saneamiento.jpg);
+    height: 100vh;
+    width: 100%;
+}
