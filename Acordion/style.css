@@ -1,3 +1,28 @@
+.acd__header {
+	background-color: #6c9216;
+	color: white;
+	text-align: center;
+	padding: 15px 0 15px 0;
+}
+.acd__header .acd_wms {
+	text-transform: uppercase;
+	font-size: 35px;
+}
+.acd__header .acd_fa { 
+	font-size: 30px;	
+}
+.acd__header .acd_wms, 
+.acd__header .acd_fa {
+	display: inline-block;
+}
+
+.acd__header .content_header {
+	margin: 0 auto;
+	font-size: 12px;
+	padding-top: 3px;
+	width: 95%;
+}
+
 .acd input {display: none;}
 .acd .label {font-weight: bold; text-align: right;}
 .acd_title {display: block;padding: 10px;background-color: rgba(80,99,41,0.9);color: #fff;font-size: 12px;cursor: pointer;border-bottom: 1px solid #fff;}
@@ -13,8 +38,7 @@
 	background: #ffffff;
     border: 1px solid #e0e0e0;
     border-bottom-color: #cccccc;
-    */
-    
+    */   
     background: #ffffff;
     border-top: 0;
     border-left: 0;
@@ -29,21 +53,17 @@
 .acd_card:hover {
 	background-color: #eee;
 }
-
-
 .acd_card, .acd_name, .acd_clone {
 	box-sizing: border-box;
-} 
-
+}
 .acd_name, .acd_clone {
 	display: inline-block;
 	vertical-align: top;
 }
-
 .acd_name {
 	width: 72%;
 }
-.acd_name .content_title {
+.content_title {
 	margin: 0px;
     padding: 0;
     font-size: 12px;
@@ -67,21 +87,28 @@
 	text-align: center !important;
 }
 
-.acd_clone .fa-clone {
+.acd_clone .fa{
 	cursor: pointer;
 	font-size: 12px !important;
-	
 	text-transform: uppercase;
 	color: #3b8fc4;
 	font-weight: bold;
 }
 
-.acd_clone span{
+.acd_clone a {
+	text-decoration: none;
+	margin: 0;
+	color: #3b8fc4;
+} 
+.acd_clone span {
 	display: inline-block;
+	background-color: #FAFAFA;
 	margin: 3px 0 3px 0; 
 	padding: 5px 8px 5px 8px;
+	
 }
 
+.acd_clone span:hover > a,
 .acd_clone span:hover {
 	/*background-color: rgb(80,99,41);*/
 	background-color: #3b8fc4;

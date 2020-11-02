@@ -25,15 +25,15 @@ for(let j = 0; j <= 2; j++) {
         <div class="content_info">${jsonWMSINGEMMET[j].descripcion}</div>
       </div>
       <div class="acd_clone">
-        <span class="fa fa-clone" src="${jsonWMSINGEMMET[j].enlace}"> copiar</span>
+        <span class="fa fa-external-link"> 
+          <a href="${jsonWMSINGEMMET[j].enlace}" target="_blank" >url</a>
+        </span>
       </div>
     </div>
     `            
   );
 }
 document.getElementById("INGEMMET").innerHTML = htmlWMSINGEMMET.join("");
-
-
 
 var htmlWMSIGN = [];
 var jsonWMSIGN = {
@@ -62,17 +62,15 @@ for(let j = 0; j <= 2; j++) {
         <div class="content_info">${jsonWMSIGN[j].descripcion}</div>
       </div>
       <div class="acd_clone">
-        <span class="fa fa-clone" src="${jsonWMSIGN[j].enlace}"> copiar</span>
+        <span class="fa fa-external-link"> 
+          <a href="${jsonWMSIGN[j].enlace}" target="_blank" >url</a>
+        </span>
       </div>
     </div>
     `            
   );
 }
 document.getElementById("IGN").innerHTML = htmlWMSIGN.join("");
-
-
-
-
 
 var htmlWMS = [];
 var jsonWMS = {
@@ -171,10 +169,13 @@ for(let i = 0; i <= 16; i++) {
         <div class="content_info">${jsonWMS[i].descripcion}</div>
       </div>
       <div class="acd_clone">
-        <span class="fa fa-clone" src="${jsonWMS[i].enlace}"> copiar</span>
+        <span class="fa fa-external-link">
+          <a href="${jsonWMS[i].enlace}}" target="_blank" >url</a>
+        </span>
       </div>
     </div>
     `            
   );
 }
+
 document.getElementById("ANA").innerHTML = htmlWMS.join("");
