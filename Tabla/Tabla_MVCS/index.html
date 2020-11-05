@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tabla</title>
+    </head>
+    <body>
+        
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th rowspan="3" style="padding-bottom: 25px;">Región</th>
+                    <th colspan="5">vmcs</th>
+                    <th colspan="4">vmvu</th>
+                </tr>
+                <tr>
+                    
+                    <th colspan="2">pnsr</th>
+                    <th colspan="2">pnsu</th>
+                    <th colspan="4">pmib</th>
+                </tr>
+                <tr>
+                    <th>proyecto</th>
+                    <th>monto S/.</th>
+                    <th>proyecto</th>
+                    <th>monto S/.</th>
+                    <th>proyecto</th>
+                    <th>monto S/.</th>
+                    <th>proyecto</th>
+                    <th>monto S/.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amazonas</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th>total</th>
+                    <th>-</th>
+                    <th>-</th>
+                    <th>-</th>
+                    <th>-</th>
+                    <th>-</th>
+                    <th>-</th>
+                    <th>-</th>
+                    <th>-</th>
+                </tr>
+            </tfoot>
+            
+
+        </table>
+        
+    </body>
+    <style>
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+        .table-sm td {
+            padding: 4px;
+        }
+        .table td, .table th {
+            padding: 2px;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+        .table {
+            border-collapse: collapse;
+        }
+
+        th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+}
+    </style>
+</html>
