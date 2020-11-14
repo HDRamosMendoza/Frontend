@@ -78,6 +78,9 @@
   table tbody tr {
     cursor: move;
   }
+  table tbody tr.row-field td:first-child{
+    text-align: center;
+  }
   table tbody tr.row-field td{
     padding: 5px;
     color: #555555;
@@ -85,6 +88,19 @@
     border-bottom: 1px solid #CCCCCC !important;
   }
 
+  h2 {
+    font-size: 16px;
+    color: #111;
+    padding: 0px 5px 3px;
+  }
+
+  p {
+    color: #555;
+    font-size: 14px;
+    padding: 0px 7px;
+  }
+
   .ramos {
+    cursor: move;
     background-color: #FFFFFF;
   }
