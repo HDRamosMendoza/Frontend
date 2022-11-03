@@ -10,14 +10,14 @@
   "author": "DerTec S.A.C",
   "license": "ISC",
   "dependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "jquery": "^3.3.1",
     "requirejs": "^2.3.6",
     "text": "github:requirejs/text"
   },
   "devDependencies": {
     "calcite-bootstrap": "^0.4.4",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-sass": "^4.0.1"
   }
